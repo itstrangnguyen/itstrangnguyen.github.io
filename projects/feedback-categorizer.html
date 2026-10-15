@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Automated Feedback Categorizer — Trang Nguyen</title>
+<meta name="description" content="An n8n workflow that classifies customer feedback with Gemini and posts it to Slack.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body class="p-feedback">
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="site-name" href="../index.html">Trang Nguyen</a>
+    <nav class="site-nav">
+      <a href="../index.html#work">Work</a>
+      <a href="../about.html">About</a>
+      <a href="../assets/cv/CV_TrangNguyen.pdf" target="_blank" rel="noopener">CV</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ================= 1. HEADER ================= -->
+  <div class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Automation · n8n</p>
+      <h1>Automated Feedback Categorizer</h1>
+      <p class="lead">An n8n workflow that reads each customer feedback entry, lets Gemini classify its sentiment and topic, and posts it to the matching Slack channel.</p>
+      <dl class="meta">
+        <div><dt>Role</dt><dd>Solo</dd></div>
+        <div><dt>Context</dt><dd>DCI, Fundamentals module</dd></div>
+        <div><dt>Time</dt><dd>~2 days</dd></div>
+        <div><dt>Tools</dt><dd>n8n, Google Gemini, Slack API</dd></div>
+      </dl>
+    </div>
+  </div>
+
+  <!-- ================= 2. BRIEF ================= -->
+  <section>
+    <div class="wrap two-col">
+      <div><h2>The brief</h2></div>
+      <div>
+        <p>A company collects about 200 feedback submissions a month: reviews and support tickets. A CRM manager reads, tags and forwards them by hand, which takes about 4 hours a week.</p>
+        <p>Entries wait in a central table for days. Negative feedback sits in the same queue as positive feedback, so customers at risk of churning wait as long as everyone else.</p>
+        <p class="muted small">Volumes and hours come from the task brief.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 3. WHAT I BUILT ================= -->
+  <section>
+    <div class="wrap">
+      <h2>What I built</h2>
+
+      <figure class="wide">
+        <div class="media"><img src="../assets/images/feedback/n8n-workflow.png" alt="n8n canvas: feedback form, feedback table, AI agent with Gemini model, text extract, switch, and two Slack nodes for negative and positive feedback" data-slot></div>
+        <figcaption>The workflow in n8n. Green checks show the path of a positive test entry.</figcaption>
+      </figure>
+
+      <div class="two-col">
+        <div><h3>Six nodes</h3></div>
+        <ol class="steps">
+          <li><div><strong>Feedback form</strong><span>A customer submits feedback through an n8n form.</span></div></li>
+          <li><div><strong>Feedback table</strong><span>The entry is stored, so every submission is kept, whatever its sentiment.</span></div></li>
+          <li><div><strong>AI agent (Gemini)</strong><span>Gemini returns two fields: the sentiment and a category, for example bug, billing, shipping or UX.</span></div></li>
+          <li><div><strong>Text extract</strong><span>Pulls the two fields out of Gemini's answer so the next node can use them.</span></div></li>
+          <li><div><strong>Switch</strong><span>Routes by rule: negative to one branch, positive to the other. Neutral entries stay in the table.</span></div></li>
+          <li><div><strong>Slack</strong><span>Posts the entry to a negative or a positive channel. The negative channel alerts the Customer Success team.</span></div></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 4. SLACK APP + DEMO ================= -->
+  <section>
+    <div class="wrap two-col">
+      <div><h2>Slack app and demo</h2></div>
+      <div>
+        <p>I created a Slack app, <strong>mySlack</strong>, in the Slack API console, installed it in a workspace, and connected it to n8n so the workflow can post to Slack.</p>
+        <p>To test both routes, I wrote negative and positive sample entries and ran each through the form.</p>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="figures figures-3 wide">
+        <figure>
+          <img src="../assets/images/feedback/slack-app-myslack.png" alt="mySlack app settings in the Slack API console" data-slot>
+          <figcaption>The mySlack app in the Slack API console.</figcaption>
+        </figure>
+        <figure>
+          <img src="../assets/images/feedback/slack-message-negative.png" alt="Slack message in the negative channel with sentiment and category" data-slot>
+          <figcaption>A negative entry in Slack.</figcaption>
+        </figure>
+        <figure>
+          <img src="../assets/images/feedback/slack-message-positive.png" alt="Slack message in the positive channel with sentiment and category" data-slot>
+          <figcaption>A positive entry in Slack.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 5. PROMPT ================= -->
+  <section>
+    <div class="wrap two-col">
+      <div><h2>The AI step</h2></div>
+      <div>
+        <p>The agent prompt asks Gemini for a fixed answer format. A fixed format lets the text-extract node read the result the same way every time.</p>
+        <details>
+          <summary>Show the agent prompt</summary>
+          <div class="details-body">
+            <div class="todo">Add the Gemini agent prompt here once you have n8n access again.</div>
+            <div class="prompt">[Paste the AI agent prompt here]</div>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 6. ESTIMATES ================= -->
+  <section>
+    <div class="wrap">
+      <h2>Estimated impact</h2>
+      <div class="stats">
+        <div class="stat">
+          <div class="num">~16 h</div>
+          <div class="label">Manual tagging removed per month</div>
+          <div class="calc">4 h/week × 4 weeks</div>
+        </div>
+        <div class="stat">
+          <div class="num">~$400</div>
+          <div class="label">Labour cost per month</div>
+          <div class="calc">16 h × $25/h</div>
+        </div>
+        <div class="stat">
+          <div class="num">~$0.05</div>
+          <div class="label">Gemini API cost per month</div>
+          <div class="calc">200 calls at Gemini token prices</div>
+        </div>
+        <div class="stat">
+          <div class="num">48 h → 45 s</div>
+          <div class="label">Time to alert on negative feedback</div>
+          <div class="calc">From the queue to a Slack message</div>
+        </div>
+      </div>
+      <p class="note">These are estimates built on the task brief, not measured results. The workflow alerts the team; a person still writes the reply.</p>
+    </div>
+  </section>
+
+  <!-- ================= 7. AI LABEL ================= -->
+  <section>
+    <div class="wrap">
+      <p class="disclaimer"><strong>AI use.</strong> I designed and built the workflow, the Slack app and the test data. Gemini classifies feedback when the workflow runs. The presentation slides were made with Gamma (AI-assisted).</p>
+    </div>
+  </section>
+
+  <!-- ================= PAGER ================= -->
+  <section>
+    <div class="wrap pager">
+      <a href="../index.html#work"><small>Back</small>All projects</a>
+      <a href="mai-premiumlinen.html" style="text-align:right"><small>Next</small>mai.premiumlinen</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© <span data-year></span> Trang Nguyen</span>
+    <span><a href="../index.html#contact">Contact</a></span>
+  </div>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>

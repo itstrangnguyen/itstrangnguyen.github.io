@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fit & Frisch — Back to Work</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cloud:#EFEEE4;
+    --cloud-dim:#E4E2D4;
+    --card:#FFFFFF;
+    --mint:#DCE7DC;
+    --ink:#22281F;
+    --ink-soft:#54594E;
+    --pumpkin:#C97A2E;
+    --pumpkin-dark:#A9631F;
+    --leaf:#4B7455;
+    --line:#D6D1C0;
+    --display:'Fraunces', serif;
+    --body:'Work Sans', sans-serif;
+    --mono:'Space Mono', monospace;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cloud);
+    color:var(--ink);
+    font-family:var(--body);
+    line-height:1.55;
+  }
+  a{color:inherit;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px;}
+  img,svg{display:block;}
+
+  :focus-visible{outline:2.5px solid var(--pumpkin);outline-offset:3px;}
+
+  /* ---------- Nav ---------- */
+  nav{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:26px 28px;
+    max-width:1080px;margin:0 auto;
+  }
+  .logo{font-family:var(--display);font-weight:700;font-size:50px;letter-spacing:-0.01em;}
+  .nav-tag{
+    font-family:var(--mono);font-size:11px;letter-spacing:0.08em;
+    color:var(--ink-soft);text-transform:uppercase;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{padding:28px 0 70px;}
+  .hero-grid{
+    display:grid;grid-template-columns:1.1fr 0.9fr;gap:56px;align-items:center;
+  }
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:var(--mono);font-size:11.5px;letter-spacing:0.1em;
+    color:var(--leaf);text-transform:uppercase;
+    background:var(--mint);padding:6px 12px;border-radius:100px;
+    margin-bottom:22px;
+  }
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--leaf);}
+  h1{
+    font-family:var(--display);font-weight:700;
+    font-size:52px;line-height:1.06;letter-spacing:-0.015em;
+    margin:0 0 22px;
+  }
+  h1 em{font-style:italic;color:var(--pumpkin);}
+  .hero-sub{
+    font-size:17.5px;color:var(--ink-soft);max-width:440px;margin:0 0 32px;
+  }
+  .cta-row{display:flex;align-items:center;gap:22px;flex-wrap:wrap;}
+  .btn{
+    font-family:var(--body);font-weight:600;font-size:15.5px;
+    padding:14px 26px;border-radius:8px;border:none;cursor:pointer;
+    transition:transform 0.15s ease, box-shadow 0.15s ease;
+    display:inline-flex;align-items:center;gap:8px;
+  }
+  .btn-primary{
+    background:var(--pumpkin);color:#fff;
+    box-shadow:0 6px 18px rgba(201,122,46,0.28);
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(201,122,46,0.34);}
+  .btn-ghost{
+    background:transparent;color:var(--ink);
+    font-size:15px;text-decoration:underline;text-decoration-color:var(--line);
+    text-underline-offset:4px;padding:14px 4px;
+  }
+  .btn-ghost:hover{text-decoration-color:var(--ink);}
+
+  /* ---------- Inbox card ---------- */
+  .inbox{
+    background:var(--card);
+    border-radius:16px;
+    box-shadow:0 30px 60px rgba(34,40,31,0.14);
+    overflow:hidden;
+    animation:rise 0.7s ease both;
+    animation-delay:0.15s;
+  }
+  @keyframes rise{
+    from{opacity:0;transform:translateY(14px);}
+    to{opacity:1;transform:translateY(0);}
+  }
+  .inbox-bar{
+    display:flex;gap:6px;padding:14px 16px;border-bottom:1px solid var(--line);
+  }
+  .inbox-bar span{width:9px;height:9px;border-radius:50%;background:var(--line);}
+  .inbox-body{padding:22px 22px 26px;}
+  .inbox-meta{
+    font-family:var(--mono);font-size:11px;color:var(--ink-soft);
+    display:flex;justify-content:space-between;margin-bottom:14px;
+  }
+  .inbox-from{font-weight:700;color:var(--ink);}
+  .inbox-subject{
+    font-family:var(--display);font-weight:600;font-size:20px;margin:0 0 10px;
+  }
+  .inbox-preview{font-size:14.5px;color:var(--ink-soft);margin:0 0 20px;}
+  .code-chip{
+    font-family:var(--mono);font-weight:700;font-size:15px;
+    background:var(--mint);color:var(--leaf);
+    display:inline-block;padding:9px 16px;border-radius:8px;
+    letter-spacing:0.06em;border:1.5px dashed var(--leaf);
+  }
+  .inbox-footnote{
+    font-family:var(--mono);font-size:10.5px;color:var(--ink-soft);
+    margin-top:16px;
+  }
+
+  /* ---------- District chips ---------- */
+  .districts{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px;}
+  .chip{
+    font-family:var(--mono);font-size:10.5px;letter-spacing:0.04em;
+    color:var(--ink-soft);border:1px solid var(--line);
+    padding:6px 12px;border-radius:100px;text-transform:uppercase;
+  }
+
+  /* ---------- Steps ---------- */
+  .steps-section{background:var(--card);padding:70px 0;}
+  .section-label{
+    font-family:var(--mono);font-size:11.5px;letter-spacing:0.1em;
+    text-transform:uppercase;color:var(--leaf);margin:0 0 12px;
+  }
+  h2{
+    font-family:var(--display);font-weight:700;font-size:32px;
+    letter-spacing:-0.01em;margin:0 0 46px;max-width:520px;
+  }
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;}
+  .step{position:relative;padding-left:2px;}
+  .step-num{
+    font-family:var(--display);font-weight:600;font-size:15px;
+    color:var(--pumpkin);margin-bottom:12px;
+  }
+  .step h3{font-family:var(--display);font-weight:600;font-size:19px;margin:0 0 8px;}
+  .step p{font-size:14.5px;color:var(--ink-soft);margin:0;}
+
+  /* ---------- Why now ---------- */
+  .why{padding:80px 0;}
+  .why-grid{display:grid;grid-template-columns:1fr 340px;gap:60px;align-items:start;}
+  .why p{font-size:17px;max-width:480px;}
+  .stat-card{
+    background:var(--ink);color:var(--cloud);
+    border-radius:16px;padding:32px 28px;
+  }
+  .stat-num{
+    font-family:var(--mono);font-weight:700;font-size:38px;color:var(--pumpkin);
+    margin:0 0 6px;
+  }
+  .stat-label{font-size:14.5px;color:#E4E7DC;margin:0;line-height:1.5;}
+
+  /* ---------- Menu ---------- */
+  .menu-section{background:var(--card);padding:80px 0;}
+  .menu-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:40px;}
+  .dish{
+    background:var(--cloud);border-radius:14px;padding:26px 20px 22px;
+    text-align:center;
+  }
+  .dish svg{margin:0 auto 16px;}
+  .dish h4{font-family:var(--display);font-weight:600;font-size:16px;margin:0 0 6px;}
+  .dish p{font-size:12.5px;color:var(--ink-soft);margin:0;font-family:var(--mono);}
+
+  /* ---------- Final CTA ---------- */
+  .final{
+    background:var(--ink);color:var(--cloud);
+    padding:90px 0;text-align:center;
+  }
+  .final h2{color:var(--cloud);margin:0 auto 16px;max-width:520px;text-align:center;}
+  .final .eyebrow{background:transparent;border:1px solid #4A5340;color:#B9C4AB;}
+  .final-sub{color:#B9C4AB;max-width:440px;margin:0 auto 36px;font-size:15.5px;}
+  .form-row{
+    display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:20px;
+  }
+  .email-input{
+    font-family:var(--body);font-size:15px;
+    padding:14px 18px;border-radius:8px;border:1px solid #4A5340;
+    background:#2B3226;color:var(--cloud);min-width:280px;
+  }
+  .email-input::placeholder{color:#8B9280;}
+  .fine-print{
+    font-family:var(--mono);font-size:11px;color:#8B9280;max-width:420px;
+    margin:0 auto;line-height:1.7;
+  }
+
+  /* ---------- Footer ---------- */
+  footer{
+    padding:30px 0;display:flex;justify-content:space-between;align-items:center;
+    flex-wrap:wrap;gap:10px;
+  }
+  footer .logo{font-size:16px;}
+  .footer-tag{font-family:var(--mono);font-size:11px;color:var(--ink-soft);}
+
+  @media (max-width:860px){
+    .hero-grid{grid-template-columns:1fr;}
+    h1{font-size:38px;}
+    .steps{grid-template-columns:1fr;}
+    .why-grid{grid-template-columns:1fr;}
+    .menu-grid{grid-template-columns:repeat(2,1fr);}
+  }
+</style>
+</head>
+<body>
+
+  <nav>
+    <span class="logo">Fit &amp; Frisch</span>
+    <span class="nav-tag">Berlin · Office Delivery</span>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>Out-of-office: off</span>
+        <h1>Back at your desk.<br>Back to eating <em>well.</em></h1>
+        <p class="hero-sub">FREE delivery on your first order 😋 because the only thing that should feel heavy after summer is your inbox, not your lunch.</p>
+        <div class="cta-row">
+          <button class="btn btn-primary">Get my free delivery code →</button>
+          <a href="#menu" class="btn btn-ghost">See this week's menu</a>
+        </div>
+        <div class="districts">
+          <span class="chip">Mitte</span>
+          <span class="chip">Kreuzberg</span>
+          <span class="chip">Prenzlauer Berg</span>
+        </div>
+      </div>
+
+      <div class="inbox">
+        <div class="inbox-bar"><span></span><span></span><span></span></div>
+        <div class="inbox-body">
+          <div class="inbox-meta">
+            <span class="inbox-from">Fit &amp; Frisch</span>
+            <span>Just now</span>
+          </div>
+          <p class="inbox-subject">Your first order is on us 🎃</p>
+          <p class="inbox-preview">No minimum order size. No app to download. Just good food, delivered to your desk.</p>
+          <span class="code-chip">••••••••••</span>
+          <p class="inbox-footnote">Free delivery · on your first order</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="steps-section">
+    <div class="wrap">
+      <p class="section-label">How it works</p>
+      <h2>Ten seconds now. That's the whole commitment.</h2>
+      <div class="steps">
+        <div class="step">
+          <p class="step-num">01</p>
+          <h3>Drop your email</h3>
+          <p>One field. No account, no app, no commitment.</p>
+        </div>
+        <div class="step">
+          <p class="step-num">02</p>
+          <h3>Get your code</h3>
+          <p>Your free-delivery code lands in your inbox within minutes.</p>
+        </div>
+        <div class="step">
+          <p class="step-num">03</p>
+          <h3>Order lunch</h3>
+          <p>Use it on your first order — delivery's on us.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="why">
+    <div class="wrap why-grid">
+      <div>
+        <p class="section-label">Why now</p>
+        <h2 style="margin-bottom:20px;">Summer's over. So is your motivation to meal-prep.</h2>
+        <p>We deliver fresh, healthy meal-prep straight to your office — proper vegetables, proper portions, no subscription required. Try it once, see if your team agrees.</p>
+      </div>
+      <div class="stat-card">
+        <p class="stat-num">500+</p>
+        <p class="stat-label">Berlin offices already order their lunch with Fit &amp; Frisch</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu-section" id="menu">
+    <div class="wrap">
+      <p class="section-label">This week's menu</p>
+      <h2>A preview, before you commit to anything.</h2>
+      <div class="menu-grid">
+
+        <div class="dish">
+          <svg width="56" height="56" viewBox="0 0 56 56">
+            <circle cx="28" cy="30" r="20" fill="#C97A2E"/>
+            <path d="M10 28a18 18 0 0 1 36 0" fill="none" stroke="#22281F" stroke-width="2"/>
+            <rect x="25" y="6" width="6" height="10" rx="2" fill="#4B7455"/>
+          </svg>
+          <h4>Pumpkin Bowl</h4>
+          <p>AUTUMN SPECIAL</p>
+        </div>
+
+        <div class="dish">
+          <svg width="56" height="56" viewBox="0 0 56 56">
+            <circle cx="28" cy="30" r="20" fill="#8FB88A"/>
+            <circle cx="20" cy="24" r="4" fill="#4B7455"/>
+            <circle cx="30" cy="20" r="3.5" fill="#4B7455"/>
+            <circle cx="35" cy="30" r="4" fill="#4B7455"/>
+          </svg>
+          <h4>Berlin Green Salad</h4>
+          <p>VEGAN</p>
+        </div>
+
+        <div class="dish">
+          <svg width="56" height="56" viewBox="0 0 56 56">
+            <circle cx="28" cy="30" r="20" fill="#D9CBA5"/>
+            <path d="M15 30h26M15 35h26" stroke="#22281F" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="22" cy="24" r="2.5" fill="#C97A2E"/>
+            <circle cx="32" cy="26" r="2.5" fill="#4B7455"/>
+          </svg>
+          <h4>Miso Soba Bowl</h4>
+          <p>WITH TOFU</p>
+        </div>
+
+        <div class="dish">
+          <svg width="56" height="56" viewBox="0 0 56 56">
+            <circle cx="28" cy="30" r="20" fill="#B5722F"/>
+            <circle cx="22" cy="26" r="3" fill="#F3ECDD"/>
+            <circle cx="32" cy="30" r="3.5" fill="#F3ECDD"/>
+            <circle cx="26" cy="35" r="2.5" fill="#F3ECDD"/>
+          </svg>
+          <h4>Lentil &amp; Root Stew</h4>
+          <p>HIGH PROTEIN</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="wrap">
+      <span class="eyebrow"><span class="dot" style="background:#B9C4AB;"></span>Offer ends 14 September</span>
+      <h2>Try it once. See if it sticks 😉</h2>
+      <p class="final-sub">Get your office's free delivery code — takes ten seconds, no strings attached.</p>
+      <div class="form-row">
+        <input class="email-input" type="email" placeholder="you@email.com">
+        <button class="btn btn-primary">Send my code</button>
+      </div>
+      <p class="fine-print">Offer valid 1–14 September 2026 for offices in Mitte, Kreuzberg, and Prenzlauer Berg. Free delivery on your first order only, per customer.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+      <span class="logo">Fit &amp; Frisch</span>
+      <span class="footer-tag">Berlin · Mitte · Kreuzberg · Prenzlauer Berg</span>
+    </div>
+  </footer>
+
+</body>
+</html>

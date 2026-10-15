@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<!--
+  CASE STUDY TEMPLATE
+  1. Copy this file into /projects and rename it (e.g. growth-marketing.html).
+  2. Set the accent: change class="p-ACCENT" on <body>.
+     Existing: p-feedback, p-mai, p-molly, p-fitfrisch.
+     New accent: add one line to "Accents" in style.css, e.g. .p-growth{ --accent:#2F5D8A; }
+  3. Fill in each block. Delete the blocks you don't need.
+  4. Add a card for the project on index.html (copy the commented NEW PROJECT card).
+  Images: put files in /assets/images/<project>/ and use <img ... data-slot>.
+  A missing file shows as a dashed box with its expected path.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PROJECT TITLE — Trang Nguyen</title>
+<meta name="description" content="ONE SENTENCE SUMMARY">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body class="p-ACCENT">
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="site-name" href="../index.html">Trang Nguyen</a>
+    <nav class="site-nav">
+      <a href="../index.html#work">Work</a>
+      <a href="../about.html">About</a>
+      <a href="../assets/cv/CV_TrangNguyen.pdf" target="_blank" rel="noopener">CV</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ================= 1. HEADER ================= -->
+  <div class="hero">
+    <div class="wrap">
+      <p class="eyebrow">CATEGORY · MAIN TOOL</p>
+      <h1>Project title</h1>
+      <p class="lead">One or two sentences: what you built, for whom, and why.</p>
+      <dl class="meta">
+        <div><dt>Role</dt><dd>Solo / Group of X (my part: …)</dd></div>
+        <div><dt>Context</dt><dd>DCI, module name</dd></div>
+        <div><dt>Time</dt><dd>~X days</dd></div>
+        <div><dt>Tools</dt><dd>Tool, Tool, Tool</dd></div>
+      </dl>
+    </div>
+  </div>
+
+  <!-- ================= OWNERSHIP NOTE (for real brands) ================= -->
+  <section>
+    <div class="wrap">
+      <p class="disclaimer"><strong>About this project.</strong> Explain who owns the brand, whether anything went live, and that assets appear with permission.</p>
+    </div>
+  </section>
+
+  <!-- ================= TEXT BLOCK: heading left, text right ================= -->
+  <section id="brief">
+    <div class="wrap two-col">
+      <div><h2>The brief</h2></div>
+      <div>
+        <p>Paragraph.</p>
+        <p>Paragraph.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WIDE IMAGE + NUMBERED STEPS ================= -->
+  <section id="build">
+    <div class="wrap">
+      <h2>What I built</h2>
+      <figure class="wide">
+        <div class="media"><img src="../assets/images/FOLDER/FILE.png" alt="Describe the image" data-slot></div>
+        <figcaption>Caption.</figcaption>
+      </figure>
+      <ol class="steps">
+        <li><div><strong>Step name</strong><span>What happens.</span></div></li>
+        <li><div><strong>Step name</strong><span>What happens.</span></div></li>
+        <li><div><strong>Step name</strong><span>What happens.</span></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ================= IMAGE GRID (2 columns; add class figures-3 for 3) ================= -->
+  <section>
+    <div class="wrap">
+      <h2>Creative</h2>
+      <div class="figures">
+        <figure>
+          <img src="../assets/images/FOLDER/FILE-1.png" alt="Describe the image" data-slot>
+          <figcaption>Caption · AI-generated / AI-assisted / No AI</figcaption>
+        </figure>
+        <figure>
+          <!-- VIDEO: MP4 under ~10 MB. For larger files, use an unlisted YouTube/Vimeo embed. -->
+          <video src="../assets/videos/FILE.mp4" controls playsinline preload="metadata"></video>
+          <figcaption>Caption · AI-generated / AI-assisted / No AI</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROMPT ITERATION (collapsible) ================= -->
+  <section>
+    <div class="wrap two-col">
+      <div><h2>Prompts</h2></div>
+      <div>
+        <p>One sentence on how you prompted for this project.</p>
+        <details>
+          <summary>Iteration 1: short name</summary>
+          <div class="details-body">
+            <dl class="iteration">
+              <dt>Prompt</dt><dd><div class="prompt">First prompt.</div></dd>
+              <dt>Problem</dt><dd>What went wrong.</dd>
+              <dt>Revision</dt><dd><div class="prompt">Revised prompt.</div></dd>
+              <dt>Result</dt><dd>What changed.</dd>
+            </dl>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= NUMBERS ================= -->
+  <section>
+    <div class="wrap">
+      <h2>Numbers</h2>
+      <div class="stats">
+        <div class="stat"><div class="num">€300</div><div class="label">Label</div><div class="calc">How you got it</div></div>
+        <div class="stat"><div class="num">14 days</div><div class="label">Label</div><div class="calc">How you got it</div></div>
+      </div>
+      <p class="note">Say whether these are targets, estimates or measured results.</p>
+    </div>
+  </section>
+
+  <!-- ================= PLACEHOLDER FOR CONTENT YOU ADD LATER ================= -->
+  <section>
+    <div class="wrap two-col">
+      <div><h2>Results</h2></div>
+      <div><div class="todo">Add results after DATE.</div></div>
+    </div>
+  </section>
+
+  <!-- ================= AI LABEL ================= -->
+  <section>
+    <div class="wrap">
+      <p class="disclaimer"><strong>AI use.</strong> What you made yourself, what AI generated, with which tool.</p>
+    </div>
+  </section>
+
+  <!-- ================= PAGER ================= -->
+  <section>
+    <div class="wrap pager">
+      <a href="PREVIOUS.html"><small>Previous</small>Project name</a>
+      <a href="NEXT.html" style="text-align:right"><small>Next</small>Project name</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© <span data-year></span> Trang Nguyen</span>
+    <span><a href="../index.html#contact">Contact</a></span>
+  </div>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>
