@@ -63,4 +63,6 @@ The site shows a dashed box with the expected path wherever a file is missing.
 
 ## Publish (free)
 
-GitHub Pages: create a repository, upload all files, then Settings → Pages → Deploy from branch `main`, folder `/root`. Your site goes live at `https://<username>.github.io/<repository>/`.
+Live at https://itstrangnguyen.github.io/ (repository `itstrangnguyen/itstrangnguyen.github.io`).
+
+Every push to `main` deploys automatically via `.github/workflows/deploy.yml`. Settings → Pages → Source must be set to **GitHub Actions**.
