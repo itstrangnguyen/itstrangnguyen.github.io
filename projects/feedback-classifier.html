@@ -69,43 +69,18 @@
           <li><div><strong>AI agent (Gemini)</strong><span>Gemini returns three fields: the sentiment, a category and a one-sentence summary.</span></div></li>
           <li><div><strong>Text extract</strong><span>Pulls the two fields out of Gemini's answer so the next node can use them.</span></div></li>
           <li><div><strong>Switch</strong><span>Routes by rule: negative to one branch, positive to the other.</span></div></li>
-          <li><div><strong>Slack</strong><span>Posts negative entries to #urgent-alerts for Customer Success, and positive ones to #customer-wins.</span></div></li>
+          <li><div><strong>Slack</strong><span>Posts negative entries to #urgent-alerts, and positive ones to #customer-wins.</span></div></li>
         </ol>
       </div>
     </div>
   </section>
 
   <!-- ================= 4. TESTING + ROUTING ================= -->
-  <section>
-    <div class="wrap two-col">
-      <div><h2>Testing and routing</h2></div>
-      <div>
-        <p>I wrote 7 test entries: 4 negative (a crashed import tool, ignored support tickets, a surprise price rise, a login outage) and 3 positive (new automation features, fast support, the mobile app update). I ran each one through the form.</p>
-        <p>The Switch node sends each entry to one of two Slack channels:</p>
-        <ul>
-          <li><strong>#urgent-alerts</strong>: negative feedback, with the customer ID, the category and a one-line summary, so Customer Success can follow up.</li>
-          <li><strong>#customer-wins</strong>: positive feedback, with the category and the AI summary, shared with the whole team.</li>
-        </ul>
-      </div>
-    </div>
-    <div class="wrap">
-      <div class="figures wide">
-        <figure>
-          <img src="../assets/images/feedback/slack-message-negative.png" alt="Three urgent alerts in Slack: customer IDs 13, 14 and 17, categories Support and Import Tool, each with a one-line summary" data-slot>
-          <figcaption>Negative test entries arriving as urgent alerts.</figcaption>
-        </figure>
-        <figure>
-          <img src="../assets/images/feedback/slack-message-positive.png" alt="Two Customer Win messages in Slack: categories Quality and Customer Service, and Features, each with an AI summary" data-slot>
-          <figcaption>Positive test entries posted as customer wins.</figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
+  
   <!-- ================= 5. PROMPT ================= -->
   <section>
     <div class="wrap two-col">
-      <div><h2>The AI step</h2></div>
+      <div><h2>The AI Agent step</h2></div>
       <div>
         <p>The agent prompt asks Gemini to answer in a fixed JSON format with three fields: sentiment, category and a one-sentence summary. With a fixed format, the text-extract and Switch nodes read the answer the same way every time.</p>
         <details>
@@ -114,11 +89,16 @@
             <p><strong>Input</strong></p>
             <div class="prompt">"This is unacceptable. The contact import tool completely crashed in the middle of our upload, and now half of our leads are missing their email addresses. Please fix this immediately, our sales team is blocked!"</div>
             <p><strong>Output posted to #urgent-alerts</strong></p>
-            <div class="prompt">Category: IMPORT TOOL
-Summary: The contact import tool crashed during upload, causing missing email addresses for half of the leads and blocking the sales team.</div>
+            <div class="prompt">&#128680; Urgent: Negative Feedback Detected
+-----------------------------------------
+Customer ID: 17
+Category: IMPORT TOOL
+Summary: The contact import tool crashed during upload, causing missing email addresses for half of the leads and blocking the sales team.
+-----------------------------------------
+Please review and contact the client if an email was provided.</div>
           </div>
         </details>
-        <p><strong>What I'd change:</strong> I didn't give Gemini a fixed list of categories, so it made up its own: "Import Tool" instead of "Bug", "Quality and Customer Service" instead of "Praise". The summaries were accurate, but labels that vary are hard to count or filter. Next time, I'd give the prompt a fixed category list.</p>
+        <div style="margin-top: 30px;"><p><strong>What I'd change:</strong> I didn't give Gemini a fixed list of categories, so it made up its own: "Import Tool" instead of "Bug", "Quality and Customer Service" instead of "Praise". The summaries were accurate, but labels that vary are hard to count or filter. Next time, I'd give the prompt a fixed category list.</p></div>
       </div>
     </div>
   </section>
