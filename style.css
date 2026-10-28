@@ -234,44 +234,85 @@ details[open] summary{border-bottom:1px solid var(--line);}
 .about-head{display:grid;grid-template-columns:1fr 280px;gap:56px;align-items:start;}
 .about-head img,.about-head .slot{border-radius:24px;aspect-ratio:4/5;object-fit:cover;width:100%;}
 
-/* AI workflow: five steps in a row, a loop back from Review to Prompt, then the rules */
+/* AI workflow: five steps in a row, Review loops back to Prompt, then the rules.
+   Colours come from the original slide: sage panel, brown loop, light-sage highlight. */
 .flow-lead{font-size:24px;font-weight:500;color:var(--ink);letter-spacing:-0.01em;}
-.flow{grid-column:1/-1;display:grid;grid-template-columns:repeat(5,1fr);column-gap:28px;}
-.flow-steps{grid-column:1/-1;display:grid;grid-template-columns:subgrid;list-style:none;counter-reset:flow;padding:0;margin:0;}
-.flow-steps li{
-  counter-increment:flow;position:relative;
-  background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:20px;
+.flow{
+  --sage:#8E9C6A; --sage-lt:#C8D3A0; --brown:#6B4A33; --cream:#F3EEE3;
+  --gap:28px; --conn:color-mix(in srgb, var(--sage-lt) 70%, transparent);
+  grid-column:1/-1;display:grid;grid-template-columns:repeat(5,1fr);column-gap:var(--gap);
+  padding:24px;border-radius:var(--radius);
+  background:
+    radial-gradient(120% 90% at 0% 0%, color-mix(in srgb, var(--sage) 30%, transparent), transparent 70%),
+    color-mix(in srgb, var(--sage) 14%, var(--surface));
+  border:1px solid color-mix(in srgb, var(--sage) 40%, var(--line));
 }
-.flow-steps li::before{
-  content:counter(flow);display:inline-grid;place-items:center;
+.flow-steps{grid-column:1/-1;display:grid;grid-template-columns:subgrid;list-style:none;counter-reset:flow;padding:0;margin:0;}
+.flow-steps > li{
+  counter-increment:flow;position:relative;
+  display:grid;grid-template-columns:auto 1fr;align-content:start;column-gap:12px;
+  background:color-mix(in srgb, var(--sage) 10%, var(--bg));
+  border:1px solid color-mix(in srgb, var(--sage) 30%, var(--line));
+  border-radius:18px;padding:16px;
+}
+.flow-steps > li > *{grid-column:1/-1;}
+/* Number circle, sits on the same line as the step title */
+.flow-steps > li::before{
+  content:counter(flow);grid-column:1;display:grid;place-items:center;
   width:28px;height:28px;border-radius:50%;margin-bottom:12px;
-  background:var(--surface-2);color:var(--ink-2);font-size:14px;font-weight:600;
+  background:var(--sage);color:#14160F;font-size:15px;font-weight:600;
+}
+.flow-steps > li > h3{
+  grid-column:2;align-self:start;line-height:28px;margin:0 0 12px;white-space:nowrap;
+  font-size:14px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--sage-lt);
 }
 /* Arrow to the next step, drawn in the gap */
-.flow-steps li:not(:last-child)::after{
-  content:"→";position:absolute;top:50%;right:-22px;transform:translateY(-50%);
-  color:var(--ink-3);font-size:16px;
+.flow-steps > li:not(:last-child)::after{
+  content:"→";position:absolute;top:50%;right:calc(var(--gap) / -2);transform:translate(50%,-50%);
+  color:var(--sage-lt);font-size:18px;
 }
-.flow-steps h3{font-size:13px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:8px;}
-.flow-steps p{font-size:15px;line-height:1.55;}
+.flow-steps p{font-size:15px;line-height:1.6;margin-bottom:6px;}
+.flow-steps ul{margin:0;padding-left:18px;font-size:15px;line-height:1.6;}
 /* Review: the human check, the one highlighted step */
-.flow-steps .flow-check{background:var(--surface-2);border-color:var(--ink-3);}
-.flow-steps .flow-check::before{background:var(--ink);color:var(--bg);}
-.flow-loop{
-  grid-column:2/5;margin:16px 0 0;padding:12px 18px;text-align:center;
-  border:1.5px dashed var(--ink-3);border-radius:14px;font-size:15px;color:var(--ink-2);
+.flow-steps > .flow-check{background:var(--sage-lt);border-color:var(--sage-lt);color:#2A2E20;}
+.flow-steps > .flow-check strong{color:#1A1D13;}
+.flow-steps > .flow-check::before{background:#3F4A2C;color:var(--sage-lt);}
+.flow-steps > .flow-check > h3{color:#3E2C1E;}
+.flow-steps > li > .flow-pass{
+  grid-column:auto;position:absolute;top:50%;right:calc(var(--gap) / -2);transform:translate(50%,-150%);
+  z-index:1;font-size:11px;font-weight:600;color:var(--sage-lt);
+}
+/* Loop: a U-shaped line from Review back up to Prompt, with the brown box on it */
+.flow-loop{grid-column:2/5;position:relative;display:flex;justify-content:center;padding-top:44px;}
+.flow-loop::before{
+  content:"";position:absolute;top:0;bottom:24px;
+  left:calc((100% - 2 * var(--gap)) / 6);right:calc((100% - 2 * var(--gap)) / 6);
+  border:1.5px solid var(--conn);border-top:none;
+}
+/* Arrowhead pointing up into Prompt */
+.flow-loop::after{
+  content:"";position:absolute;top:0;left:calc((100% - 2 * var(--gap)) / 6 - 4px);
+  border:5px solid transparent;border-top:none;border-bottom:7px solid var(--conn);
+}
+.flow-loop p{
+  position:relative;margin:0;padding:12px 28px;border-radius:14px;min-height:48px;
+  background:var(--brown);color:var(--cream);font-size:15px;text-align:center;
 }
 .flow-rules{
-  grid-column:1/-1;margin:24px 0 0;
-  background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px;font-size:16px;
+  grid-column:1/-1;margin:28px 0 0;
+  background:#1B1A18;border-radius:16px;padding:20px 24px;font-size:16px;color:var(--ink-2);
 }
-.flow figcaption{grid-column:1/-1;}
-/* Narrower screens: steps stack, arrows point down */
+.flow-rules strong{color:var(--sage-lt);}
+.flow figcaption{grid-column:1/-1;margin-top:14px;color:var(--ink-2);}
+/* Narrower screens: steps stack, arrows point down, the loop becomes a plain box */
 @media (max-width:960px){
-  .flow,.flow-steps{grid-template-columns:1fr;row-gap:28px;}
-  .flow{row-gap:0;}
-  .flow-steps li:not(:last-child)::after{content:"↓";top:auto;bottom:-26px;right:auto;left:50%;transform:translateX(-50%);}
-  .flow-loop{grid-column:1/-1;}
+  .flow{grid-template-columns:1fr;padding:20px;border-radius:22px;}
+  .flow-steps{grid-template-columns:1fr;row-gap:var(--gap);}
+  .flow-steps > li:not(:last-child)::after{content:"↓";top:auto;bottom:calc(var(--gap) / -2);right:50%;transform:translate(50%,50%);}
+  .flow-steps > li > .flow-pass{top:auto;bottom:calc(var(--gap) / -2);right:50%;transform:translate(calc(100% + 14px),50%);}
+  .flow-loop{grid-column:1/-1;padding-top:20px;}
+  .flow-loop::before,.flow-loop::after{content:none;}
+  .flow-loop p::before{content:"↺ ";}
 }
 
 /* ---------- Pager ---------- */
