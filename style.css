@@ -234,6 +234,46 @@ details[open] summary{border-bottom:1px solid var(--line);}
 .about-head{display:grid;grid-template-columns:1fr 280px;gap:56px;align-items:start;}
 .about-head img,.about-head .slot{border-radius:24px;aspect-ratio:4/5;object-fit:cover;width:100%;}
 
+/* AI workflow: five steps in a row, a loop back from Review to Prompt, then the rules */
+.flow-lead{font-size:24px;font-weight:500;color:var(--ink);letter-spacing:-0.01em;}
+.flow{grid-column:1/-1;display:grid;grid-template-columns:repeat(5,1fr);column-gap:28px;}
+.flow-steps{grid-column:1/-1;display:grid;grid-template-columns:subgrid;list-style:none;counter-reset:flow;padding:0;margin:0;}
+.flow-steps li{
+  counter-increment:flow;position:relative;
+  background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:20px;
+}
+.flow-steps li::before{
+  content:counter(flow);display:inline-grid;place-items:center;
+  width:28px;height:28px;border-radius:50%;margin-bottom:12px;
+  background:var(--surface-2);color:var(--ink-2);font-size:14px;font-weight:600;
+}
+/* Arrow to the next step, drawn in the gap */
+.flow-steps li:not(:last-child)::after{
+  content:"→";position:absolute;top:50%;right:-22px;transform:translateY(-50%);
+  color:var(--ink-3);font-size:16px;
+}
+.flow-steps h3{font-size:13px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:8px;}
+.flow-steps p{font-size:15px;line-height:1.55;}
+/* Review: the human check, the one highlighted step */
+.flow-steps .flow-check{background:var(--surface-2);border-color:var(--ink-3);}
+.flow-steps .flow-check::before{background:var(--ink);color:var(--bg);}
+.flow-loop{
+  grid-column:2/5;margin:16px 0 0;padding:12px 18px;text-align:center;
+  border:1.5px dashed var(--ink-3);border-radius:14px;font-size:15px;color:var(--ink-2);
+}
+.flow-rules{
+  grid-column:1/-1;margin:24px 0 0;
+  background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px;font-size:16px;
+}
+.flow figcaption{grid-column:1/-1;}
+/* Narrower screens: steps stack, arrows point down */
+@media (max-width:960px){
+  .flow,.flow-steps{grid-template-columns:1fr;row-gap:28px;}
+  .flow{row-gap:0;}
+  .flow-steps li:not(:last-child)::after{content:"↓";top:auto;bottom:-26px;right:auto;left:50%;transform:translateX(-50%);}
+  .flow-loop{grid-column:1/-1;}
+}
+
 /* ---------- Pager ---------- */
 .pager{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;}
 .pager a{text-decoration:none;font-size:20px;font-weight:500;}
