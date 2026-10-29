@@ -164,6 +164,22 @@ figure{margin:0;}
 figcaption{font-size:14px;color:var(--ink-3);margin-top:10px;}
 .figures{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
 .figures-3{grid-template-columns:repeat(3,1fr);}
+/* Phone screenshots: same height so the captions line up */
+.phones{gap:16px;}
+.phones img{aspect-ratio:362/759;object-fit:cover;object-position:top;}
+/* Gallery: same three-column grid as .figures-3, each piece previewed at 4:5, click to open full size */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:start;}
+.gallery img,.gallery video{
+  width:100%;aspect-ratio:4/5;object-fit:cover;object-position:top;
+  border-radius:14px;background:var(--surface);border:1px solid var(--line);
+}
+.gallery video{object-fit:contain;background:#000;}
+.gallery a{display:block;transition:transform .2s ease;}
+.gallery a:hover{transform:translateY(-3px);}
+.gallery a:hover img{border-color:var(--accent);}
+.gallery figcaption{display:flex;flex-direction:column;align-items:flex-start;gap:2px;font-size:13px;line-height:1.45;}
+.gallery figcaption strong{font-size:14px;font-weight:500;}
+.gallery figcaption .tag{margin-top:6px;font-size:12px;padding:3px 10px;}
 .wide{margin:32px 0;}
 
 /* Shown automatically when an image file is missing (see script.js) */
@@ -374,6 +390,11 @@ h3.sub{margin:36px 0 14px;}
   .cards{grid-template-columns:1fr;}
   .meta{grid-template-columns:repeat(2,1fr);padding:18px;}
   .figures,.figures-3{grid-template-columns:1fr;}
+  /* Phone screenshots swipe sideways instead of stacking */
+  .phones{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;}
+  .phones figure{flex:0 0 68%;scroll-snap-align:start;}
+  .gallery{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;}
+  .gallery figure{flex:0 0 72%;scroll-snap-align:start;}
   .stats{grid-template-columns:repeat(2,1fr);}
   .stat .num{font-size:26px;}
   .timeline .row,.iteration{grid-template-columns:1fr;gap:2px;}
