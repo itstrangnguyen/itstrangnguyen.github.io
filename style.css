@@ -250,6 +250,31 @@ details[open] summary{border-bottom:1px solid var(--line);}
 .about-head{display:grid;grid-template-columns:1fr 280px;gap:56px;align-items:start;}
 .about-head img,.about-head .slot{border-radius:24px;aspect-ratio:4/5;object-fit:cover;width:100%;}
 
+/* Certificates: badge cards that open the full certificate */
+/* Each card spans three shared rows (badge, title, issuer + date), so labels line up across the row */
+.certs{display:grid;grid-template-columns:repeat(6,1fr);column-gap:8px;}
+.cert{
+  display:grid;grid-row:span 3;grid-template-rows:subgrid;row-gap:2px;justify-items:center;align-items:start;text-align:center;
+  padding:14px 2px 12px;border-radius:16px;border:1px solid transparent;
+  text-decoration:none;color:var(--ink-2);transition:border-color .2s ease, background .2s ease, transform .2s ease;
+}
+.cert:hover{color:var(--ink-2);background:var(--surface);border-color:var(--line);transform:translateY(-3px);}
+.cert-badge{width:76px;height:76px;margin-bottom:10px;object-fit:contain;}
+/* Names stay within two lines */
+.cert strong{font-size:12px;font-weight:500;line-height:1.3;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;overflow:hidden;}
+.cert > span:not(.cert-badge){font-size:12px;line-height:1.4;color:var(--ink-3);}
+/* Made badge for course certificates: logo on a white top half, colour band below, like the Meta badge */
+.cert-made{
+  display:grid;grid-template-rows:42% auto auto;justify-items:center;align-content:start;
+  border-radius:50%;border:3px solid transparent;overflow:hidden;color:#fff;
+  background:linear-gradient(#fff,#fff) top / 100% 42% no-repeat padding-box, var(--band) border-box;
+}
+.cert-made img{align-self:center;max-width:60%;max-height:22px;object-fit:contain;margin-top:4px;}
+.cert-made small{margin-top:6px;font-size:7px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;opacity:.85;}
+.cert-made b{font-size:11px;font-weight:600;line-height:1.2;}
+.cert-note{margin-top:10px;font-size:12px;color:var(--ink-3);}
+@media (max-width:1100px){ .certs{grid-template-columns:repeat(3,1fr);} }
+
 /* AI workflow: five steps in a row, Review loops back to Prompt, then the rules.
    Colours come from the original slide: sage panel, brown loop, light-sage highlight. */
 .flow-lead{font-size:24px;font-weight:500;color:var(--ink);letter-spacing:-0.01em;}
@@ -387,6 +412,7 @@ h3.sub{margin:36px 0 14px;}
   .site-nav{gap:18px;}
   .two-col,.about-head{grid-template-columns:1fr;gap:16px;}
   .about-head > :last-child{max-width:240px;}
+  .certs{grid-template-columns:repeat(3,1fr);gap:8px;}
   .cards{grid-template-columns:1fr;}
   .meta{grid-template-columns:repeat(2,1fr);padding:18px;}
   .figures,.figures-3{grid-template-columns:1fr;}
@@ -399,3 +425,5 @@ h3.sub{margin:36px 0 14px;}
   .stat .num{font-size:26px;}
   .timeline .row,.iteration{grid-template-columns:1fr;gap:2px;}
 }
+/* Very small phones: two badges per row so names stay within two lines */
+@media (max-width:374px){ .certs{grid-template-columns:repeat(2,1fr);} }
