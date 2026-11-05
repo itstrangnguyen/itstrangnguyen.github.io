@@ -503,3 +503,9 @@ h3.sub{margin:36px 0 14px;}
 .card-part .list-lead{margin:0 0 4px;}
 .cards-2{grid-template-columns:repeat(2,1fr);}
 @media (max-width:760px){ .cards-2{grid-template-columns:1fr;} }
+
+/* ---------- Full-width rows: four boxes, three steps ---------- */
+.boxes-4{grid-template-columns:repeat(4,1fr);}
+.steps-3{grid-template-columns:repeat(3,1fr);gap:28px 32px;}
+@media (max-width:960px){ .steps-3{grid-template-columns:repeat(2,1fr);} }
+@media (max-width:760px){ .boxes-4{grid-template-columns:repeat(2,1fr);} .steps-3{grid-template-columns:1fr;} }
