@@ -506,8 +506,7 @@ h3.sub{margin:36px 0 14px;}
 
 
 /* ---------- Meta Ads Manager criteria shown as tags ---------- */
-.steps .crit-path{display:block;font-size:13px;color:var(--ink-3);margin:2px 0 8px;}
-.steps .chips{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 8px;}
+.steps .chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 8px;}
 .steps .chip{
   display:inline-block;padding:5px 14px;border-radius:100px;
   background:var(--brand);color:#fff;font-size:14px;font-weight:600;line-height:1.5;
