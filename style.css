@@ -70,8 +70,7 @@ p:last-child{margin-bottom:0;}
   font-size:13px;font-weight:600;letter-spacing:0.12em;
   text-transform:uppercase;color:var(--accent);margin:0 0 16px;
 }
-.lead{font-size:20px;line-height:1.6;color:var(--ink-2);max-width:720px;margin-top:20px;}
-.muted{color:var(--ink-3);}
+.lead{font-size:20px;line-height:1.6;color:var(--ink-2);max-width:720px;margin-top:20px;}.muted{color:var(--ink-3);}
 .small{font-size:14px;}
 
 /* ---------- Site header / footer ---------- */
