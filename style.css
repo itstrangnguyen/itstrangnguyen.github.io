@@ -513,3 +513,22 @@ h3.sub{margin:36px 0 14px;}
   background:var(--brand);color:#fff;font-size:14px;font-weight:600;line-height:1.5;
 }
 .steps .chip-ghost{background:var(--surface-2);color:var(--ink);border:1px solid var(--line);font-weight:500;}
+
+/* ---------- Two connected pillars: box + box = result ---------- */
+.pillars{display:grid;grid-template-columns:1fr auto 1fr;align-items:stretch;gap:16px;margin-top:20px;}
+.pillars .box{border-color:color-mix(in srgb, var(--brand) 55%, var(--line));}
+.pillars .box .pillar-role{font-size:20px;font-weight:600;color:var(--ink);margin-bottom:6px;}
+.pillars-join{
+  align-self:center;width:40px;height:40px;border-radius:50%;
+  display:grid;place-items:center;font-size:22px;font-weight:600;line-height:1;
+  background:var(--brand);color:#fff;
+}
+.pillars-result{
+  margin-top:16px;padding:14px 20px;border-radius:16px;text-align:center;
+  background:color-mix(in srgb, var(--brand) 22%, var(--surface-2));
+  border:1px solid color-mix(in srgb, var(--brand) 55%, var(--line));color:var(--ink-2);
+}
+@media (max-width:760px){
+  .pillars{grid-template-columns:1fr;}
+  .pillars-join{justify-self:center;}
+}
