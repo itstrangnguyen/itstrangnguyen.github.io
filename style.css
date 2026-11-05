@@ -541,3 +541,4 @@ h3.sub{margin:36px 0 14px;}
   padding-left:16px;border-left:3px solid var(--accent);
 }
 .blocks .stats{margin-top:12px;}
+.steps b{color:var(--ink);font-weight:600;}
