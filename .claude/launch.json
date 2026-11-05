@@ -4,7 +4,7 @@
     {
       "name": "portfolio",
       "runtimeExecutable": "powershell",
-      "runtimeArgs": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", ".claude/serve.ps1", "-Root", "."],
+      "runtimeArgs": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", ".claude/serve.ps1", "-Root", ".", "-UploadDir", "C:\\Users\\DCI-ST~1\\AppData\\Local\\Temp\\claude\\329096f5071b472f\\df7298ba-0d19-49b1-9615-7a25681061c1\\scratchpad"],
       "port": 5517
     }
   ]
