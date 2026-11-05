@@ -504,6 +504,12 @@ h3.sub{margin:36px 0 14px;}
 .cards-2{grid-template-columns:repeat(2,1fr);}
 @media (max-width:760px){ .cards-2{grid-template-columns:1fr;} }
 
-/* ---------- Full-width row of four boxes ---------- */
-.boxes-4{grid-template-columns:repeat(4,1fr);}
-@media (max-width:760px){ .boxes-4{grid-template-columns:repeat(2,1fr);} }
+
+/* ---------- Meta Ads Manager criteria shown as tags ---------- */
+.steps .crit-path{display:block;font-size:13px;color:var(--ink-3);margin:2px 0 8px;}
+.steps .chips{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 8px;}
+.steps .chip{
+  display:inline-block;padding:5px 14px;border-radius:100px;
+  background:var(--brand);color:#fff;font-size:14px;font-weight:600;line-height:1.5;
+}
+.steps .chip-ghost{background:var(--surface-2);color:var(--ink);border:1px solid var(--line);font-weight:500;}
