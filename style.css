@@ -517,7 +517,7 @@ h3.sub{margin:36px 0 14px;}
 /* ---------- Two connected pillars: box + box = result ---------- */
 .pillars{display:grid;grid-template-columns:1fr auto 1fr;align-items:stretch;gap:16px;margin-top:20px;}
 .pillars .box{border-color:color-mix(in srgb, var(--brand) 55%, var(--line));}
-.pillars .box .pillar-role{font-size:20px;font-weight:600;color:var(--ink);margin-bottom:6px;}
+.pillars .box .pillar-role{font-size:18px;font-weight:600;color:var(--ink);margin-bottom:6px;}
 .pillars-join{
   align-self:center;width:40px;height:40px;border-radius:50%;
   display:grid;place-items:center;font-size:22px;font-weight:600;line-height:1;
@@ -532,3 +532,13 @@ h3.sub{margin:36px 0 14px;}
   .pillars{grid-template-columns:1fr;}
   .pillars-join{justify-self:center;}
 }
+
+/* ---------- Sub-blocks inside a section: same subheading, even spacing ---------- */
+.blocks > h3{margin:40px 0 8px;}
+.blocks > h3:first-child{margin-top:0;}
+.blocks > p{margin-bottom:0;}
+.blocks .quote{
+  font-size:20px;line-height:1.5;color:var(--ink);
+  padding-left:16px;border-left:3px solid var(--accent);
+}
+.blocks .stats{margin-top:12px;}
