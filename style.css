@@ -496,6 +496,23 @@ h3.sub{margin:36px 0 14px;}
 .reel-feature{max-width:380px;margin:0 auto;text-align:center;}
 .reel-feature video{width:100%;border-radius:20px;background:#000;border:1px solid color-mix(in srgb, var(--brand) 55%, var(--line));}
 .clips{align-items:start;}
+/* Part 2: Reel beside how it was made */
+.reel-row{display:grid;grid-template-columns:340px 1fr;gap:56px;align-items:center;margin-top:28px;}
+.reel-row .reel-feature{max-width:none;margin:0;}
+.reel-text p{color:var(--ink-2);}
+.reel-text .step-list li{margin:10px 0;color:var(--ink-2);}
+.reel-text .step-list b{color:var(--ink);font-weight:500;}
+.ai-label{font-size:14px;color:var(--ink-3);border-left:2px solid var(--accent);padding:2px 0 2px 12px;margin:20px 0 0;}
+.ai-label b{color:var(--ink-2);font-weight:500;}
+/* Review templates: flex-grow set to each piece's width/height, so all three share one height */
+.templates{display:flex;gap:24px;align-items:flex-end;margin-top:28px;}
+.templates figure{flex-basis:0;min-width:0;}
+.templates img,.templates video{width:100%;border-radius:14px;display:block;background:#000;}
+@media (max-width:720px){
+  .reel-row{grid-template-columns:1fr;gap:28px;}
+  .reel-row .reel-feature{max-width:340px;margin:0 auto;}
+  .templates{flex-direction:column;align-items:stretch;}
+}
 .clips details{margin-top:12px;}
 .clips summary{padding:12px 16px;font-size:15px;}
 .clips .details-body{padding:12px;}
