@@ -496,6 +496,17 @@ h3.sub{margin:36px 0 14px;}
 .reel-feature{max-width:380px;margin:0 auto;text-align:center;}
 .reel-feature video{width:100%;border-radius:20px;background:#000;border:1px solid color-mix(in srgb, var(--brand) 55%, var(--line));}
 .clips{align-items:start;}
+/* Meta strip, balanced: each column sized to its content, thin dividers between */
+.meta-fit{grid-template-columns:repeat(4,auto);justify-content:space-between;gap:0;padding:22px 8px;}
+.meta-fit > div{padding:0 24px;border-left:1px solid var(--line);}
+.meta-fit > div:first-child{border-left:0;}
+.meta-fit dd{white-space:nowrap;}
+@media (max-width:1100px){ .meta-fit dd{white-space:normal;} }
+@media (max-width:720px){
+  .meta-fit{grid-template-columns:repeat(2,1fr);row-gap:18px;padding:18px 4px;}
+  .meta-fit > div{padding:0 14px;}
+  .meta-fit > div:nth-child(3){border-left:0;}
+}
 /* Part 2: Reel beside how it was made */
 .reel-row{display:grid;grid-template-columns:340px 1fr;gap:56px;align-items:center;margin-top:28px;}
 .reel-row .reel-feature{max-width:none;margin:0;}
