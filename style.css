@@ -580,3 +580,9 @@ img[data-zoom]:hover{transform:translateY(-2px);box-shadow:0 0 0 2px var(--accen
 .step-list{margin:0 0 20px;padding-left:20px;}
 .step-list li{margin:4px 0;}
 .step-row .compare,.step-row .wide{margin-top:20px;}
+
+/* ---------- Decisions: grouped, title line + one-sentence reason ---------- */
+.decision-group + .decision-group{margin-top:28px;padding-top:24px;border-top:1px solid var(--line);}
+.decisions dl{margin:0;display:grid;gap:16px;}
+.decisions dt{font-weight:600;color:var(--ink);}
+.decisions dd{margin:2px 0 0;color:var(--ink-2);}
