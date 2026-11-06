@@ -27,6 +27,31 @@ document.querySelectorAll('[data-year]').forEach(function (el) {
   el.textContent = new Date().getFullYear();
 });
 
+// Carousels: swipe/scroll natively (scroll-snap); arrows, dots and arrow keys move one slide.
+document.querySelectorAll('.carousel').forEach(function (c) {
+  var track = c.querySelector('.carousel-track');
+  var slides = track.children;
+  var prev = c.querySelector('.prev'), next = c.querySelector('.next');
+  var dots = c.querySelector('.carousel-dots');
+  for (var i = 0; i < slides.length; i++) dots.appendChild(document.createElement('span'));
+  function index() { return Math.round(track.scrollLeft / track.clientWidth); }
+  function go(i) { track.scrollTo({ left: i * track.clientWidth }); }
+  function update() {
+    var i = index();
+    prev.disabled = i <= 0;
+    next.disabled = i >= slides.length - 1;
+    [].forEach.call(dots.children, function (d, n) { d.classList.toggle('on', n === i); });
+  }
+  prev.addEventListener('click', function () { go(index() - 1); });
+  next.addEventListener('click', function () { go(index() + 1); });
+  track.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowLeft') { e.preventDefault(); go(index() - 1); }
+    if (e.key === 'ArrowRight') { e.preventDefault(); go(index() + 1); }
+  });
+  track.addEventListener('scroll', update, { passive: true });
+  update();
+});
+
 // Lightbox: any <img data-zoom> opens enlarged on the page.
 // Close with the × button, a click on the backdrop, or Esc.
 (function () {
