@@ -74,7 +74,7 @@ p:last-child{margin-bottom:0;}
 .small{font-size:14px;}
 
 /* ---------- Site header / footer ---------- */
-.site-header .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-top:28px;padding-bottom:28px;flex-wrap:wrap;}
+.site-header .wrap{display:flex;align-items:center;gap:12px;padding-top:24px;padding-bottom:24px;flex-wrap:wrap;}
 .site-name{display:inline-flex;align-items:center;font-weight:600;font-size:18px;text-decoration:none;color:var(--ink);}
 .site-name:hover{color:var(--ink);}
 /* Logo: four dots, one per project colour (drawn in CSS) */
@@ -83,9 +83,17 @@ p:last-child{margin-bottom:0;}
   background:#E2A94B;
   box-shadow:12px 0 0 #4FB38A, 0 12px 0 #B9BF9F, 12px 12px 0 #EC8F45;
 }
-.site-nav{display:flex;gap:28px;font-size:15px;}
-.site-nav a{text-decoration:none;color:var(--ink-2);}
-.site-nav a:hover,.site-nav a[aria-current="page"]{color:var(--ink);}
+/* Menu: links with icons grouped in a pill; the current page is filled with the page accent */
+.pill-group{display:flex;gap:2px;padding:5px;background:var(--surface);border:1px solid var(--line);border-radius:16px;}
+.pill-group a{
+  display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:11px;
+  font-size:15px;font-weight:500;line-height:1.4;text-decoration:none;color:var(--ink-2);
+  transition:background .15s ease,color .15s ease;
+}
+.pill-group a:hover{background:var(--surface-2);color:var(--ink);}
+.pill-group a[aria-current="page"]{background:var(--accent);color:var(--bg);}
+.pill-group svg{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.site-nav{margin-left:auto;}
 
 .site-footer{border-top:1px solid var(--line);padding:32px 0;margin-top:40px;font-size:14px;color:var(--ink-3);}
 .site-footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;}
@@ -112,6 +120,14 @@ section + section,section.divided{border-top:1px solid var(--line);}
 .btn-primary{background:var(--ink);color:var(--bg);border-color:var(--ink);}
 .btn-primary:hover{color:var(--bg);background:#fff;}
 .btn-ghost:hover{color:var(--ink);border-color:var(--ink-3);background:var(--surface);}
+.btn-icon{display:inline-flex;align-items:center;gap:10px;}
+.btn-icon svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+
+/* Contact: centred heading, line and buttons */
+.contact{text-align:center;padding-top:24px;padding-bottom:24px;}
+.contact .lead{margin:0 auto;}
+.contact .actions{justify-content:center;margin-top:28px;}
+.contact .btn{border-radius:12px;padding:15px 26px;font-size:16px;}
 
 /* ---------- Project cards (home) ---------- */
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:28px;}
@@ -420,7 +436,10 @@ h3.sub{margin:36px 0 14px;}
   .lead{font-size:18px;}
   .hero{padding:56px 0 44px;}
   section{padding:48px 0;}
-  .site-nav{gap:18px;}
+  .site-name{width:100%;}
+  .site-nav{margin-left:0;}
+  .site-nav svg{display:none;}
+  .pill-group a{padding:7px 12px;}
   .two-col,.about-head{grid-template-columns:1fr;gap:16px;}
   .about-head > :last-child{max-width:240px;}
   .certs{grid-template-columns:repeat(3,1fr);gap:8px;}

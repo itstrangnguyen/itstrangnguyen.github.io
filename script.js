@@ -22,6 +22,12 @@ document.querySelectorAll('video[data-slot]').forEach(function (v) {
   else v.addEventListener('error', function () { showSlot(v); });
 });
 
+// Email links: the address is split across two attributes so spam bots can't read it from the HTML.
+// Joined here into a mailto link; without JavaScript the link falls back to its LinkedIn href.
+document.querySelectorAll('[data-email-user]').forEach(function (a) {
+  a.href = 'mailto:' + a.getAttribute('data-email-user') + '@' + a.getAttribute('data-email-domain');
+});
+
 // Footer year
 document.querySelectorAll('[data-year]').forEach(function (el) {
   el.textContent = new Date().getFullYear();
