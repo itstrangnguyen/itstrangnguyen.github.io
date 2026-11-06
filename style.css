@@ -96,7 +96,7 @@ p:last-child{margin-bottom:0;}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
 
 section{padding:64px 0;}
-section + section{border-top:1px solid var(--line);}
+section + section,section.divided{border-top:1px solid var(--line);}
 .section-intro{color:var(--ink-2);max-width:640px;margin:-6px 0 36px;}
 .two-col{display:grid;grid-template-columns:280px 1fr;gap:48px;}
 .two-col > :first-child h2{margin-bottom:0;}
@@ -149,13 +149,22 @@ section + section{border-top:1px solid var(--line);}
 }
 
 /* ---------- Case study: meta strip ---------- */
+/* One row, thin dividers between. Auto columns fill short values first,
+   so only a long list (e.g. tools) wraps, inside its own column. */
 .meta{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:24px;
-  margin:44px 0 0;padding:24px;background:var(--surface);
+  display:grid;grid-auto-flow:column;grid-auto-columns:auto;
+  margin:44px 0 0;padding:22px 0;background:var(--surface);
   border:1px solid color-mix(in srgb, var(--brand) 50%, var(--line));border-radius:20px;
 }
-.meta dt{font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-3);margin-bottom:6px;}
-.meta dd{margin:0;font-size:16px;color:var(--ink);}
+.meta > div{padding:2px 28px;border-left:1px solid var(--line);}
+.meta > div:first-child{border-left:0;}
+.meta dt{font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;}
+.meta dd{margin:0;font-size:16px;font-weight:500;line-height:1.45;color:var(--ink);}
+/* Tablet: two by two, so short values like "~2 weeks" stay on one line */
+@media (max-width:1040px) and (min-width:761px){
+  .meta{grid-auto-flow:row;grid-template-columns:1fr 1fr;row-gap:20px;}
+  .meta > div:nth-child(odd){border-left:0;}
+}
 
 /* ---------- Media ---------- */
 figure{margin:0;}
@@ -416,7 +425,11 @@ h3.sub{margin:36px 0 14px;}
   .about-head > :last-child{max-width:240px;}
   .certs{grid-template-columns:repeat(3,1fr);gap:8px;}
   .cards{grid-template-columns:1fr;}
-  .meta{grid-template-columns:repeat(2,1fr);padding:18px;}
+  /* Phone: a stacked list, label on the left, value on the right */
+  .meta{display:block;padding:6px 20px;}
+  .meta > div{display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:baseline;padding:12px 0;border-left:0;border-top:1px solid var(--line);}
+  .meta > div:first-child{border-top:0;}
+  .meta dt{margin:0;}
   .figures,.figures-3{grid-template-columns:1fr;}
   /* Phone screenshots swipe sideways instead of stacking */
   .phones{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;}
@@ -496,17 +509,6 @@ h3.sub{margin:36px 0 14px;}
 .reel-feature{max-width:380px;margin:0 auto;text-align:center;}
 .reel-feature video{width:100%;border-radius:20px;background:#000;border:1px solid color-mix(in srgb, var(--brand) 55%, var(--line));}
 .clips{align-items:start;}
-/* Meta strip, balanced: each column sized to its content, thin dividers between */
-.meta-fit{grid-template-columns:repeat(4,auto);justify-content:space-between;gap:0;padding:22px 8px;}
-.meta-fit > div{padding:0 24px;border-left:1px solid var(--line);}
-.meta-fit > div:first-child{border-left:0;}
-.meta-fit dd{white-space:nowrap;}
-@media (max-width:1100px){ .meta-fit dd{white-space:normal;} }
-@media (max-width:720px){
-  .meta-fit{grid-template-columns:repeat(2,1fr);row-gap:18px;padding:18px 4px;}
-  .meta-fit > div{padding:0 14px;}
-  .meta-fit > div:nth-child(3){border-left:0;}
-}
 /* Part 2: Reel beside how it was made */
 .reel-row{display:grid;grid-template-columns:340px 1fr;gap:56px;align-items:center;margin-top:28px;}
 .reel-row .reel-feature{max-width:none;margin:0;}
