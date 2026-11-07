@@ -38,19 +38,12 @@
         <div><dt>Time</dt><dd>10 days</dd></div>
         <div><dt>Tools</dt><dd>Claude, Gemini, Google Flow, CapCut, Canva, Manychat, Make.com</dd></div>
       </dl>
+      <div class="todo">Ask the owner to confirm she's fine with the product photos appearing here. Then delete this box.</div>
     </div>
   </div>
 
-  <!-- ================= OWNERSHIP NOTE ================= -->
-  <section style="padding: 0%;">
-    <div class="wrap">
-      <!-- <p class="disclaimer"><strong>About this project.</strong> mai.premiumlinen is an existing brand that I don't own. I built the strategy, content and automations myself, based on the brand's public identity and its limits as a one-person business. Nothing was posted on the brand's accounts; all content is simulated. Product photos come from the brand's public posts. The owner has seen the full project and sent feedback (below).</p> -->
-      <div class="todo">Ask the owner to confirm she's fine with the product photos appearing here. Then delete this box.</div>
-    </div>
-  </section>
-
   <!-- ================= GOAL ================= -->
-  <section id="goal">
+  <section id="goal" class="divided">
     <div class="wrap two-col">
       <div><h2>The goal</h2></div>
       <div>
@@ -113,13 +106,39 @@
           </tbody>
         </table>
       </div>
+    </div>
+  </section>
 
-      <h2 class="sub" style="margin-top: 30px;">Three content pillars</h2>
+  <!-- ================= PILLARS ================= -->
+  <section id="pillars">
+    <div class="wrap">
+      <h2>Three content pillars</h2>
       <p class="section-intro">A pillar is a recurring theme tied to the brand’s goals. Pillars keep the voice consistent and the content varied. In my plan, every content idea gets one phase and one pillar.</p>
       <div class="boxes">
         <div class="box"><p class="label">Community · builds trust</p><p>Founder's journey, behind the scenes, customer reviews.</p></div>
         <div class="box"><p class="label">Product · converts</p><p>Fabric, sourcing, production process.</p></div>
         <div class="box"><p class="label">Education · earns attention</p><p>Dressing for the climate, care tips, sustainability.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= BRAND GUIDELINES ================= -->
+  <section id="brand">
+    <div class="wrap two-col">
+      <div><h2>Brand guidelines</h2></div>
+      <div>
+        <p>I wrote the guidelines in Canva so every piece follows the same look: logo use, type, colour and imagery.</p>
+        <div class="boxes" style="margin:20px 0">
+          <div class="box"><p class="label">Headings</p><p>Cormorant Garamond</p></div>
+          <div class="box"><p class="label">Body</p><p>Montserrat</p></div>
+          <div class="box"><p class="label">Quotes</p><p>DM Serif Display</p></div>
+        </div>
+        <div class="swatches">
+          <div><i style="background:#2C2A28"></i><small>#2C2A28</small></div>
+          <div><i style="background:#8A8F7A"></i><small>#8A8F7A</small></div>
+          <div><i style="background:#D8C7B5"></i><small>#D8C7B5</small></div>
+          <div><i style="background:#F7F3EE"></i><small>#F7F3EE</small></div>
+        </div>
       </div>
     </div>
   </section>
@@ -149,51 +168,6 @@
             <tr><td>14</td><td>Care</td><td>Community</td><td>Drop preview follow-up</td><td>Broadcast message</td><td>Planned</td></tr>
           </tbody>
         </table>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= AUTOMATION 1: DM FUNNEL ================= -->
-  <section id="dm-funnel">
-    <div class="wrap two-col">
-      <div><p class="eyebrow">Automation 1</p><h2>Comment-to-DM funnel</h2></div>
-      <div>
-        <p>When someone comments “SUMMER” on the flash sale post, Manychat replies under the comment and sends a two-step DM: a greeting, then the sale link and size guide.</p>
-        <ol class="steps">
-          <li><div><strong>Trigger</strong><span>A comment on the flash sale post.</span></div></li>
-          <li><div><strong>Keyword</strong><span>The comment contains “SUMMER” or “summer”.</span></div></li>
-          <li><div><strong>Public reply</strong><span>Manychat answers under the comment.</span></div></li>
-          <li><div><strong>Opening DM</strong><span>Greeting with a button.</span></div></li>
-          <li><div><strong>Follow-up DM</strong><span>Call to action with the sale link.</span></div></li>
-        </ol>
-        <p class="note"><strong>Tool switch.</strong> I planned this in Make.com, but Instagram's API doesn't let Make.com watch comments on this kind of account. I switched to Manychat, an official Meta partner built for comment-to-DM flows, and documented why.</p>
-        <h3 class="sub">Live test on a test account</h3>
-        <div class="figures figures-3 phones">
-          <figure><img src="../assets/images/mai/manychat-test-1.png" alt="Test post on the simulated account" data-slot><figcaption>Step 1 · The test post.</figcaption></figure>
-          <figure><img src="../assets/images/mai/manychat-test-2.png" alt="Comment SUMMER with the automatic public reply" data-slot><figcaption>Steps 2–3 · Comment and automatic reply.</figcaption></figure>
-          <figure><img src="../assets/images/mai/manychat-test-3.png" alt="DM conversation sent automatically by Manychat" data-slot><figcaption>Steps 4–5 · The DMs arrive with no manual step.</figcaption></figure>
-        </div>
-        <p class="muted small" style="margin-top:14px">Tested on @avoberry2026, a simulated account; images are placeholders.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= AUTOMATION 2: CONTENT COCKPIT ================= -->
-  <section id="content-cockpit">
-    <div class="wrap two-col">
-      <div><p class="eyebrow">Automation 2</p><h2>Content Cockpit</h2></div>
-      <div>
-        <p>Planning across three pillars and four funnel phases gets messy for one person. This Make.com scenario turns a running list of raw ideas in Google Sheets into a sorted content backlog.</p>
-        <ol class="steps">
-          <li><div><strong>Idea typed in</strong><span>The founder adds a raw idea to the sheet.</span></div></li>
-          <li><div><strong>Gemini classifies</strong><span>Format, platform, pillar, STDC phase, and a hook.</span></div></li>
-          <li><div><strong>JSON parses</strong><span>Gemini's answer becomes named fields.</span></div></li>
-          <li><div><strong>Sheet fills in</strong><span>The fields go back into the same row.</span></div></li>
-        </ol>
-        <figure class="wide">
-          <div class="media"><video src="../assets/videos/mai_content-cockpit-automation.mp4" controls playsinline preload="metadata" data-slot></video></div>
-          <figcaption>The scenario in Make.com.</figcaption>
-        </figure>
       </div>
     </div>
   </section>
@@ -329,6 +303,51 @@ Slide 4: … a woman wearing these white linen trousers, captured from the waist
     </div>
   </section>
 
+  <!-- ================= AUTOMATION 1: DM FUNNEL ================= -->
+  <section id="dm-funnel">
+    <div class="wrap two-col">
+      <div><h2>Comment-to-DM funnel</h2></div>
+      <div>
+        <p>When someone comments “SUMMER” on the flash sale post, Manychat replies under the comment and sends a two-step DM: a greeting, then the sale link and size guide.</p>
+        <ol class="steps">
+          <li><div><strong>Trigger</strong><span>A comment on the flash sale post.</span></div></li>
+          <li><div><strong>Keyword</strong><span>The comment contains “SUMMER” or “summer”.</span></div></li>
+          <li><div><strong>Public reply</strong><span>Manychat answers under the comment.</span></div></li>
+          <li><div><strong>Opening DM</strong><span>Greeting with a button.</span></div></li>
+          <li><div><strong>Follow-up DM</strong><span>Call to action with the sale link.</span></div></li>
+        </ol>
+        <p class="note"><strong>Tool switch.</strong> I planned this in Make.com, but Instagram's API doesn't let Make.com watch comments on this kind of account. I switched to Manychat, an official Meta partner built for comment-to-DM flows, and documented why.</p>
+        <h3 class="sub">Live test on a test account</h3>
+        <div class="figures figures-3 phones">
+          <figure><img src="../assets/images/mai/manychat-test-1.png" alt="Test post on the simulated account" data-slot><figcaption>Step 1 · The test post.</figcaption></figure>
+          <figure><img src="../assets/images/mai/manychat-test-2.png" alt="Comment SUMMER with the automatic public reply" data-slot><figcaption>Steps 2–3 · Comment and automatic reply.</figcaption></figure>
+          <figure><img src="../assets/images/mai/manychat-test-3.png" alt="DM conversation sent automatically by Manychat" data-slot><figcaption>Steps 4–5 · The DMs arrive with no manual step.</figcaption></figure>
+        </div>
+        <p class="muted small" style="margin-top:14px">Tested on @avoberry2026, a simulated account; images are placeholders.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= AUTOMATION 2: CONTENT COCKPIT ================= -->
+  <section id="content-cockpit">
+    <div class="wrap two-col">
+      <div><h2>Content Cockpit</h2></div>
+      <div>
+        <p>Planning across three pillars and four funnel phases gets messy for one person. This Make.com scenario turns a running list of raw ideas in Google Sheets into a sorted content backlog.</p>
+        <ol class="steps">
+          <li><div><strong>Idea typed in</strong><span>The founder adds a raw idea to the sheet.</span></div></li>
+          <li><div><strong>Gemini classifies</strong><span>Format, platform, pillar, STDC phase, and a hook.</span></div></li>
+          <li><div><strong>JSON parses</strong><span>Gemini's answer becomes named fields.</span></div></li>
+          <li><div><strong>Sheet fills in</strong><span>The fields go back into the same row.</span></div></li>
+        </ol>
+        <figure class="wide">
+          <div class="media"><video src="../assets/videos/mai_content-cockpit-automation.mp4" controls playsinline preload="metadata" data-slot></video></div>
+          <figcaption>The scenario in Make.com.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
   <!-- ================= MEASUREMENT ================= -->
   <section id="kpis">
     <div class="wrap">
@@ -345,27 +364,6 @@ Slide 4: … a woman wearing these white linen trousers, captured from the waist
         </table>
       </div>
       <p class="note">No tracking is live; these are the metrics the brand would watch once the plan runs. Two matter most each week: DM inquiries and repeat purchases, because they tie straight to the goal of 60 DMs and 12–15 orders a month.</p>
-    </div>
-  </section>
-
-  <!-- ================= BRAND GUIDELINES ================= -->
-  <section id="brand">
-    <div class="wrap two-col">
-      <div><h2>Brand guidelines</h2></div>
-      <div>
-        <p>I wrote the guidelines in Canva so every piece follows the same look: logo use, type, colour and imagery.</p>
-        <div class="boxes" style="margin:20px 0">
-          <div class="box"><p class="label">Headings</p><p>Cormorant Garamond</p></div>
-          <div class="box"><p class="label">Body</p><p>Montserrat</p></div>
-          <div class="box"><p class="label">Quotes</p><p>DM Serif Display</p></div>
-        </div>
-        <div class="swatches">
-          <div><i style="background:#2C2A28"></i><small>#2C2A28</small></div>
-          <div><i style="background:#8A8F7A"></i><small>#8A8F7A</small></div>
-          <div><i style="background:#D8C7B5"></i><small>#D8C7B5</small></div>
-          <div><i style="background:#F7F3EE"></i><small>#F7F3EE</small></div>
-        </div>
-      </div>
     </div>
   </section>
 
