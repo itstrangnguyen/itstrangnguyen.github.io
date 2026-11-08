@@ -107,6 +107,24 @@ section{padding:64px 0;}
 section + section,section.divided{border-top:1px solid var(--line);}
 .section-intro{color:var(--ink-2);max-width:640px;margin:-6px 0 36px;}
 .p-mai .section-intro{max-width:none;}   /* mai: intros span the full content width */
+.sub-intro{color:var(--ink-2);margin:0 0 20px;}
+
+/* mai brand guidelines: logo notes (lighter than .box), font samples */
+/* Original logo set apart from the new ones: extra space and a thin divider */
+/* An empty 24px column after the first logo keeps all four the same size */
+.figures.logo-compare{grid-template-columns:1fr 24px repeat(3,1fr);}
+.logo-compare > figure:nth-child(2){grid-column:3;}
+.logo-compare > figure:first-child{position:relative;}
+.logo-compare > figure:first-child::after{content:"";position:absolute;top:0;bottom:0;right:-28px;width:1px;background:var(--line);}
+.logo-notes{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin:24px 0 0;}
+.logo-notes div{border-left:2px solid var(--accent);padding-left:16px;}
+.logo-notes dt{font-weight:600;color:var(--ink);}
+.logo-notes dd{margin:4px 0 0;font-size:15px;color:var(--ink-2);}
+.box .type-name{font-size:24px;line-height:1.2;color:var(--ink);margin-bottom:10px;}
+.box .type-sample{font-size:17px;line-height:1.5;color:var(--ink-2);}
+.f-cormorant{font-family:'Cormorant Garamond',serif;font-weight:500;}
+.f-montserrat{font-family:'Montserrat',sans-serif;}
+.f-dmserif{font-family:'DM Serif Display',serif;}
 .two-col{display:grid;grid-template-columns:280px 1fr;gap:48px;}
 .two-col > :first-child h2{margin-bottom:0;}
 
@@ -191,6 +209,7 @@ figure{margin:0;}
 figcaption{font-size:14px;color:var(--ink-3);margin-top:10px;}
 .figures{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
 .figures-3{grid-template-columns:repeat(3,1fr);}
+.figures-4{grid-template-columns:repeat(4,1fr);gap:16px;}
 /* Phone screenshots: same height so the captions line up */
 .phones{gap:16px;}
 .phones img{aspect-ratio:362/759;object-fit:cover;object-position:top;}
@@ -420,6 +439,8 @@ blockquote cite{display:block;margin-top:12px;font-size:14px;font-style:normal;c
 .swatches div{flex:1;min-width:110px;}
 .swatches i{display:block;height:64px;border-radius:12px;border:1px solid var(--line);}
 .swatches small{display:block;margin-top:8px;font-family:var(--mono);font-size:12px;color:var(--ink-3);}
+.swatches strong{display:block;margin-top:10px;font-size:14px;font-weight:500;}
+.swatches strong + small{margin-top:2px;}
 
 .figures video{background:#000;}
 .slot-poster{aspect-ratio:9/16;max-height:640px;align-items:flex-end;background-size:cover;background-position:center;color:#fff;text-shadow:0 1px 3px #000;border-style:solid;}
@@ -451,6 +472,11 @@ h3.sub{margin:36px 0 14px;}
   .meta > div:first-child{border-top:0;}
   .meta dt{margin:0;}
   .figures,.figures-3{grid-template-columns:1fr;}
+  .figures-4{grid-template-columns:repeat(2,1fr);}
+  .figures.logo-compare{grid-template-columns:repeat(2,1fr);}
+  .logo-compare > figure:nth-child(2){grid-column:auto;}
+  .logo-compare > figure:first-child::after{right:-8px;}
+  .logo-notes{grid-template-columns:1fr;gap:16px;}
   /* Phone screenshots swipe sideways instead of stacking */
   .phones{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;}
   .phones figure{flex:0 0 68%;scroll-snap-align:start;}
