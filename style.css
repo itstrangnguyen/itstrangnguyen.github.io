@@ -225,7 +225,15 @@ figcaption{font-size:14px;color:var(--ink-3);margin-top:10px;}
 .slides img{display:block;width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;}
 .gallery figcaption{display:flex;flex-direction:column;align-items:flex-start;gap:2px;font-size:13px;line-height:1.45;}
 .gallery figcaption strong{font-size:14px;font-weight:500;}
-.gallery figcaption .tag{margin-top:6px;font-size:12px;padding:3px 10px;}
+.gallery figcaption .tags{gap:6px;margin-top:8px;}
+.gallery figcaption .tag{font-size:12px;padding:3px 10px;}
+/* Funnel phase label, tinted with the project colour so it reads apart from the AI label */
+.tag-phase{color:var(--accent);background:color-mix(in srgb, var(--brand) 32%, var(--surface-2));}
+/* Compact "Tools" dropdown under each piece */
+.gallery figcaption details{width:100%;margin-top:10px;border-radius:12px;}
+.gallery figcaption summary{padding:8px 12px;font-size:13px;}
+.gallery figcaption .details-body{margin:0;padding:10px 12px 10px 28px;font-size:13px;color:var(--ink-2);}
+.gallery figcaption .details-body li{margin:2px 0;}
 .wide{margin:32px 0;}
 
 /* Shown automatically when an image file is missing (see script.js) */
