@@ -83,7 +83,7 @@ p:last-child{margin-bottom:0;}
   background:#E2A94B;
   box-shadow:12px 0 0 #4FB38A, 0 12px 0 #B9BF9F, 12px 12px 0 #EC8F45;
 }
-/* Menu: links with icons grouped in a pill; the current page is filled with the page accent */
+/* Menu: links with icons grouped in a pill; the current page is filled light, the same on every page */
 .pill-group{display:flex;gap:2px;padding:5px;background:var(--surface);border:1px solid var(--line);border-radius:16px;}
 .pill-group a{
   display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:11px;
@@ -91,7 +91,7 @@ p:last-child{margin-bottom:0;}
   transition:background .15s ease,color .15s ease;
 }
 .pill-group a:hover{background:var(--surface-2);color:var(--ink);}
-.pill-group a[aria-current="page"]{background:var(--accent);color:var(--bg);}
+.pill-group a[aria-current="page"]{background:var(--ink);color:var(--bg);}
 .pill-group svg{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
 .site-nav{margin-left:auto;}
 
