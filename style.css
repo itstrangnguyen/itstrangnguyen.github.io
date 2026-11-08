@@ -110,13 +110,16 @@ section + section,section.divided{border-top:1px solid var(--line);}
 .sub-intro{color:var(--ink-2);margin:0 0 20px;}
 
 /* mai brand guidelines: logo notes (lighter than .box), font samples */
-/* Original logo set apart from the new ones: extra space and a thin divider */
-/* An empty 24px column after the first logo keeps all four the same size */
-.figures.logo-compare{grid-template-columns:1fr 24px repeat(3,1fr);}
-.logo-compare > figure:nth-child(2){grid-column:3;}
-.logo-compare > figure:first-child{position:relative;}
-.logo-compare > figure:first-child::after{content:"";position:absolute;top:0;bottom:0;right:-28px;width:1px;background:var(--line);}
-.logo-notes{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin:24px 0 0;}
+/* Logo before/after: four logos the same size in one row. An empty 24px column after the original holds
+   a thin divider; the three new versions share the outer columns (subgrid), with the logo notes
+   underneath them, one under each logo. */
+.logo-layout{display:grid;grid-template-columns:1fr 24px 1fr 1fr 1fr;column-gap:16px;align-items:start;}
+.logo-layout figure{margin:0;}
+.logo-layout img{width:100%;border-radius:16px;}
+.logo-before{position:relative;}
+.logo-before::after{content:"";position:absolute;top:0;bottom:0;right:-28px;width:1px;background:var(--line);}
+.logo-after{grid-column:3 / 6;display:grid;grid-template-columns:subgrid;row-gap:24px;}
+.logo-notes{grid-column:1 / -1;display:grid;grid-template-columns:subgrid;margin:0;}   /* one point under each new logo */
 .logo-notes div{border-left:2px solid var(--accent);padding-left:16px;}
 .logo-notes dt{font-weight:600;color:var(--ink);}
 .logo-notes dd{margin:4px 0 0;font-size:15px;color:var(--ink-2);}
@@ -502,10 +505,12 @@ h4.sub{font-size:19px;font-weight:600;line-height:1.35;color:var(--ink);letter-s
   .meta dt{margin:0;}
   .figures,.figures-3{grid-template-columns:1fr;}
   .figures-4{grid-template-columns:repeat(2,1fr);}
-  .figures.logo-compare{grid-template-columns:repeat(2,1fr);}
-  .logo-compare > figure:nth-child(2){grid-column:auto;}
-  .logo-compare > figure:first-child::after{right:-8px;}
-  .logo-notes{grid-template-columns:1fr;gap:16px;}
+  /* Phone: the original on its own row, a line, then the three new versions in a row with the notes below */
+  .logo-layout{grid-template-columns:repeat(3,1fr);column-gap:12px;row-gap:24px;}
+  .logo-before{grid-column:1 / 3;}
+  .logo-before::after{display:none;}
+  .logo-after{grid-column:1 / -1;border-top:1px solid var(--line);padding-top:24px;}
+  .logo-notes{grid-template-columns:1fr;row-gap:16px;}   /* too narrow for three columns of text on a phone */
   /* Phone screenshots swipe sideways instead of stacking */
   .phones{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;}
   .phones figure{flex:0 0 68%;scroll-snap-align:start;}
