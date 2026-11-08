@@ -65,9 +65,17 @@ document.querySelectorAll('.carousel').forEach(function (c) {
   if (!imgs.length || typeof HTMLDialogElement === 'undefined') return;
   var box = document.createElement('dialog');
   box.className = 'lightbox';
-  box.innerHTML = '<button class="lightbox-close" type="button" aria-label="Close">×</button><img alt=""><p></p>';
+  box.innerHTML = '<button class="lightbox-close" type="button" aria-label="Close">×</button>' +
+    '<button class="lightbox-nav prev" type="button" aria-label="Previous image">‹</button>' +
+    '<button class="lightbox-nav next" type="button" aria-label="Next image">›</button><img alt=""><p></p>';
   document.body.appendChild(box);
   var big = box.querySelector('img'), cap = box.querySelector('p');
+  var prevBtn = box.querySelector('.lightbox-nav.prev'), nextBtn = box.querySelector('.lightbox-nav.next');
+  // Images inside a [data-zoom-group] element form a set: the lightbox shows
+  // prev/next buttons (and arrow keys) that loop through the set.
+  var group = [], pos = 0;
+  // A slide that hadn't loaded yet has no size to fit; fit it once it arrives
+  big.addEventListener('load', function () { fit(big); });
   // Fit the image as large as the screen allows (up to 92% wide, 80% tall),
   // scaling small images up so their text is readable.
   function fit(img) {
@@ -77,13 +85,31 @@ document.querySelectorAll('.carousel').forEach(function (c) {
     big.style.width = Math.round(w * scale) + 'px';
     big.style.height = Math.round(h * scale) + 'px';
   }
-  function open(img) {
+  function show(img) {
     big.src = img.currentSrc || img.src;
     big.alt = img.alt;
     cap.textContent = img.alt;
     fit(img);
-    box.showModal();
   }
+  function open(img) {
+    var set = img.closest('[data-zoom-group]');
+    group = set ? [].slice.call(set.querySelectorAll('img[data-zoom]')) : [img];
+    pos = group.indexOf(img);
+    box.classList.toggle('has-nav', group.length > 1);
+    show(img);
+    if (!box.open) box.showModal();
+  }
+  function step(d) {
+    if (group.length < 2) return;
+    pos = (pos + d + group.length) % group.length;
+    show(group[pos]);
+  }
+  prevBtn.addEventListener('click', function () { step(-1); });
+  nextBtn.addEventListener('click', function () { step(1); });
+  box.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowLeft') { e.preventDefault(); step(-1); }
+    if (e.key === 'ArrowRight') { e.preventDefault(); step(1); }
+  });
   window.addEventListener('resize', function () {
     if (box.open) fit({ naturalWidth: big.naturalWidth, naturalHeight: big.naturalHeight });
   });
@@ -95,5 +121,7 @@ document.querySelectorAll('.carousel').forEach(function (c) {
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(img); }
     });
   });
-  box.addEventListener('click', function (e) { if (e.target !== big) box.close(); });
+  box.addEventListener('click', function (e) {
+    if (e.target !== big && !e.target.closest('.lightbox-nav')) box.close();
+  });
 })();

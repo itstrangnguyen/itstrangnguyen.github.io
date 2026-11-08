@@ -213,16 +213,16 @@ figcaption{font-size:14px;color:var(--ink-3);margin-top:10px;}
 /* Phone screenshots: same height so the captions line up */
 .phones{gap:16px;}
 .phones img{aspect-ratio:362/759;object-fit:cover;object-position:top;}
-/* Gallery: same three-column grid as .figures-3, each piece previewed at 4:5, click to open full size */
-.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:start;}
-.gallery img,.gallery video{
-  width:100%;aspect-ratio:4/5;object-fit:cover;object-position:top;
-  border-radius:14px;background:var(--surface);border:1px solid var(--line);
-}
-.gallery video{object-fit:contain;background:#000;}
-.gallery a{display:block;transition:transform .2s ease;}
-.gallery a:hover{transform:translateY(-3px);}
-.gallery a:hover img{border-color:var(--accent);}
+/* Gallery: one row of phone-shaped pieces. Every piece sits in the same 1:2 frame and
+   is shown whole (no crop), straight on the page with no card behind it. Click to enlarge. */
+.gallery{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;align-items:start;}
+.gallery .shot{aspect-ratio:1/2;display:flex;align-items:center;justify-content:center;}
+.gallery .shot img,.gallery .shot video{display:block;max-width:100%;max-height:100%;width:auto;height:auto;}
+.gallery .shot video{width:100%;border-radius:22px;background:#000;}
+.gallery img[data-zoom]:hover{box-shadow:none;transform:translateY(-3px);}
+/* Carousel slides: six equal squares in one row */
+.slides{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;}
+.slides img{display:block;width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;}
 .gallery figcaption{display:flex;flex-direction:column;align-items:flex-start;gap:2px;font-size:13px;line-height:1.45;}
 .gallery figcaption strong{font-size:14px;font-weight:500;}
 .gallery figcaption .tag{margin-top:6px;font-size:12px;padding:3px 10px;}
@@ -481,7 +481,8 @@ h3.sub{margin:36px 0 14px;}
   .phones{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;}
   .phones figure{flex:0 0 68%;scroll-snap-align:start;}
   .gallery{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;}
-  .gallery figure{flex:0 0 72%;scroll-snap-align:start;}
+  .gallery figure{flex:0 0 60%;scroll-snap-align:start;}
+  .slides{grid-template-columns:repeat(3,1fr);}
   .stats{grid-template-columns:repeat(2,1fr);}
   .stat .num{font-size:26px;}
   .timeline .row,.iteration{grid-template-columns:1fr;gap:2px;}
@@ -666,6 +667,16 @@ img[data-zoom]:hover{transform:translateY(-2px);box-shadow:0 0 0 2px var(--accen
   border:1px solid var(--line);background:var(--surface-2);color:var(--ink);font-size:22px;line-height:1;cursor:pointer;
 }
 .lightbox-close:hover{border-color:var(--accent);color:var(--accent);}
+/* Prev/next, shown only when the image belongs to a [data-zoom-group] */
+.lightbox-nav{
+  display:none;position:fixed;top:50%;transform:translateY(-50%);z-index:1;
+  width:44px;height:44px;border-radius:50%;border:1px solid var(--line);
+  background:var(--surface-2);color:var(--ink);font-size:26px;line-height:1;padding:0 0 3px;cursor:pointer;
+}
+.lightbox.has-nav .lightbox-nav{display:flex;align-items:center;justify-content:center;}
+.lightbox-nav:hover{border-color:var(--accent);color:var(--accent);}
+.lightbox-nav.prev{left:16px;}
+.lightbox-nav.next{right:16px;}
 
 /* ---------- Numbered steps in two columns: label + title left, details right ---------- */
 .step-row{margin-top:56px;}
