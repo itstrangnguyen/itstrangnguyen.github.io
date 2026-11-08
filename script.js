@@ -58,45 +58,56 @@ document.querySelectorAll('.carousel').forEach(function (c) {
   update();
 });
 
-// Lightbox: any <img data-zoom> opens enlarged on the page.
-// Close with the × button, a click on the backdrop, or Esc.
+// Lightbox: any <img data-zoom> or <video data-zoom> opens enlarged on the page.
+// Videos play there with controls. Close with the × button, a click on the backdrop, or Esc.
 (function () {
-  var imgs = document.querySelectorAll('img[data-zoom]');
-  if (!imgs.length || typeof HTMLDialogElement === 'undefined') return;
+  var items = document.querySelectorAll('img[data-zoom], video[data-zoom]');
+  if (!items.length || typeof HTMLDialogElement === 'undefined') return;
   var box = document.createElement('dialog');
   box.className = 'lightbox';
   box.innerHTML = '<button class="lightbox-close" type="button" aria-label="Close">×</button>' +
     '<button class="lightbox-nav prev" type="button" aria-label="Previous image">‹</button>' +
-    '<button class="lightbox-nav next" type="button" aria-label="Next image">›</button><img alt=""><p></p>';
+    '<button class="lightbox-nav next" type="button" aria-label="Next image">›</button>' +
+    '<img alt=""><video controls playsinline hidden></video><p></p>';
   document.body.appendChild(box);
-  var big = box.querySelector('img'), cap = box.querySelector('p');
+  var big = box.querySelector('img'), vid = box.querySelector('video'), cap = box.querySelector('p');
   var prevBtn = box.querySelector('.lightbox-nav.prev'), nextBtn = box.querySelector('.lightbox-nav.next');
-  // Images inside a [data-zoom-group] element form a set: the lightbox shows
+  // Items inside a [data-zoom-group] element form a set: the lightbox shows
   // prev/next buttons (and arrow keys) that loop through the set.
   var group = [], pos = 0;
-  // A slide that hadn't loaded yet has no size to fit; fit it once it arrives
-  big.addEventListener('load', function () { fit(big); });
-  // Fit the image as large as the screen allows (up to 92% wide, 80% tall),
+  function isVideo(el) { return el.tagName === 'VIDEO'; }
+  function label(el) { return el.alt || el.getAttribute('aria-label') || ''; }
+  // Fit the media as large as the screen allows (up to 92% wide, 80% tall),
   // scaling small images up so their text is readable.
-  function fit(img) {
-    var w = img.naturalWidth, h = img.naturalHeight;
+  function fit(target, w, h) {
     if (!w || !h) return;
     var scale = Math.min(window.innerWidth * 0.92 / w, window.innerHeight * 0.8 / h);
-    big.style.width = Math.round(w * scale) + 'px';
-    big.style.height = Math.round(h * scale) + 'px';
+    target.style.width = Math.round(w * scale) + 'px';
+    target.style.height = Math.round(h * scale) + 'px';
   }
-  function show(img) {
-    big.src = img.currentSrc || img.src;
-    big.alt = img.alt;
-    cap.textContent = img.alt;
-    fit(img);
+  // Media that hadn't loaded yet has no size to fit; fit it once it arrives
+  big.addEventListener('load', function () { fit(big, big.naturalWidth, big.naturalHeight); });
+  vid.addEventListener('loadedmetadata', function () { fit(vid, vid.videoWidth, vid.videoHeight); });
+  function show(el) {
+    cap.textContent = label(el);
+    if (isVideo(el)) {
+      big.hidden = true; vid.hidden = false;
+      vid.src = el.currentSrc || el.src;
+      fit(vid, el.videoWidth, el.videoHeight);
+      vid.play().catch(function () {});
+    } else {
+      vid.pause(); vid.hidden = true; big.hidden = false;
+      big.src = el.currentSrc || el.src;
+      big.alt = el.alt;
+      fit(big, el.naturalWidth, el.naturalHeight);
+    }
   }
-  function open(img) {
-    var set = img.closest('[data-zoom-group]');
-    group = set ? [].slice.call(set.querySelectorAll('img[data-zoom]')) : [img];
-    pos = group.indexOf(img);
+  function open(el) {
+    var set = el.closest('[data-zoom-group]');
+    group = set ? [].slice.call(set.querySelectorAll('img[data-zoom], video[data-zoom]')) : [el];
+    pos = group.indexOf(el);
     box.classList.toggle('has-nav', group.length > 1);
-    show(img);
+    show(el);
     if (!box.open) box.showModal();
   }
   function step(d) {
@@ -110,18 +121,21 @@ document.querySelectorAll('.carousel').forEach(function (c) {
     if (e.key === 'ArrowLeft') { e.preventDefault(); step(-1); }
     if (e.key === 'ArrowRight') { e.preventDefault(); step(1); }
   });
+  box.addEventListener('close', function () { vid.pause(); });
   window.addEventListener('resize', function () {
-    if (box.open) fit({ naturalWidth: big.naturalWidth, naturalHeight: big.naturalHeight });
+    if (!box.open) return;
+    if (vid.hidden) fit(big, big.naturalWidth, big.naturalHeight);
+    else fit(vid, vid.videoWidth, vid.videoHeight);
   });
-  imgs.forEach(function (img) {
-    img.tabIndex = 0;
-    img.setAttribute('role', 'button');
-    img.addEventListener('click', function () { open(img); });
-    img.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(img); }
+  items.forEach(function (el) {
+    el.tabIndex = 0;
+    el.setAttribute('role', 'button');
+    el.addEventListener('click', function (e) { e.preventDefault(); open(el); });
+    el.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(el); }
     });
   });
   box.addEventListener('click', function (e) {
-    if (e.target !== big && !e.target.closest('.lightbox-nav')) box.close();
+    if (e.target !== big && e.target !== vid && !e.target.closest('.lightbox-nav')) box.close();
   });
 })();

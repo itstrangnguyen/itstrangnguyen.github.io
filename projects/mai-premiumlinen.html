@@ -28,11 +28,21 @@
 <main>
 
   <!-- ================= 1. HEADER ================= -->
-  <div class="hero">
+  <div class="hero hero-with-art">
     <div class="wrap">
-      <p class="eyebrow">Strategy · Automation · AI creative</p>
-      <h1>mai.premiumlinen</h1>
-      <p class="lead">A social media strategy and content system for a one-person linen brand in Saigon: persona, funnel, 14-day plan, two automations, and AI-assisted video and carousel content.</p>
+      <div class="hero-top">
+        <div>
+          <p class="eyebrow">Strategy · Automation · AI creative</p>
+          <h1>mai.premiumlinen</h1>
+          <p class="lead">A social media strategy and content system for a one-person linen brand in Saigon: persona, funnel, 14-day plan, two automations, and AI-assisted video and carousel content.</p>
+        </div>
+        <!-- Decorative collage of the new logo and two produced posts (shown again with captions below) -->
+        <div class="hero-art art-mai" aria-hidden="true">
+          <img class="a-logo art-card" src="../assets/images/mai/logo-walnut.jpg" alt="">
+          <img class="a-phone a-phone-1 art-drop" src="../assets/images/mai/carousel-ig.png" alt="">
+          <img class="a-phone a-phone-2 art-drop" src="../assets/images/mai/flash-sale-post.png" alt="">
+        </div>
+      </div>
       <p class="note"><strong>Disclaimer:</strong> <strong>mai.premiumlinen</strong> is an existing brand that I don't own. I built the strategy, content and automations myself, based on the brand's public identity and its limits as a one-person business. Nothing was posted on the brand's accounts; all content is simulated. Product photos come from the brand's public posts. The owner has seen the full project and sent feedback (below).</p>
       <dl class="meta meta-fit">
         <div><dt>Role</dt><dd>Solo</dd></div>
@@ -41,22 +51,42 @@
         <div><dt>Tools</dt><dd>Claude, Gemini, Google Flow, CapCut, Canva, Manychat, Make.com</dd></div>
       </dl>
       <nav class="subnav" aria-label="On this page" style="margin:32px 0 0">
-        <a href="#goal">01 · Strategy</a>
-        <a href="#calendar">02 · Content</a>
-        <a href="#dm-funnel">03 · Automation</a>
-        <a href="#kpis">04 · Results</a>
+        <a href="#ch-strategy">01 · Strategy</a>
+        <a href="#ch-content">02 · Content</a>
+        <a href="#ch-automation">03 · Automation</a>
+        <a href="#ch-results">04 · Results</a>
       </nav>
       <div class="todo">Ask the owner to confirm she's fine with the product photos appearing here. Then delete this box.</div>
     </div>
   </div>
 
+  <!-- ================= CHAPTER 01 ================= -->
+  <section class="chapter" id="ch-strategy">
+    <div class="wrap">
+      <span class="chapter-num">01</span>
+      <div><h2 class="chapter-title">Strategy</h2><p>Who the content is for, what it has to achieve, and how the brand looks.</p></div>
+    </div>
+  </section>
+
   <!-- ================= GOAL ================= -->
-  <section id="goal" class="divided">
-    <div class="wrap two-col">
-      <div><p class="eyebrow">01 · Strategy</p><h2>The goal</h2></div>
-      <div>
-        <p><strong>Business goal</strong><br> Build a loyal customer base among Gen Z students in Saigon by earning trust with honest, educational content.</p>
-        <p><strong>Social media goal</strong><br> Grow Instagram DM inquiries from 15 to 60 a month by Q4 2026, leading to 12–15 orders a month. The plan: 3 posts a week (2 short videos, 1 educational carousel), supported by Manychat and Make.com.</p>
+  <section id="goal">
+    <div class="wrap">
+      <p class="eyebrow">01 · Strategy</p>
+      <h2>The goal</h2>
+      <p class="section-intro">The plan starts from one business goal and one measurable social media goal.</p>
+      <div class="goal">
+        <div>
+          <p class="label">Business goal</p>
+          <p class="goal-statement">Build a loyal customer base among Gen Z students in Saigon by earning trust with honest, educational content.</p>
+        </div>
+        <div>
+          <p class="label">Social media goal · by Q4 2026</p>
+          <dl class="goal-stats">
+            <div><dt>15 → 60</dt><dd>Instagram DM inquiries a month</dd></div>
+            <div><dt>12–15</dt><dd>orders a month from those DMs</dd></div>
+            <div><dt>3</dt><dd>posts a week: 2 short videos, 1 carousel, backed by Manychat and Make.com</dd></div>
+          </dl>
+        </div>
       </div>
     </div>
   </section>
@@ -66,9 +96,10 @@
     <div class="wrap">
       <p class="eyebrow">01 · Strategy</p>
       <h2>Buyer persona</h2>
+      <p class="section-intro">Every content idea is written for one person: a Gen Z student in Saigon who buys less, but better.</p>
       <blockquote>“I don't want more clothes. I want fewer things I actually love, and I want to know they were made with some kind of care, not just cheaply and fast.”<cite>Minh Trang <strong>·</strong> 20 <strong>·</strong> University student <strong>·</strong> Saigon, Vietnam </cite></blockquote>
-      <div class="boxes wide">
-        <div class="box">
+      <div class="cols">
+        <div>
           <p class="label">Goals</p>
           <ul>
             <li>A small, considered wardrobe</li>
@@ -77,7 +108,7 @@
             <li>Pieces that pack light for travel</li>
           </ul>
         </div>
-        <div class="box">
+        <div>
           <p class="label">Pain points</p>
           <ul>
             <li>Linen creases</li>
@@ -86,7 +117,7 @@
             <li>Unsure how to care for the fabric</li>
           </ul>
         </div>
-        <div class="box">
+        <div>
           <p class="label">Buying behaviour</p>
           <ul>
             <li>Researches before buying</li>
@@ -109,10 +140,10 @@
         <table>
           <thead><tr><th>Phase</th><th>Mindset</th><th>Goal</th><th>Channel &amp; format</th></tr></thead>
           <tbody>
-            <tr><td><strong>See</strong></td><td>Scrolling, doesn't know the brand yet</td><td>Introduce the brand through a feeling, not a product pitch</td><td>TikTok &amp; IG Reels<br>(GRWM and café outfit videos)</td></tr>
-            <tr><td><strong>Think</strong></td><td>Interested, but unsure about creases, care and price</td><td>Educate fabric nature and build trust</td><td>IG carousel &amp; Threads<br>(care guides, styling tips)</td></tr>
-            <tr><td><strong>Do</strong></td><td>Ready to buy a set for a trip</td><td>Create urgency and drive DM inquiries</td><td>IG DM funnel<br>(Manychat comment-to-DM, flash sale)</td></tr>
-            <tr><td><strong>Care</strong></td><td>Proud owner, happy to share</td><td>Turn buyers into advocates</td><td>IG Stories and private broadcast channel</td></tr>
+            <tr><td><span class="tag tag-phase">See</span></td><td>Scrolling, doesn't know the brand yet</td><td>Introduce the brand through a feeling, not a product pitch</td><td>TikTok &amp; IG Reels<br>(GRWM and café outfit videos)</td></tr>
+            <tr><td><span class="tag tag-phase">Think</span></td><td>Interested, but unsure about creases, care and price</td><td>Educate fabric nature and build trust</td><td>IG carousel &amp; Threads<br>(care guides, styling tips)</td></tr>
+            <tr><td><span class="tag tag-phase">Do</span></td><td>Ready to buy a set for a trip</td><td>Create urgency and drive DM inquiries</td><td>IG DM funnel<br>(Manychat comment-to-DM, flash sale)</td></tr>
+            <tr><td><span class="tag tag-phase">Care</span></td><td>Proud owner, happy to share</td><td>Turn buyers into advocates</td><td>IG Stories and private broadcast channel</td></tr>
           </tbody>
         </table>
       </div>
@@ -125,10 +156,10 @@
       <p class="eyebrow">01 · Strategy</p>
       <h2>Three content pillars</h2>
       <p class="section-intro">A pillar is a recurring theme tied to the brand’s goals. Pillars keep the voice consistent and the content varied. In my plan, every content idea gets one phase and one pillar.</p>
-      <div class="boxes">
-        <div class="box"><p class="label">Community · builds trust</p><p>Founder's journey, behind the scenes, customer reviews.</p></div>
-        <div class="box"><p class="label">Product · converts</p><p>Fabric, sourcing, production process.</p></div>
-        <div class="box"><p class="label">Education · earns attention</p><p>Dressing for the climate, care tips, sustainability.</p></div>
+      <div class="cols">
+        <div><p class="label">Community · builds trust</p><p>Founder's journey, behind the scenes, customer reviews.</p></div>
+        <div><p class="label">Product · converts</p><p>Fabric, sourcing, production process.</p></div>
+        <div><p class="label">Education · earns attention</p><p>Dressing for the climate, care tips, sustainability.</p></div>
       </div>
     </div>
   </section>
@@ -173,6 +204,14 @@
     </div>
   </section>
 
+  <!-- ================= CHAPTER 02 ================= -->
+  <section class="chapter" id="ch-content">
+    <div class="wrap">
+      <span class="chapter-num">02</span>
+      <div><h2 class="chapter-title">Content</h2><p>A two-week plan, the pieces I produced, and how I prompted them.</p></div>
+    </div>
+  </section>
+
   <!-- ================= CALENDAR ================= -->
   <section id="calendar">
     <div class="wrap">
@@ -183,20 +222,20 @@
         <table>
           <thead><tr><th>Day</th><th>Phase</th><th>Pillar</th><th>Content</th><th>Format</th><th>Status</th></tr></thead>
           <tbody>
-            <tr><td>1</td><td>See</td><td>Education</td><td>Dressed for Saigon Heat</td><td>Short video</td><td class="status-done">Produced</td></tr>
-            <tr><td>2</td><td>Think</td><td>Product</td><td>Linen Crease Dilemma</td><td>Carousel, 6 slides</td><td class="status-done">Produced</td></tr>
-            <tr><td>3</td><td>Think</td><td>Product</td><td>Linen Crease Dilemma, Threads repost</td><td>Text + photos</td><td class="status-done">Produced</td></tr>
-            <tr><td>4</td><td>See</td><td>Community</td><td>Founder: “Why master tailors, not a factory”</td><td>Carousel</td><td>Planned</td></tr>
-            <tr><td>5</td><td>Think</td><td>Education</td><td>Fabric care &amp; styling tips</td><td>Carousel</td><td>Planned</td></tr>
-            <tr><td>6</td><td>See</td><td>Education</td><td>Travel capsule wardrobe</td><td>Short video</td><td>Planned</td></tr>
-            <tr><td>7</td><td>Do</td><td>Product</td><td>Flash sale launch</td><td>Feed post + Story + DM funnel</td><td class="status-done">Produced</td></tr>
-            <tr><td>8</td><td>Do</td><td>Product</td><td>DM funnel auto-reply live</td><td>Manychat automation</td><td class="status-done">Produced</td></tr>
-            <tr><td>9</td><td>Do</td><td>Product</td><td>Sale reminder, last 2 days</td><td>Story + countdown</td><td>Planned</td></tr>
-            <tr><td>10</td><td>Do</td><td>Product</td><td>Sale closes tonight</td><td>Story + countdown</td><td>Planned</td></tr>
-            <tr><td>11</td><td>Care</td><td>Community</td><td>Customer photo reshare</td><td>Story template</td><td>Planned</td></tr>
-            <tr><td>12</td><td>Care</td><td>Education</td><td>Styling tips for purchased pieces</td><td>Carousel</td><td>Planned</td></tr>
-            <tr><td>13</td><td>Care</td><td>Community</td><td>Exclusive drop preview</td><td>Broadcast message</td><td class="status-done">Produced</td></tr>
-            <tr><td>14</td><td>Care</td><td>Community</td><td>Drop preview follow-up</td><td>Broadcast message</td><td>Planned</td></tr>
+            <tr><td>1</td><td><span class="tag tag-phase">See</span></td><td>Education</td><td>Dressed for Saigon Heat</td><td>Short video</td><td class="status-done">Produced</td></tr>
+            <tr><td>2</td><td><span class="tag tag-phase">Think</span></td><td>Product</td><td>Linen Crease Dilemma</td><td>Carousel, 6 slides</td><td class="status-done">Produced</td></tr>
+            <tr><td>3</td><td><span class="tag tag-phase">Think</span></td><td>Product</td><td>Linen Crease Dilemma, Threads repost</td><td>Text + photos</td><td class="status-done">Produced</td></tr>
+            <tr><td>4</td><td><span class="tag tag-phase">See</span></td><td>Community</td><td>Founder: “Why master tailors, not a factory”</td><td>Carousel</td><td>Planned</td></tr>
+            <tr><td>5</td><td><span class="tag tag-phase">Think</span></td><td>Education</td><td>Fabric care &amp; styling tips</td><td>Carousel</td><td>Planned</td></tr>
+            <tr><td>6</td><td><span class="tag tag-phase">See</span></td><td>Education</td><td>Travel capsule wardrobe</td><td>Short video</td><td>Planned</td></tr>
+            <tr><td>7</td><td><span class="tag tag-phase">Do</span></td><td>Product</td><td>Flash sale launch</td><td>Feed post + Story + DM funnel</td><td class="status-done">Produced</td></tr>
+            <tr><td>8</td><td><span class="tag tag-phase">Do</span></td><td>Product</td><td>DM funnel auto-reply live</td><td>Manychat automation</td><td class="status-done">Produced</td></tr>
+            <tr><td>9</td><td><span class="tag tag-phase">Do</span></td><td>Product</td><td>Sale reminder, last 2 days</td><td>Story + countdown</td><td>Planned</td></tr>
+            <tr><td>10</td><td><span class="tag tag-phase">Do</span></td><td>Product</td><td>Sale closes tonight</td><td>Story + countdown</td><td>Planned</td></tr>
+            <tr><td>11</td><td><span class="tag tag-phase">Care</span></td><td>Community</td><td>Customer photo reshare</td><td>Story template</td><td>Planned</td></tr>
+            <tr><td>12</td><td><span class="tag tag-phase">Care</span></td><td>Education</td><td>Styling tips for purchased pieces</td><td>Carousel</td><td>Planned</td></tr>
+            <tr><td>13</td><td><span class="tag tag-phase">Care</span></td><td>Community</td><td>Exclusive drop preview</td><td>Broadcast message</td><td class="status-done">Produced</td></tr>
+            <tr><td>14</td><td><span class="tag tag-phase">Care</span></td><td>Community</td><td>Drop preview follow-up</td><td>Broadcast message</td><td>Planned</td></tr>
           </tbody>
         </table>
       </div>
@@ -213,7 +252,7 @@
       <!-- One piece per funnel phase, in order. Each preview shows the whole piece; click an image to enlarge it. -->
       <div class="gallery">
         <figure>
-          <div class="shot"><video src="../assets/videos/mai-dressed-for-saigon-heat-tiktok.mp4" controls playsinline preload="metadata"></video></div>
+          <div class="shot is-video"><video src="../assets/videos/mai-dressed-for-saigon-heat-tiktok.mp4#t=0.1" muted playsinline preload="metadata" data-zoom aria-label="Video: Dressed for Saigon Heat"></video></div>
           <figcaption>
             <strong>Dressed for Saigon Heat</strong><span>TikTok &amp; IG Reels</span>
             <span class="tags"><span class="tag tag-phase">See</span><span class="tag">AI-generated video</span></span>
@@ -268,13 +307,13 @@
 
   <!-- ================= PROMPTS ================= -->
   <section id="prompts">
-    <div class="wrap two-col">
-      <div><p class="eyebrow">02 · Content</p><h2>Prompts and what I changed</h2></div>
-      <div>
-        <p>One iteration per funnel phase: what the first result got wrong and how I fixed it.</p>
+    <div class="wrap">
+      <p class="eyebrow">02 · Content</p>
+      <h2>Prompts and what I changed</h2>
+      <p class="section-intro">One iteration per funnel phase: what the first result got wrong and how I fixed it.</p>
 
         <details>
-          <summary>See · The café that looked European</summary>
+          <summary><span class="tag tag-phase">See</span> The café that looked European</summary>
           <div class="details-body">
             <dl class="iteration">
               <dt>Problem</dt><dd>Google Flow kept generating a European-style café for clip 4. The persona lives in Saigon, so the scene didn't fit her world.</dd>
@@ -285,7 +324,7 @@
         </details>
 
         <details>
-          <summary>Think · A carousel that read like an FAQ</summary>
+          <summary><span class="tag tag-phase">Think</span> A carousel that read like an FAQ</summary>
           <div class="details-body">
             <dl class="iteration">
               <dt>Prompt</dt><dd><div class="prompt">Create a 6-slide Instagram carousel explaining why linen wrinkles, aimed at a Gen Z student audience hesitant about the fabric. Keep the tone premium and minimal.</div></dd>
@@ -297,7 +336,7 @@
         </details>
 
         <details>
-          <summary>Do · A sale caption that was too pushy</summary>
+          <summary><span class="tag tag-phase">Do</span> A sale caption that was too pushy</summary>
           <div class="details-body">
             <dl class="iteration">
               <dt>Prompt</dt><dd><div class="prompt">Write a sales caption for a 25% off linen sale targeting Gen Z. Tell them to comment to get a discount code.</div></dd>
@@ -309,7 +348,7 @@
         </details>
 
         <details>
-          <summary>Care · “You've earned VIP access!”</summary>
+          <summary><span class="tag tag-phase">Care</span> “You've earned VIP access!”</summary>
           <div class="details-body">
             <dl class="iteration">
               <dt>Prompt</dt><dd><div class="prompt">Write an Instagram Stories template for resharing customer photos, and a broadcast channel message offering early access to past buyers.</div></dd>
@@ -349,41 +388,54 @@ Slide 3: … side-by-side split composition; left half shows this linen fabric's
 Slide 4: … a woman wearing these white linen trousers, captured from the waist down or with her face out of frame, walking mid-stride so the fabric moves naturally and catches soft natural light. Same warm neutral tone as reference, minimal editorial style, no visible face, focus on how the linen fabric moves and creases naturally with motion</div>
           </div>
         </details>
-      </div>
+    </div>
+  </section>
+
+  <!-- ================= CHAPTER 03 ================= -->
+  <section class="chapter" id="ch-automation">
+    <div class="wrap">
+      <span class="chapter-num">03</span>
+      <div><h2 class="chapter-title">Automation</h2><p>Two workflows that save a one-person brand time.</p></div>
     </div>
   </section>
 
   <!-- ================= AUTOMATION 1: DM FUNNEL ================= -->
   <section id="dm-funnel">
-    <div class="wrap two-col">
-      <div><p class="eyebrow">03 · Automation 1</p><h2>Comment-to-DM funnel</h2></div>
-      <div>
-        <p>When someone comments “SUMMER” on the flash sale post, Manychat replies under the comment and sends a two-step DM: a greeting, then the sale link and size guide.</p>
-        <ol class="steps">
-          <li><div><strong>Trigger</strong><span>A comment on the flash sale post.</span></div></li>
-          <li><div><strong>Keyword</strong><span>The comment contains “SUMMER” or “summer”.</span></div></li>
-          <li><div><strong>Public reply</strong><span>Manychat answers under the comment.</span></div></li>
-          <li><div><strong>Opening DM</strong><span>Greeting with a button.</span></div></li>
-          <li><div><strong>Follow-up DM</strong><span>Call to action with the sale link.</span></div></li>
-        </ol>
-        <p class="note"><strong>Tool switch.</strong> I planned this in Make.com, but Instagram's API doesn't let Make.com watch comments on this kind of account. I switched to Manychat, an official Meta partner built for comment-to-DM flows, and documented why.</p>
-        <h3 class="sub">Live test on a test account</h3>
-        <div class="figures figures-3 phones">
-          <figure><img src="../assets/images/mai/manychat-test-1.png" alt="Test post on the simulated account" data-slot><figcaption>Step 1 · The test post.</figcaption></figure>
-          <figure><img src="../assets/images/mai/manychat-test-2.png" alt="Comment SUMMER with the automatic public reply" data-slot><figcaption>Steps 2–3 · Comment and automatic reply.</figcaption></figure>
-          <figure><img src="../assets/images/mai/manychat-test-3.png" alt="DM conversation sent automatically by Manychat" data-slot><figcaption>Steps 4–5 · The DMs arrive with no manual step.</figcaption></figure>
+    <div class="wrap">
+      <p class="eyebrow">03 · Automation 1</p>
+      <h2>Comment-to-DM funnel</h2>
+      <p class="section-intro">When someone comments “SUMMER” on the flash sale post, Manychat replies under the comment and sends a two-step DM: a greeting, then the sale link and size guide.</p>
+      <!-- Steps and the tool-switch note on the left, the live test screenshots on the right -->
+      <div class="flow-split">
+        <div>
+          <ol class="steps">
+            <li><div><strong>Trigger</strong><span>A comment on the flash sale post.</span></div></li>
+            <li><div><strong>Keyword</strong><span>The comment contains “SUMMER” or “summer”.</span></div></li>
+            <li><div><strong>Public reply</strong><span>Manychat answers under the comment.</span></div></li>
+            <li><div><strong>Opening DM</strong><span>Greeting with a button.</span></div></li>
+            <li><div><strong>Follow-up DM</strong><span>Call to action with the sale link.</span></div></li>
+          </ol>
+          <p class="note"><strong>Tool switch.</strong> I planned this in Make.com, but Instagram's API doesn't let Make.com watch comments on this kind of account. I switched to Manychat, an official Meta partner built for comment-to-DM flows, and documented why.</p>
         </div>
-        <p class="muted small" style="margin-top:14px">Tested on @avoberry2026, a simulated account; images are placeholders.</p>
+        <div>
+          <h3 class="sub">Live test on a test account</h3>
+          <!-- One combined image of the three test screenshots; click to enlarge all three together -->
+          <figure class="test-combined">
+            <img src="../assets/images/mai/manychat-test-combined.png" data-zoom alt="Live test in three screens: the test post; the comment SUMMER with Manychat's automatic public reply; the DM conversation sent automatically" loading="lazy" data-slot>
+            <figcaption class="test-steps"><span>Step 1 · The test post.</span><span>Steps 2–3 · Comment and automatic reply.</span><span>Steps 4–5 · The DMs arrive with no manual step.</span></figcaption>
+          </figure>
+          <p class="muted small" style="margin-top:14px">Tested on @avoberry2026, a simulated account; images are placeholders.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ================= AUTOMATION 2: CONTENT COCKPIT ================= -->
   <section id="content-cockpit">
-    <div class="wrap two-col">
-      <div><p class="eyebrow">03 · Automation 2</p><h2>Content Cockpit</h2></div>
-      <div>
-        <p>Planning across three pillars and four funnel phases gets messy for one person. This Make.com scenario turns a running list of raw ideas in Google Sheets into a sorted content backlog.</p>
+    <div class="wrap">
+      <p class="eyebrow">03 · Automation 2</p>
+      <h2>Content Cockpit</h2>
+      <p class="section-intro">Planning across three pillars and four funnel phases gets messy for one person. This Make.com scenario turns a running list of raw ideas in Google Sheets into a sorted content backlog.</p>
         <ol class="steps">
           <li><div><strong>Idea typed in</strong><span>The founder adds a raw idea to the sheet.</span></div></li>
           <li><div><strong>Gemini classifies</strong><span>Format, platform, pillar, STDC phase, and a hook.</span></div></li>
@@ -394,7 +446,14 @@ Slide 4: … a woman wearing these white linen trousers, captured from the waist
           <div class="media"><video src="../assets/videos/mai_content-cockpit-automation.mp4" controls playsinline preload="metadata" data-slot></video></div>
           <figcaption>The scenario in Make.com.</figcaption>
         </figure>
-      </div>
+    </div>
+  </section>
+
+  <!-- ================= CHAPTER 04 ================= -->
+  <section class="chapter" id="ch-results">
+    <div class="wrap">
+      <span class="chapter-num">04</span>
+      <div><h2 class="chapter-title">Results</h2><p>How success would be measured, and what I took away.</p></div>
     </div>
   </section>
 
@@ -403,14 +462,15 @@ Slide 4: … a woman wearing these white linen trousers, captured from the waist
     <div class="wrap">
       <p class="eyebrow">04 · Results</p>
       <h2>How I'd measure it</h2>
+      <p class="section-intro">Each funnel phase has its own KPIs, so it's clear where the plan works and where it stalls.</p>
       <div class="table-wrap">
         <table>
           <thead><tr><th>Phase</th><th>KPIs</th><th>Tool</th></tr></thead>
           <tbody>
-            <tr><td><strong>See</strong></td><td>Video views, watch time, follower growth, shares and saves</td><td>IG Insights, TikTok Analytics</td></tr>
-            <tr><td><strong>Think</strong></td><td>Carousel save rate, comments, Threads replies, profile visits</td><td>IG Insights, Threads Insights</td></tr>
-            <tr><td><strong>Do</strong></td><td>“SUMMER” comments, DM-to-click rate, DM-to-sale rate, sale orders</td><td>Manychat, store analytics</td></tr>
-            <tr><td><strong>Care</strong></td><td>Repeat purchases, customer reshares, orders from the broadcast channel</td><td>IG Insights, store analytics</td></tr>
+            <tr><td><span class="tag tag-phase">See</span></td><td>Video views, watch time, follower growth, shares and saves</td><td>IG Insights, TikTok Analytics</td></tr>
+            <tr><td><span class="tag tag-phase">Think</span></td><td>Carousel save rate, comments, Threads replies, profile visits</td><td>IG Insights, Threads Insights</td></tr>
+            <tr><td><span class="tag tag-phase">Do</span></td><td>“SUMMER” comments, DM-to-click rate, DM-to-sale rate, sale orders</td><td>Manychat, store analytics</td></tr>
+            <tr><td><span class="tag tag-phase">Care</span></td><td>Repeat purchases, customer reshares, orders from the broadcast channel</td><td>IG Insights, store analytics</td></tr>
           </tbody>
         </table>
       </div>
@@ -420,24 +480,22 @@ Slide 4: … a woman wearing these white linen trousers, captured from the waist
 
   <!-- ================= OWNER FEEDBACK ================= -->
   <section id="feedback">
-    <div class="wrap two-col">
-      <div><p class="eyebrow">04 · Results</p><h2>Feedback from the owner</h2></div>
-      <div>
+    <div class="wrap">
+      <p class="eyebrow">04 · Results</p>
+      <h2>Feedback from the owner</h2>
         <div class="todo">Paste the owner's feedback (English translation, after her final check) into the quote below, then delete this box.</div>
         <blockquote>“[Owner's feedback]”<cite>Founder, mai.premiumlinen · translated from Vietnamese</cite></blockquote>
-      </div>
     </div>
   </section>
 
   <!-- ================= REFLECTION ================= -->
   <section id="reflection">
-    <div class="wrap two-col">
-      <div><p class="eyebrow">04 · Results</p><h2>What I learned</h2></div>
-      <div>
+    <div class="wrap">
+      <p class="eyebrow">04 · Results</p>
+      <h2>What I learned</h2>
         <p>The plan changed on contact with the tools. Make.com couldn't watch Instagram comments, so I switched to Manychat and wrote down why. Google Flow needed several rounds before the café looked like Saigon.</p>
         <p>For a one-person brand, a sustainable system matters more than more content: clear pillars, a few automations, and repeatable workflows.</p>
         <p>If the brand grew, I'd hand off content production first and keep strategy and brand voice close.</p>
-      </div>
     </div>
   </section>
 

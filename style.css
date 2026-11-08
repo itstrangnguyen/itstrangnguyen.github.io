@@ -216,10 +216,29 @@ figcaption{font-size:14px;color:var(--ink-3);margin-top:10px;}
 /* Gallery: one row of phone-shaped pieces. Every piece sits in the same 1:2 frame and
    is shown whole (no crop), straight on the page with no card behind it. Click to enlarge. */
 .gallery{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;align-items:start;}
-.gallery .shot{aspect-ratio:1/2;display:flex;align-items:center;justify-content:center;}
-.gallery .shot img,.gallery .shot video{display:block;max-width:100%;max-height:100%;width:auto;height:auto;}
-.gallery .shot video{width:100%;border-radius:22px;background:#000;}
-.gallery img[data-zoom]:hover{box-shadow:none;transform:translateY(-3px);}
+.shot{aspect-ratio:1/2;display:flex;align-items:center;justify-content:center;}
+.shot img,.shot video{display:block;max-width:100%;max-height:100%;width:auto;height:auto;}
+.shot video{width:100%;border-radius:22px;background:#000;}
+.shot img[data-zoom]:hover,.shot video[data-zoom]:hover{box-shadow:none;transform:translateY(-3px);}
+.shot video[data-zoom]{cursor:zoom-in;transition:transform .2s ease;}
+/* Play badge on a video preview; the click opens it in the lightbox */
+.shot.is-video{position:relative;}
+.shot.is-video::after{
+  content:"";position:absolute;left:50%;top:50%;width:56px;height:56px;margin:-28px 0 0 -28px;border-radius:50%;
+  pointer-events:none;background:rgba(11,11,13,.6) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 7l9 5-9 5z' fill='%23fff'/%3E%3C/svg%3E") center/26px no-repeat;
+  border:1px solid rgba(255,255,255,.25);
+}
+/* Manychat test screenshots: same phone frames and size as the gallery */
+/* Manychat live test: the three screens as one image, captions lined up under each screen */
+.test-combined{margin:0;}
+.test-combined img{width:100%;}
+.test-combined img[data-zoom]:hover{box-shadow:none;}
+.test-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;font-size:13px;}
+/* Automation section: steps left, screenshots right */
+.flow-split{display:grid;grid-template-columns:1fr 1.2fr;gap:56px;align-items:start;}
+.flow-split > *{min-width:0;}
+.flow-split h3.sub:first-child{margin-top:0;}
+@media (max-width:760px){ .flow-split{grid-template-columns:1fr;gap:16px;} .flow-split h3.sub:first-child{margin-top:24px;} }
 /* Carousel slides: six equal squares in one row */
 .slides{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;}
 .slides img{display:block;width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;}
@@ -228,7 +247,8 @@ figcaption{font-size:14px;color:var(--ink-3);margin-top:10px;}
 .gallery figcaption .tags{gap:6px;margin-top:8px;}
 .gallery figcaption .tag{font-size:12px;padding:3px 10px;}
 /* Funnel phase label, tinted with the project colour so it reads apart from the AI label */
-.tag-phase{color:var(--accent);background:color-mix(in srgb, var(--brand) 32%, var(--surface-2));}
+.tag-phase{color:var(--accent);background:color-mix(in srgb, var(--brand) 32%, var(--surface-2));font-size:12px;padding:3px 10px;white-space:nowrap;}
+summary .tag-phase{margin-right:8px;}
 /* Compact "Tools" dropdown under each piece */
 .gallery figcaption details{width:100%;margin-top:10px;border-radius:12px;}
 .gallery figcaption summary{padding:8px 12px;font-size:13px;}
@@ -669,6 +689,8 @@ img[data-zoom]:hover{transform:translateY(-2px);box-shadow:0 0 0 2px var(--accen
 }
 .lightbox::backdrop{background:rgba(0,0,0,.82);}
 .lightbox img{display:block;margin:0 auto;border-radius:14px;cursor:zoom-out;} /* size set in script.js */
+.lightbox video{display:block;margin:0 auto;border-radius:14px;background:#000;}
+.lightbox [hidden]{display:none;}
 .lightbox p{margin:12px auto 0;max-width:640px;text-align:center;font-size:14px;color:var(--ink-2);}
 .lightbox-close{
   position:absolute;top:-14px;right:-14px;width:36px;height:36px;border-radius:50%;
@@ -699,3 +721,117 @@ img[data-zoom]:hover{transform:translateY(-2px);box-shadow:0 0 0 2px var(--accen
 .decisions dl{margin:0;display:grid;gap:16px;}
 .decisions dt{font-weight:600;color:var(--ink);}
 .decisions dd{margin:2px 0 0;color:var(--ink-2);}
+
+/* ==========================================================
+   mai.premiumlinen page layout (body.p-mai only): hero collage, chapter openers, open layouts.
+   Fonts and colours stay the site defaults, like the other project pages.
+   ========================================================== */
+
+/* Chapter openers: big number, title, one line */
+body.p-mai section.chapter{padding:120px 0 8px;border-top:1px solid var(--line);}
+body.p-mai section.chapter + section{border-top:0;}
+.chapter .wrap{display:flex;align-items:flex-end;gap:28px;}
+.chapter-num{font-size:112px;font-weight:500;letter-spacing:-0.04em;line-height:.8;color:var(--accent);}
+body.p-mai .chapter-title{font-size:48px;margin:0 0 8px;}
+.chapter p{margin:0;font-size:18px;color:var(--ink-2);}
+
+/* Open layouts instead of cards */
+.goal .label,.cols .label{font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;}
+.goal{display:grid;grid-template-columns:1fr 1.2fr;gap:64px;align-items:start;}
+.goal-statement{font-size:24px;line-height:1.45;font-weight:500;color:var(--ink);}
+.goal-stats{margin:0;}
+.goal-stats div{display:grid;grid-template-columns:150px 1fr;gap:20px;align-items:baseline;padding:16px 0;border-top:1px solid var(--line);}
+.goal-stats dt{font-size:34px;font-weight:500;letter-spacing:-0.02em;line-height:1;color:var(--ink);}
+.goal-stats dd{margin:0;font-size:16px;color:var(--ink-2);}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:40px;}
+.cols > div{border-top:1px solid color-mix(in srgb, var(--accent) 45%, var(--line));padding-top:18px;}
+.cols ul{margin:0;padding-left:18px;font-size:15px;}
+.cols li{margin:4px 0;}
+.cols p{font-size:15px;}
+/* Quotes as large text with an accent rule, not a card */
+body.p-mai blockquote{
+  background:none;border:0;border-left:2px solid var(--accent);border-radius:0;
+  padding:4px 0 4px 28px;margin:0 0 44px;font-size:22px;line-height:1.5;color:var(--ink);
+}
+body.p-mai blockquote cite{font-size:14px;}
+
+@media (max-width:760px){
+  body.p-mai h1{overflow-wrap:anywhere;}
+  body.p-mai section.chapter{padding-top:72px;}
+  .chapter-num{font-size:76px;}
+  body.p-mai .chapter-title{font-size:34px;}
+  .goal{grid-template-columns:1fr;gap:32px;}
+  .goal-statement{font-size:20px;}
+  .goal-stats div{grid-template-columns:110px 1fr;}
+  .goal-stats dt{font-size:28px;}
+  body.p-mai blockquote{font-size:19px;padding-left:20px;}
+}
+
+/* ==========================================================
+   Hero collage (project pages): text left, overlapping project images right.
+   Markup: .hero.hero-with-art > .wrap > .hero-top > [text div] + .hero-art.art-<project>
+   Each project positions its own pieces below. Decorative only (aria-hidden).
+   ========================================================== */
+.hero.hero-with-art{padding:72px 0;}
+.hero-top{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center;}
+.hero-top > *{min-width:0;}
+.hero-art{position:relative;aspect-ratio:10/9;}
+.hero-art > *{position:absolute;}
+.art-card{border-radius:18px;box-shadow:0 30px 60px rgba(0,0,0,.45);}   /* rectangular images */
+.art-drop{filter:drop-shadow(0 24px 36px rgba(0,0,0,.55));}             /* images with transparent corners */
+/* A browser window: a bar with three dots, the screenshot below */
+.art-browser{border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 30px 60px rgba(0,0,0,.45);}
+.art-browser::before{
+  content:"";display:block;height:22px;background:#E9E6DE;
+  background-image:radial-gradient(circle,#C9C4B8 3.5px,transparent 4px),radial-gradient(circle,#C9C4B8 3.5px,transparent 4px),radial-gradient(circle,#C9C4B8 3.5px,transparent 4px);
+  background-size:14px 22px;background-repeat:no-repeat;background-position:8px 0,22px 0,36px 0;
+}
+.art-browser img{display:block;width:100%;}
+
+/* mai.premiumlinen: walnut logo with two phone posts */
+.art-mai .a-logo{left:0;top:10%;width:62%;border-radius:22px;}
+.art-mai .a-phone{width:30%;}
+.art-mai .a-phone-1{right:24%;bottom:0;transform:rotate(-5deg);}
+.art-mai .a-phone-2{right:0;top:0;transform:rotate(4deg);}
+
+/* Molly Mutt: three frames from the final reel, fanned, the middle one in front */
+.hero-art.art-molly{aspect-ratio:10/7.4;}
+.art-molly .a-left{left:3%;top:9%;width:31%;transform:rotate(-6deg);z-index:1;}
+.art-molly .a-right{right:3%;top:9%;width:31%;transform:rotate(6deg);z-index:2;}
+.art-molly .a-center{left:32%;top:0;width:36%;z-index:3;}
+
+/* Fit & Frisch: the landing page in a browser, the sign-up block in front */
+.hero-art.art-fitfrisch{aspect-ratio:10/8;}
+.art-fitfrisch .a-page{left:0;top:6%;width:90%;}
+.art-fitfrisch .a-cta{right:0;bottom:0;width:50%;transform:rotate(2deg);}
+
+/* Feedback classifier: a simple robot (the AI agent) thinking "positive" and "negative", inline SVG */
+.hero-art.art-feedback{aspect-ratio:520/420;}
+.art-feedback svg{inset:0;width:100%;height:100%;overflow:visible;}
+.art-feedback .fx-glow-in{stop-color:var(--accent);stop-opacity:.2;}
+.art-feedback .fx-glow-out{stop-color:var(--accent);stop-opacity:0;}
+.art-feedback .fx-robot{fill:var(--surface-2);stroke:var(--ink-2);stroke-width:6;stroke-linecap:round;stroke-linejoin:round;}
+.art-feedback .fx-robot .fx-eye{fill:var(--ink);stroke:none;}
+.art-feedback .fx-antenna{fill:var(--accent);stroke:none;}
+.art-feedback .fx-pos{fill:color-mix(in srgb, var(--accent) 22%, var(--surface-2));}
+.art-feedback .fx-neg{fill:var(--surface-2);}
+.art-feedback .fx-face{fill:none;stroke-width:3;stroke-linecap:round;}
+.art-feedback .fx-face.is-pos{stroke:var(--accent);}
+.art-feedback .fx-face.is-neg{stroke:var(--ink-3);}
+.art-feedback .fx-face .fx-eye{stroke:none;}
+.art-feedback .fx-face.is-pos .fx-eye{fill:var(--accent);}
+.art-feedback .fx-face.is-neg .fx-eye{fill:var(--ink-3);}
+.art-feedback .fx-label{font-family:var(--sans);font-size:24px;font-weight:600;}
+.art-feedback .fx-label.is-pos{fill:var(--accent);}
+.art-feedback .fx-label.is-neg{font-size:21px;fill:var(--ink-2);}
+/* The two thoughts drift gently; still for visitors who prefer reduced motion */
+.art-feedback .fx-pos,.art-feedback .fx-face.is-pos,.art-feedback .fx-label.is-pos{animation:fx-float 4s ease-in-out infinite;}
+.art-feedback .fx-neg,.art-feedback .fx-face.is-neg,.art-feedback .fx-label.is-neg{animation:fx-float 4s ease-in-out -2s infinite;}
+@keyframes fx-float{50%{transform:translateY(-6px);}}
+@media (prefers-reduced-motion:reduce){ .art-feedback *{animation:none !important;} }
+
+@media (max-width:760px){
+  .hero.hero-with-art{padding:56px 0 44px;}
+  .hero-top{grid-template-columns:1fr;gap:32px;}
+  .hero-art{max-width:420px;}
+}

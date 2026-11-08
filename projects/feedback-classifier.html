@@ -26,11 +26,66 @@
 <main>
 
   <!-- ================= 1. HEADER ================= -->
-  <div class="hero">
+  <div class="hero hero-with-art">
     <div class="wrap">
-      <p class="eyebrow">Automation · n8n</p>
-      <h1>Automated Feedback Classifier</h1>
-      <p class="lead">An n8n workflow that reads each customer feedback entry, lets Gemini classify its sentiment and topic, and posts it to the matching Slack channel.</p>
+      <div class="hero-top">
+        <div>
+          <p class="eyebrow">Automation · n8n</p>
+          <h1>Automated Feedback Classifier</h1>
+          <p class="lead">An n8n workflow that reads each customer feedback entry, lets Gemini classify its sentiment and topic, and posts it to the matching Slack channel.</p>
+        </div>
+        <!-- Decorative: the AI agent (a simple robot) thinking about each piece of feedback:
+             positive or negative. Drawn in inline SVG, colours from the page accent. -->
+        <div class="hero-art art-feedback" aria-hidden="true">
+          <svg viewBox="0 0 520 420" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="fx-glow"><stop offset="0" class="fx-glow-in"/><stop offset="1" class="fx-glow-out"/></radialGradient>
+            </defs>
+            <circle cx="160" cy="290" r="150" fill="url(#fx-glow)"/>
+
+            <!-- positive thought: trail of bubbles up to a gold cloud -->
+            <g class="fx-pos">
+              <circle cx="234" cy="214" r="6"/><circle cx="258" cy="188" r="9"/><circle cx="286" cy="158" r="13"/>
+              <circle cx="340" cy="60" r="28"/><circle cx="396" cy="46" r="34"/><circle cx="452" cy="60" r="28"/>
+              <circle cx="356" cy="132" r="24"/><circle cx="430" cy="136" r="26"/>
+              <rect x="304" y="54" width="196" height="92" rx="46"/>
+            </g>
+            <g class="fx-face is-pos">
+              <circle cx="352" cy="98" r="20"/>
+              <circle class="fx-eye" cx="345" cy="93" r="2.6"/><circle class="fx-eye" cx="359" cy="93" r="2.6"/>
+              <path d="M343 104 Q352 112 361 104"/>
+            </g>
+            <text class="fx-label is-pos" x="384" y="106">Positive</text>
+
+            <!-- negative thought: trail of bubbles across to a grey cloud -->
+            <g class="fx-neg">
+              <circle cx="244" cy="250" r="5"/><circle cx="266" cy="264" r="8"/><circle cx="294" cy="280" r="11"/>
+              <circle cx="368" cy="282" r="22"/><circle cx="420" cy="274" r="26"/><circle cx="466" cy="286" r="20"/>
+              <circle cx="380" cy="352" r="20"/><circle cx="446" cy="354" r="20"/>
+              <rect x="326" y="282" width="172" height="76" rx="38"/>
+            </g>
+            <g class="fx-face is-neg">
+              <circle cx="366" cy="320" r="17"/>
+              <circle class="fx-eye" cx="360" cy="315" r="2.3"/><circle class="fx-eye" cx="372" cy="315" r="2.3"/>
+              <path d="M358 329 Q366 322 374 329"/>
+            </g>
+            <text class="fx-label is-neg" x="394" y="327">Negative</text>
+
+            <!-- the robot -->
+            <g class="fx-robot">
+              <line x1="160" y1="198" x2="160" y2="222"/>
+              <circle class="fx-antenna" cx="160" cy="190" r="9"/>
+              <rect x="82" y="256" width="14" height="34" rx="7"/>
+              <rect x="224" y="256" width="14" height="34" rx="7"/>
+              <rect x="96" y="222" width="128" height="102" rx="32"/>
+              <circle class="fx-eye" cx="136" cy="268" r="10"/>
+              <circle class="fx-eye" cx="184" cy="268" r="10"/>
+              <path d="M146 298 H174"/>
+              <path d="M120 340 Q160 330 200 340 L208 396 H112 Z"/>
+            </g>
+          </svg>
+        </div>
+      </div>
       <dl class="meta meta-fit">
         <div><dt>Role</dt><dd>Solo</dd></div>
         <div><dt>Context</dt><dd>DCI course task</dd></div>
