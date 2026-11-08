@@ -106,6 +106,7 @@ p:last-child{margin-bottom:0;}
 section{padding:64px 0;}
 section + section,section.divided{border-top:1px solid var(--line);}
 .section-intro{color:var(--ink-2);max-width:640px;margin:-6px 0 36px;}
+.p-mai .section-intro{max-width:none;}   /* mai: intros span the full content width */
 .two-col{display:grid;grid-template-columns:280px 1fr;gap:48px;}
 .two-col > :first-child h2{margin-bottom:0;}
 
