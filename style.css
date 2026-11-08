@@ -748,18 +748,13 @@ body.p-mai .chapter-title{font-size:48px;margin:0 0 8px;}
 .chapter p{margin:0;font-size:18px;color:var(--ink-2);}
 
 /* Open layouts instead of cards */
-.goal .label,.cols .label{font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;}
+.goal .label{font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;}
 .goal{display:grid;grid-template-columns:1fr 1.2fr;gap:64px;align-items:start;}
 .goal-statement{font-size:24px;line-height:1.45;font-weight:500;color:var(--ink);}
 .goal-stats{margin:0;}
 .goal-stats div{display:grid;grid-template-columns:150px 1fr;gap:20px;align-items:center;padding:16px 0;border-top:1px solid var(--line);}
 .goal-stats dt{font-size:34px;font-weight:500;letter-spacing:-0.02em;line-height:1;color:var(--ink);}
 .goal-stats dd{margin:0;font-size:16px;color:var(--ink-2);}
-.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:40px;}
-.cols > div{border-top:1px solid color-mix(in srgb, var(--accent) 45%, var(--line));padding-top:18px;}
-.cols ul{margin:0;padding-left:18px;font-size:15px;}
-.cols li{margin:4px 0;}
-.cols p{font-size:15px;}
 /* Quotes as large text with an accent rule, not a card */
 body.p-mai blockquote{
   background:none;border:0;border-left:2px solid var(--accent);border-radius:0;
