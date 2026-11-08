@@ -442,6 +442,15 @@ details[open] summary{border-bottom:1px solid var(--line);}
 
 /* ---------- Tables (strategy, calendar, KPIs) ---------- */
 .table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:16px;background:var(--surface);}
+/* Collapsible table (data-collapse, see script.js): hidden rows and the show-all button below */
+.table-wrap tr[hidden]{display:none;}
+.table-toggle{
+  display:inline-flex;align-items:center;gap:8px;margin-top:14px;padding:8px 18px;border-radius:100px;
+  border:1px solid var(--line);background:var(--surface);color:var(--ink);font:inherit;font-size:14px;font-weight:500;cursor:pointer;
+}
+.table-toggle::after{content:"";width:7px;height:7px;border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;transform:translateY(-2px) rotate(45deg);transition:transform .2s ease;}
+.table-toggle[aria-expanded="true"]::after{transform:translateY(2px) rotate(-135deg);}
+.table-toggle:hover{border-color:var(--accent);color:var(--accent);}
 table{width:100%;border-collapse:collapse;font-size:15px;}
 th,td{text-align:left;vertical-align:top;padding:12px 16px;border-bottom:1px solid var(--line);}
 th{font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-3);}
@@ -740,6 +749,8 @@ body.p-mai section.chapter{padding:120px 0 8px;border-top:1px solid var(--line);
 body.p-mai section:not(.chapter):not(.divided){border-top:0;padding:48px 0;}
 body.p-mai section.divided{padding-top:96px;}
 body.p-mai .section-title{font-size:32px;line-height:1.2;margin-bottom:18px;}
+/* Brand guidelines: more room between the Logo, Typography and Colour palette groups */
+body.p-mai #brand h4.sub:not(:first-of-type){margin-top:60px;}
 /* A short accent dash above each section title, so subsections inside a chapter are easy to spot */
 body.p-mai .section-title::before{content:"";display:block;width:28px;height:3px;border-radius:2px;background:var(--accent);margin-bottom:16px;}
 .chapter .wrap{display:flex;align-items:flex-end;gap:28px;}

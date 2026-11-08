@@ -139,3 +139,23 @@ document.querySelectorAll('.carousel').forEach(function (c) {
     if (e.target !== big && e.target !== vid && !e.target.closest('.lightbox-nav')) box.close();
   });
 })();
+// Collapsible tables: <div class="table-wrap" data-collapse="5" data-collapse-label="days">
+// shows the first 5 body rows and adds a button below to show the rest (and hide them again).
+document.querySelectorAll('.table-wrap[data-collapse]').forEach(function (wrap) {
+  var keep = parseInt(wrap.getAttribute('data-collapse'), 10);
+  var rows = wrap.querySelectorAll('tbody tr');
+  if (!keep || rows.length <= keep) return;
+  var word = wrap.getAttribute('data-collapse-label') || 'rows';
+  var btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'table-toggle';
+  wrap.after(btn);
+  function set(open) {
+    for (var i = keep; i < rows.length; i++) rows[i].hidden = !open;
+    wrap.classList.toggle('is-collapsed', !open);
+    btn.setAttribute('aria-expanded', open);
+    btn.textContent = open ? 'Show fewer ' + word : 'Show all ' + rows.length + ' ' + word;
+  }
+  btn.addEventListener('click', function () { set(btn.getAttribute('aria-expanded') !== 'true'); });
+  set(false);
+});
