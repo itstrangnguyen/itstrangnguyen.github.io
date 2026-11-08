@@ -740,6 +740,8 @@ body.p-mai section.chapter{padding:120px 0 8px;border-top:1px solid var(--line);
 body.p-mai section:not(.chapter):not(.divided){border-top:0;padding:48px 0;}
 body.p-mai section.divided{padding-top:96px;}
 body.p-mai .section-title{font-size:32px;line-height:1.2;margin-bottom:18px;}
+/* A short accent dash above each section title, so subsections inside a chapter are easy to spot */
+body.p-mai .section-title::before{content:"";display:block;width:28px;height:3px;border-radius:2px;background:var(--accent);margin-bottom:16px;}
 .chapter .wrap{display:flex;align-items:flex-end;gap:28px;}
 .chapter-num{font-size:112px;font-weight:500;letter-spacing:-0.04em;line-height:.8;color:var(--accent);}
 body.p-mai .chapter-title{font-size:48px;margin:0 0 8px;}
