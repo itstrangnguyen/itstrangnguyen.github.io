@@ -237,8 +237,8 @@ figcaption{font-size:14px;color:var(--ink-3);margin-top:10px;}
 /* Automation section: steps left, screenshots right */
 .flow-split{display:grid;grid-template-columns:1fr 1.2fr;gap:56px;align-items:start;}
 .flow-split > *{min-width:0;}
-.flow-split h3.sub:first-child{margin-top:0;}
-@media (max-width:760px){ .flow-split{grid-template-columns:1fr;gap:16px;} .flow-split h3.sub:first-child{margin-top:24px;} }
+.flow-split .sub:first-child{margin-top:0;}
+@media (max-width:760px){ .flow-split{grid-template-columns:1fr;gap:16px;} .flow-split .sub:first-child{margin-top:24px;} }
 /* Carousel slides: six equal squares in one row */
 .slides{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;}
 .slides img{display:block;width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;}
@@ -474,6 +474,7 @@ blockquote cite{display:block;margin-top:12px;font-size:14px;font-style:normal;c
 .slot-poster{aspect-ratio:9/16;max-height:640px;align-items:flex-end;background-size:cover;background-position:center;color:#fff;text-shadow:0 1px 3px #000;border-style:solid;}
 .tall img,.tall video{max-height:640px;width:auto;margin:0 auto;}
 h3.sub{margin:36px 0 14px;}
+h4.sub{font-size:19px;font-weight:600;line-height:1.35;color:var(--ink);letter-spacing:-0.01em;margin:36px 0 14px;}
 
 /* ---------- Mobile ---------- */
 @media (max-width:760px){
@@ -729,7 +730,11 @@ img[data-zoom]:hover{transform:translateY(-2px);box-shadow:0 0 0 2px var(--accen
 
 /* Chapter openers: big number, title, one line */
 body.p-mai section.chapter{padding:120px 0 8px;border-top:1px solid var(--line);}
-body.p-mai section.chapter + section{border-top:0;}
+/* Dividers only between the main parts (the four chapters, the owner feedback, the pager);
+   sections inside a chapter are separated by space, not lines */
+body.p-mai section:not(.chapter):not(.divided){border-top:0;padding:48px 0;}
+body.p-mai section.divided{padding-top:96px;}
+body.p-mai .section-title{font-size:32px;line-height:1.2;margin-bottom:18px;}
 .chapter .wrap{display:flex;align-items:flex-end;gap:28px;}
 .chapter-num{font-size:112px;font-weight:500;letter-spacing:-0.04em;line-height:.8;color:var(--accent);}
 body.p-mai .chapter-title{font-size:48px;margin:0 0 8px;}
@@ -788,11 +793,12 @@ body.p-mai blockquote cite{font-size:14px;}
 }
 .art-browser img{display:block;width:100%;}
 
-/* mai.premiumlinen: walnut logo with two phone posts */
-.art-mai .a-logo{left:0;top:10%;width:62%;border-radius:22px;}
-.art-mai .a-phone{width:30%;}
-.art-mai .a-phone-1{right:24%;bottom:0;transform:rotate(-5deg);}
-.art-mai .a-phone-2{right:0;top:0;transform:rotate(4deg);}
+/* mai.premiumlinen: the walnut logo big on the left; the video frame and the broadcast smaller, overlapping it on the right */
+/* Logo centred behind; carousel slide and broadcast tilted on either side at the bottom */
+.hero-art.art-mai{aspect-ratio:10/7.4;}
+.art-mai .a-logo{left:20%;top:0;width:60%;border-radius:22px;z-index:1;}
+.art-mai .a-slide{left:0;bottom:4%;width:30%;border-radius:14px;transform:rotate(-6deg);z-index:2;}
+.art-mai .a-phone{right:0;bottom:0;width:30%;transform:rotate(6deg);z-index:2;}
 
 /* Molly Mutt: three frames from the final reel, fanned, the middle one in front */
 .hero-art.art-molly{aspect-ratio:10/7.4;}
