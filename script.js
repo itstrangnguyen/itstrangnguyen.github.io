@@ -176,3 +176,13 @@ document.querySelectorAll('blockquote[data-collapse]').forEach(function (q) {
   btn.addEventListener('click', function () { set(btn.getAttribute('aria-expanded') !== 'true'); });
   set(false);
 });
+// Back-to-top arrow: shows once the page is scrolled past the first screen; scrolls smoothly to the top.
+document.querySelectorAll('.to-top').forEach(function (btn) {
+  function update() { btn.classList.toggle('is-visible', window.scrollY > window.innerHeight * 0.8); }
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+  btn.addEventListener('click', function (e) {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
