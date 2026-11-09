@@ -857,3 +857,26 @@ body.p-mai blockquote cite{font-size:14px;}
   .hero-top{grid-template-columns:1fr;gap:32px;}
   .hero-art{max-width:420px;}
 }
+
+/* mai: What I learned — one point per row, bold lead-in */
+.learned{list-style:none;margin:0;padding:0;max-width:none;}
+.learned li{position:relative;padding:14px 0 14px 22px;border-top:1px solid var(--line);}
+.learned li:first-child{border-top:0;padding-top:0;}
+.learned li::before{content:"";position:absolute;left:0;top:25px;width:7px;height:7px;border-radius:50%;background:var(--accent);}
+.learned li:first-child::before{top:11px;}
+.learned strong{color:var(--text, inherit);}
+
+/* mai: owner feedback — long quote in paragraphs, signature with email and social icons */
+body.p-mai blockquote.owner-quote{font-size:17px;line-height:1.7;margin-bottom:0;}
+.owner-quote p{margin:0 0 16px;}
+/* Collapsed: first two paragraphs, the second fading out above the "Read the full feedback" button */
+.owner-quote.is-collapsed p:nth-of-type(n+3){display:none;}
+.owner-quote.is-collapsed p:nth-of-type(2){-webkit-mask-image:linear-gradient(#000 35%,transparent);mask-image:linear-gradient(#000 35%,transparent);}
+.owner-quote .table-toggle{margin:0;}
+.owner-sig{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 24px;margin-top:24px;padding-top:18px;border-top:1px solid var(--line);}
+.owner-sig cite{margin:0;}
+.owner-links{display:flex;flex-wrap:wrap;align-items:center;gap:10px;}
+.owner-icon{display:inline-grid;place-items:center;width:36px;height:36px;border-radius:50%;border:1px solid color-mix(in srgb, var(--accent) 45%, transparent);color:var(--accent);transition:color .2s,background .2s,border-color .2s;}
+.owner-icon:hover{background:var(--accent);border-color:var(--accent);color:var(--bg, #0e0f0c);}
+.owner-icon svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
+@media (max-width:760px){ body.p-mai blockquote.owner-quote{font-size:16px;} }

@@ -159,3 +159,20 @@ document.querySelectorAll('.table-wrap[data-collapse]').forEach(function (wrap) 
   btn.addEventListener('click', function () { set(btn.getAttribute('aria-expanded') !== 'true'); });
   set(false);
 });
+// Long quotes: <blockquote data-collapse="2"> shows the first 2 paragraphs and a button for the rest.
+document.querySelectorAll('blockquote[data-collapse]').forEach(function (q) {
+  var keep = parseInt(q.getAttribute('data-collapse'), 10);
+  var paras = q.querySelectorAll('p');
+  if (!keep || paras.length <= keep) return;
+  var btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'table-toggle';
+  paras[paras.length - 1].after(btn);
+  function set(open) {
+    q.classList.toggle('is-collapsed', !open);
+    btn.setAttribute('aria-expanded', open);
+    btn.textContent = open ? 'Show less' : 'Read the full feedback';
+  }
+  btn.addEventListener('click', function () { set(btn.getAttribute('aria-expanded') !== 'true'); });
+  set(false);
+});
