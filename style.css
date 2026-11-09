@@ -314,6 +314,8 @@ details[open] summary{border-bottom:1px solid var(--line);}
 .iteration{display:grid;grid-template-columns:110px 1fr;gap:4px 16px;font-size:16px;}
 .iteration dt{font-size:12px;font-weight:600;letter-spacing:0.1em;color:var(--ink-3);text-transform:uppercase;padding-top:4px;}
 .iteration dd{margin:0 0 12px;}
+/* A label next to a prompt box lines up with the first line inside the box, not the box's top edge */
+.iteration dt:has(+ dd > .prompt:first-child){padding-top:26px;}
 
 /* ---------- Lists ---------- */
 .skill-groups{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:28px;}
@@ -529,6 +531,7 @@ h4.sub{font-size:19px;font-weight:600;line-height:1.35;color:var(--ink);letter-s
   .stats{grid-template-columns:repeat(2,1fr);}
   .stat .num{font-size:26px;}
   .timeline .row,.iteration{grid-template-columns:1fr;gap:2px;}
+  .iteration dt:has(+ dd > .prompt:first-child){padding-top:4px;}   /* label sits above the box on phones */
 }
 /* Very small phones: two badges per row so names stay within two lines */
 @media (max-width:374px){ .certs{grid-template-columns:repeat(2,1fr);} }
