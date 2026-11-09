@@ -610,8 +610,6 @@ h4.sub{font-size:19px;font-weight:600;line-height:1.35;color:var(--ink);letter-s
 .reel-text p{color:var(--ink-2);}
 .reel-text .step-list li{margin:10px 0;color:var(--ink-2);}
 .reel-text .step-list b{color:var(--ink);font-weight:500;}
-.ai-label{font-size:14px;color:var(--ink-3);border-left:2px solid var(--accent);padding:2px 0 2px 12px;margin:20px 0 0;}
-.ai-label b{color:var(--ink-2);font-weight:500;}
 /* Review templates: flex-grow set to each piece's width/height, so all three share one height */
 .templates{display:flex;gap:24px;align-items:flex-end;margin-top:28px;}
 .templates figure{flex-basis:0;min-width:0;}
