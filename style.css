@@ -446,6 +446,8 @@ details[open] summary{border-bottom:1px solid var(--line);}
 .table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:16px;background:var(--surface);}
 /* Collapsible table (data-collapse, see script.js): hidden rows and the show-all button below */
 .table-wrap tr[hidden]{display:none;}
+/* Collapsed: the lower half of the visible rows fades out above the show-all button */
+.table-wrap.is-collapsed{-webkit-mask-image:linear-gradient(#000 50%,rgba(0,0,0,.08));mask-image:linear-gradient(#000 50%,rgba(0,0,0,.08));}
 .table-toggle{
   display:inline-flex;align-items:center;gap:8px;margin-top:14px;padding:8px 18px;border-radius:100px;
   border:1px solid var(--line);background:var(--surface);color:var(--ink);font:inherit;font-size:14px;font-weight:500;cursor:pointer;
