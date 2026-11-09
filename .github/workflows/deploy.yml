@@ -32,7 +32,12 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: .
+          # A unique name per attempt, so "Re-run" doesn't leave several
+          # same-named artifacts in one run (deploy-pages refuses to choose).
+          name: github-pages-${{ github.run_attempt }}
 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          artifact_name: github-pages-${{ github.run_attempt }}
