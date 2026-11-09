@@ -88,10 +88,13 @@ document.querySelectorAll('.carousel').forEach(function (c) {
   // Media that hadn't loaded yet has no size to fit; fit it once it arrives
   big.addEventListener('load', function () { fit(big, big.naturalWidth, big.naturalHeight); });
   // Videos exported with white rounded corners baked in: round the player by the same share
-  // of its width (7.5%) at every size, so the white never shows when enlarged.
+  // of its width (7.5%) at every size and trim a thin edge (2%), so the white never shows when enlarged.
   function fitVideo(w, h) {
     fit(vid, w, h);
-    if (w) vid.style.borderRadius = Math.round(parseFloat(vid.style.width) * 0.075) + 'px';
+    if (!w) return;
+    var size = parseFloat(vid.style.width);
+    vid.style.borderRadius = Math.round(size * 0.075) + 'px';
+    vid.style.clipPath = 'inset(' + Math.round(size * 0.02) + 'px round ' + Math.round(size * 0.07) + 'px)';
   }
   vid.addEventListener('loadedmetadata', function () { fitVideo(vid.videoWidth, vid.videoHeight); });
   function show(el) {
