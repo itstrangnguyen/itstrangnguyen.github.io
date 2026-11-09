@@ -87,13 +87,19 @@ document.querySelectorAll('.carousel').forEach(function (c) {
   }
   // Media that hadn't loaded yet has no size to fit; fit it once it arrives
   big.addEventListener('load', function () { fit(big, big.naturalWidth, big.naturalHeight); });
-  vid.addEventListener('loadedmetadata', function () { fit(vid, vid.videoWidth, vid.videoHeight); });
+  // Videos exported with white rounded corners baked in: round the player by the same share
+  // of its width (7.5%) at every size, so the white never shows when enlarged.
+  function fitVideo(w, h) {
+    fit(vid, w, h);
+    if (w) vid.style.borderRadius = Math.round(parseFloat(vid.style.width) * 0.075) + 'px';
+  }
+  vid.addEventListener('loadedmetadata', function () { fitVideo(vid.videoWidth, vid.videoHeight); });
   function show(el) {
     cap.textContent = label(el);
     if (isVideo(el)) {
       big.hidden = true; vid.hidden = false;
       vid.src = el.currentSrc || el.src;
-      fit(vid, el.videoWidth, el.videoHeight);
+      fitVideo(el.videoWidth, el.videoHeight);
       vid.play().catch(function () {});
     } else {
       vid.pause(); vid.hidden = true; big.hidden = false;
@@ -125,7 +131,7 @@ document.querySelectorAll('.carousel').forEach(function (c) {
   window.addEventListener('resize', function () {
     if (!box.open) return;
     if (vid.hidden) fit(big, big.naturalWidth, big.naturalHeight);
-    else fit(vid, vid.videoWidth, vid.videoHeight);
+    else fitVideo(vid.videoWidth, vid.videoHeight);
   });
   items.forEach(function (el) {
     el.tabIndex = 0;
