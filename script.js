@@ -195,3 +195,146 @@ document.querySelectorAll('.to-top').forEach(function (btn) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 });
+// Wireframe with views and markers: <figure data-wf-tips data-lens="…">
+// - Tabs [data-lens-tab] switch the view; elements with data-lens-pane="a b" show only in those views.
+//   Links to #structure, #form or #brand anywhere on the page switch the view too.
+// - Markers [data-tip] (SVG groups, spans or buttons) show the text of .wf-tips [data-tip] in a popover:
+//   hover or focus shows it, click or tap keeps it open, Esc or a click elsewhere closes it.
+// - Shapes with data-blk="1 b-pink …" light up while a matching marker is shown.
+document.querySelectorAll('[data-wf-tips]').forEach(function (fig) {
+  var SVGNS = 'http://www.w3.org/2000/svg';
+  var tabs = [].slice.call(fig.querySelectorAll('[data-lens-tab]'));
+  var pins = [].slice.call(fig.querySelectorAll('[data-tip]')).filter(function (el) { return !el.closest('.wf-tips'); });
+  if (!pins.length) return;
+
+  var pop = document.createElement('div');
+  pop.className = 'wf-pop';
+  pop.id = 'wf-pop-' + Math.random().toString(36).slice(2, 8);
+  pop.setAttribute('role', 'status');
+  pop.hidden = true;
+  fig.appendChild(pop);
+  var current = null, pinned = false, hideTimer = null;
+
+  function source(id) { return fig.querySelector('.wf-tips [data-tip="' + id + '"]'); }
+
+  pins.forEach(function (pin) {
+    var src = source(pin.getAttribute('data-tip'));
+    var isButton = pin.tagName === 'BUTTON';
+    // SVG markers: an invisible larger circle behind, an easier target on touch screens
+    if (pin.namespaceURI === SVGNS) {
+      var c = pin.querySelector('circle'), tap = document.createElementNS(SVGNS, 'circle');
+      tap.setAttribute('class', 'wf-tap');
+      tap.setAttribute('cx', c.getAttribute('cx')); tap.setAttribute('cy', c.getAttribute('cy')); tap.setAttribute('r', '22');
+      pin.insertBefore(tap, c);
+    }
+    if (!isButton) {
+      pin.setAttribute('tabindex', '0');
+      pin.setAttribute('role', 'button');
+      pin.setAttribute('aria-label', (pin.textContent.trim() ? pin.textContent.trim() + ': ' : '') + (src ? src.getAttribute('data-title') : ''));
+      pin.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(pin); }
+      });
+    }
+    pin.setAttribute('aria-controls', pop.id);
+    pin.setAttribute('aria-expanded', 'false');
+    pin.addEventListener('mouseenter', function () { if (!pinned) show(pin); });
+    pin.addEventListener('mouseleave', function () { if (!pinned) hideSoon(); });
+    pin.addEventListener('focus', function () { if (!pinned) show(pin); });
+    pin.addEventListener('blur', function () { if (!pinned) hideSoon(); });
+    pin.addEventListener('click', function (e) { e.stopPropagation(); toggle(pin); });
+  });
+  function toggle(pin) {
+    if (pinned && current === pin) { hide(); return; }
+    pinned = true; show(pin);
+  }
+  pop.addEventListener('mouseenter', function () { clearTimeout(hideTimer); });
+  pop.addEventListener('mouseleave', function () { if (!pinned) hideSoon(); });
+  pop.addEventListener('click', function (e) { if (!e.target.closest('a')) e.stopPropagation(); });
+  document.addEventListener('click', function () { if (current) hide(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && current) { var p = current; hide(); p.focus(); } });
+  window.addEventListener('resize', function () { if (current) place(current); });
+
+  function show(pin) {
+    clearTimeout(hideTimer);
+    var id = pin.getAttribute('data-tip'), src = source(id);
+    if (!src) return;
+    pop.innerHTML = '';
+    var head = document.createElement('p'); head.className = 'wf-pop-title';
+    var badge = document.createElement('span'); badge.className = 'wf-pop-num';
+    var swatch = src.getAttribute('data-swatch');
+    if (swatch) { badge.classList.add('is-swatch'); badge.style.background = swatch; }
+    else badge.textContent = src.getAttribute('data-badge') || pin.textContent.trim();
+    head.appendChild(badge);
+    head.appendChild(document.createTextNode(src.getAttribute('data-title')));
+    pop.appendChild(head);
+    if (src.getAttribute('data-q')) {
+      var q = document.createElement('p'); q.className = 'wf-pop-q';
+      q.textContent = 'Sandra asks: “' + src.getAttribute('data-q') + '”';
+      pop.appendChild(q);
+    }
+    var body = document.createElement('p'); body.className = 'wf-pop-body';
+    body.innerHTML = src.innerHTML;
+    pop.appendChild(body);
+    pop.hidden = false;
+    pins.forEach(function (p) {
+      var on = p.getAttribute('data-tip') === id;
+      p.classList.toggle('is-active', on);
+      p.setAttribute('aria-expanded', on);
+    });
+    fig.querySelectorAll('[data-blk]').forEach(function (el) {
+      el.classList.toggle('is-lit', el.getAttribute('data-blk').split(' ').indexOf(id) > -1);
+    });
+    current = pin;
+    place(pin);
+  }
+  function hideSoon() { clearTimeout(hideTimer); hideTimer = setTimeout(hide, 120); }
+  function hide() {
+    pop.hidden = true; current = null; pinned = false;
+    pins.forEach(function (p) { p.classList.remove('is-active'); p.setAttribute('aria-expanded', 'false'); });
+    fig.querySelectorAll('.is-lit').forEach(function (el) { el.classList.remove('is-lit'); });
+  }
+  // Below the marker when there is room in the window, otherwise above; kept inside the figure's width.
+  function place(pin) {
+    var f = fig.getBoundingClientRect(), r = pin.getBoundingClientRect();
+    var w = pop.offsetWidth, h = pop.offsetHeight, gap = 10;
+    var left = r.left + r.width / 2 - f.left - w / 2;
+    left = Math.max(8, Math.min(left, f.width - w - 8));
+    var below = r.bottom + gap + h <= window.innerHeight;
+    var top = below ? r.bottom - f.top + gap : r.top - f.top - gap - h;
+    pop.style.left = left + 'px';
+    pop.style.top = top + 'px';
+  }
+
+  // Views
+  function setLens(lens, focusTab) {
+    if (!tabs.some(function (t) { return t.getAttribute('data-lens-tab') === lens; })) return;
+    hide();
+    fig.setAttribute('data-lens', lens);
+    tabs.forEach(function (t) {
+      var on = t.getAttribute('data-lens-tab') === lens;
+      t.setAttribute('aria-selected', on);
+      t.tabIndex = on ? 0 : -1;
+      if (on && focusTab) t.focus();
+    });
+    fig.querySelectorAll('[data-lens-pane]').forEach(function (el) {
+      el.hidden = el.getAttribute('data-lens-pane').split(' ').indexOf(lens) < 0;
+    });
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function (e) { e.stopPropagation(); setLens(t.getAttribute('data-lens-tab')); });
+    t.addEventListener('keydown', function (e) {
+      var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+      if (!d) return;
+      e.preventDefault();
+      setLens(tabs[(i + d + tabs.length) % tabs.length].getAttribute('data-lens-tab'), true);
+    });
+  });
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="#"]');
+    if (!a) return;
+    var lens = a.getAttribute('href').slice(1);
+    if (tabs.some(function (t) { return t.getAttribute('data-lens-tab') === lens; })) setLens(lens);
+  }, true);
+  setLens(location.hash.slice(1) || fig.getAttribute('data-lens'));
+  if (!fig.getAttribute('data-lens')) setLens(tabs[0].getAttribute('data-lens-tab'));
+});
