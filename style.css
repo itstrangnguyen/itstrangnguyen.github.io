@@ -153,6 +153,7 @@ section + section,section.divided{border-top:1px solid var(--line);}
 
 /* ---------- Project cards (home) ---------- */
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:28px;}
+.cards-2{grid-template-columns:repeat(2,minmax(0,1fr));}   /* even card count: 2 × 2, no orphan card in the last row */
 .card{
   display:flex;flex-direction:column;gap:14px;
   background:
@@ -908,3 +909,93 @@ body.p-mai blockquote.owner-quote{font-size:17px;line-height:1.7;margin-bottom:0
 .to-top:hover{background:var(--accent);color:var(--bg);border-color:var(--accent);}
 .to-top svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
 @media (max-width:760px){ .to-top{right:16px;bottom:16px;width:42px;height:42px;} }
+
+/* ==========================================================
+   Arre Mexican Essen: landing page case study
+   ========================================================== */
+.p-arre{ --brand:#B8009A; --accent:#F06AD6; }   /* Arre button pink; lighter pink for text on the dark page */
+
+/* Hero: the page in a browser, the phone view in front */
+.hero-art.art-arre{aspect-ratio:10/8;}
+.art-arre .a-page{left:0;top:4%;width:88%;}
+.art-arre .a-phone{right:0;bottom:0;width:30%;border-radius:18px;border:4px solid #1E1E22;transform:rotate(3deg);}
+
+/* Wireframe left, the seven blocks right */
+.wire-split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:56px;align-items:start;}
+.wireframe{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:20px;}
+.wireframe svg{display:block;width:100%;height:auto;}
+.wf-line{fill:none;stroke:var(--ink-3);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.wf-soft{fill:none;stroke:#3A3A40;stroke-width:2;stroke-linecap:round;}
+.wf-fill{fill:var(--surface-2);stroke:var(--ink-3);stroke-width:2;}
+.wf-btn{fill:color-mix(in srgb, var(--brand) 55%, transparent);stroke:var(--accent);stroke-width:2;}
+.wf-num circle{fill:var(--accent);}
+.wf-num text{fill:#0B0B0D;font:600 15px var(--sans);text-anchor:middle;dominant-baseline:central;}
+.wf-label{fill:var(--ink-3);font:500 12px var(--sans);}
+.blocks{list-style:none;padding:0;margin:0;display:grid;gap:18px;counter-reset:blk;}
+.blocks li{counter-increment:blk;display:grid;grid-template-columns:30px 1fr;gap:14px;}
+.blocks li::before{
+  content:counter(blk);display:grid;place-items:center;width:28px;height:28px;border-radius:50%;
+  background:var(--accent);color:#0B0B0D;font-size:14px;font-weight:600;margin-top:2px;
+}
+.blocks strong{display:block;font-weight:500;font-size:18px;}
+.blocks .what{display:block;color:var(--ink);font-size:16px;}
+.blocks .why{display:block;color:var(--ink-3);font-size:15px;}
+
+/* Form mockup: step 1 (form) and step 2 (thank-you), drawn in HTML */
+.form-flow{display:grid;grid-template-columns:minmax(0,1.2fr) 48px minmax(0,1fr);gap:16px;align-items:start;margin-top:8px;}
+.mock-step .step-label{font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin:0 0 12px;}
+.flow-arrow{align-self:center;justify-self:center;color:var(--accent);}
+.flow-arrow svg{width:36px;height:36px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.mock{
+  --m-ink:#261A24; --m-note:#5C5359; --m-pink:#B8009A; --m-teal:#38B6A8;
+  background:#FDF8F3;color:var(--m-ink);border:1px solid var(--m-teal);border-radius:18px;
+  padding:26px 24px;font-family:Inter, var(--sans);box-shadow:0 30px 60px rgba(0,0,0,.45);
+}
+.mock h3{color:var(--m-ink);font-size:21px;font-weight:700;letter-spacing:-0.01em;margin:0 0 6px;}
+.mock .m-intro{font-size:14px;line-height:1.5;margin:0 0 18px;color:var(--m-ink);}
+.m-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.m-field{position:relative;margin-bottom:12px;}
+.m-field label{display:block;font-size:13px;font-weight:700;margin-bottom:4px;color:var(--m-ink);}
+.m-field label i{font-style:normal;color:#C21F3A;}
+.m-input{height:34px;border:1px solid #8A7F86;border-radius:8px;background:#fff;font-size:13px;color:#766B71;padding:7px 10px;line-height:1.4;}
+.m-select{display:flex;justify-content:space-between;align-items:center;}
+.m-select::after{content:"";border:5px solid transparent;border-top-color:var(--m-ink);margin-top:5px;}
+.m-check{display:flex;gap:8px;align-items:flex-start;font-size:13px;line-height:1.45;margin:4px 0 12px;position:relative;}
+.m-check::before{content:"";flex:none;width:15px;height:15px;margin-top:2px;border:1px solid #8A7F86;border-radius:3px;background:#fff;}
+.m-note{font-size:12.5px;line-height:1.5;color:var(--m-note);margin:0 0 16px;position:relative;}
+.m-note u{color:var(--m-teal);text-decoration-color:currentColor;}
+.m-btn{position:relative;display:block;text-align:center;background:var(--m-pink);color:#fff;font-weight:700;font-size:15px;border-radius:8px;padding:11px 14px;}
+.mock-thanks h3{font-size:24px;margin-bottom:12px;}
+.mock-thanks p{font-size:14px;line-height:1.55;margin:0;color:var(--m-ink);}
+/* Numbered markers on the mockup, matching the notes below it */
+.pin{
+  position:absolute;right:-36px;top:0;display:grid;place-items:center;width:24px;height:24px;border-radius:50%;
+  background:var(--accent);color:#0B0B0D;font:600 12px var(--sans);
+}
+.m-row .pin{right:-36px;}
+.m-btn .pin{top:8px;}
+.mock-thanks{position:relative;}
+.mock-thanks .pin{right:-12px;top:-12px;}
+.mock-notes{list-style:none;counter-reset:pin;padding:0;margin:40px 0 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 40px;}
+.mock-notes li{counter-increment:pin;display:grid;grid-template-columns:24px 1fr;gap:12px;font-size:15px;line-height:1.55;}
+.mock-notes li::before{content:counter(pin);display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--accent);color:#0B0B0D;font-size:12px;font-weight:600;margin-top:1px;}
+.mock-notes strong{font-weight:500;}
+
+/* Brand kit: the role under each swatch */
+.swatches .role{display:block;margin-top:4px;font-size:13px;line-height:1.45;color:var(--ink-3);}
+
+/* Before / after numbers for the photos */
+.compare td:first-child{color:var(--ink);font-weight:500;}
+
+@media (max-width:960px){
+  .wire-split{grid-template-columns:1fr;gap:32px;}
+  .wireframe{max-width:520px;}
+  .form-flow{grid-template-columns:1fr;max-width:460px;}
+  .flow-arrow{transform:rotate(90deg);}
+  .mock-notes{grid-template-columns:1fr;}
+}
+@media (max-width:760px){
+  .mock{padding:22px 18px;}
+  .pin,.m-row .pin{right:-8px;top:-8px;}
+  .m-btn .pin{top:-8px;}
+}
