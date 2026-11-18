@@ -672,22 +672,27 @@ h4.sub{font-size:19px;font-weight:600;line-height:1.35;color:var(--ink);letter-s
 .steps .chip-ghost{background:var(--surface-2);color:var(--ink);border:1px solid var(--line);font-weight:500;}
 
 /* ---------- Two connected pillars: box + box = result ---------- */
-.pillars{display:grid;grid-template-columns:1fr auto 1fr;align-items:stretch;gap:16px;margin-top:20px;}
-.pillars .box{border-color:color-mix(in srgb, var(--brand) 55%, var(--line));}
-.pillars .box .pillar-role{font-size:18px;font-weight:600;color:var(--ink);margin-bottom:6px;}
+.pillars{display:grid;grid-template-columns:1fr auto 1fr;align-items:stretch;gap:14px;margin-top:20px;}
+.pillars .box{padding:18px 22px;border-color:color-mix(in srgb, var(--brand) 55%, var(--line));}
+.pillars .box .label{margin-bottom:6px;}
+.pillars .box .pillar-role{font-size:18px;font-weight:600;color:var(--ink);margin:0 0 4px;}
+.pillars .box p:last-child{margin:0;color:var(--ink-2);}
 .pillars-join{
-  align-self:center;width:40px;height:40px;border-radius:50%;
-  display:grid;place-items:center;font-size:22px;font-weight:600;line-height:1;
+  align-self:center;flex:none;width:32px;height:32px;border-radius:50%;
+  display:grid;place-items:center;font-size:18px;font-weight:600;line-height:1;
   background:var(--brand);color:#fff;
 }
+/* Result: one slim line under the pillars, led by an "=" badge */
 .pillars-result{
-  margin-top:16px;padding:14px 20px;border-radius:16px;text-align:center;
-  background:color-mix(in srgb, var(--brand) 22%, var(--surface-2));
-  border:1px solid color-mix(in srgb, var(--brand) 55%, var(--line));color:var(--ink-2);
+  display:flex;align-items:center;gap:14px;margin-top:14px;padding:12px 22px 12px 14px;border-radius:16px;
+  background:color-mix(in srgb, var(--brand) 18%, var(--surface));
+  border:1px solid color-mix(in srgb, var(--brand) 45%, var(--line));
 }
+.pillars-result p{margin:0;font-size:18px;color:var(--ink-2);}
+.pillars-result b{color:var(--accent);font-weight:600;}
 @media (max-width:760px){
   .pillars{grid-template-columns:1fr;}
-  .pillars-join{justify-self:center;}
+  .pillars > .pillars-join{justify-self:center;}
 }
 
 /* ---------- Sub-blocks inside a section: same subheading, even spacing ---------- */
