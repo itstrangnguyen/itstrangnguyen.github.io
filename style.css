@@ -1153,7 +1153,7 @@ body.p-mai blockquote.owner-quote{font-size:17px;line-height:1.7;margin-bottom:0
 .build-head p{margin:0;}
 
 /* Wireframe hint: one quiet line above the view tabs */
-.lens-hint{display:flex;align-items:center;justify-content:center;gap:6px;margin:0 0 12px;color:var(--ink-3);font-size:13px;line-height:1.4;text-align:center;}
+.lens-hint{display:flex;align-items:center;justify-content:center;gap:6px;margin:0 0 20px;color:var(--ink-3);font-size:13px;line-height:1.4;text-align:center;}
 .wireframe .lens-hint svg{flex:none;width:15px;height:15px;max-width:none;margin:0;fill:none;stroke:var(--accent);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
 
 /* Markers pulse until the reader opens one (script.js adds .is-explored); staggered by --pulse-delay */
