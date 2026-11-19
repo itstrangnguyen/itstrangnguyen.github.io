@@ -1172,3 +1172,4 @@ body.p-mai blockquote.owner-quote{font-size:17px;line-height:1.7;margin-bottom:0
 }
 .wireframe.is-explored .wf-pulse,.wireframe.is-explored .pin::after{animation:none;opacity:0;}
 @media (prefers-reduced-motion:reduce){ .wf-pulse,.wireframe .pin::after{animation:none;} }
+.m-note.m-optin{margin:6px 0 6px;}   /* Form mockup: the line above the opt-in checkbox */
