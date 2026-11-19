@@ -94,7 +94,7 @@
     <div class="wrap">
       <div class="two-col build-head">
         <div><h2>What I built</h2></div>
-        <div><p>One wireframe, three views: how the page is structured, how the quote form works, and which colours and type it uses. Switch the view with the tabs, then hover over or tap a marker.</p></div>
+        <div><p>One wireframe, three views: the page structure, the quote form, and the colours and type.</p></div>
       </div>
 
       <figure class="stage wireframe" data-wf-tips data-lens="structure">
@@ -105,7 +105,7 @@
           <button type="button" role="tab" id="brand" data-lens-tab="brand" aria-selected="false"><span class="part-num">03</span>Brand kit</button>
         </div>
 
-        <p class="lens-intro" data-lens-pane="structure">Seven building blocks. Each one answers a question Sandra has before she sends the form. The page has no menu: the only way forward is the form.</p>
+        <p class="lens-intro" data-lens-pane="structure">Seven building blocks, each answering a question Sandra has before she sends the form. The page has no menu, so the form is the only way forward.</p>
         <p class="lens-intro" data-lens-pane="brand" hidden>The same page in Arre’s colours, taken from the logo. Pink appears only on buttons, so the eye finds the action first.</p>
 
         <div class="lens-pane" data-lens-pane="structure brand">
@@ -124,14 +124,17 @@
             <text class="wf-label wf-head-label" x="564" y="41" text-anchor="end">No menu, no other links</text>
             <line class="wf-soft wf-rule" x1="16" y1="58" x2="584" y2="58"/>
             <!-- 1 headline -->
-            <rect class="wf-line" data-blk="1 b-text b-type" x="36" y="74" width="316" height="92" rx="10"/>
+            <rect class="wf-line" data-blk="1 b-text b-type" x="36" y="74" width="316" height="80" rx="10"/>
             <text class="wf-tag" x="70" y="94">Headline</text>
             <text class="wf-content" x="50" y="122">Das Teamevent, bei dem alle mitmachen</text>
             <text class="wf-text" x="50" y="142">Tacos, Salsas, Dessert. Teams bis 16 Personen.</text>
+            <!-- 5 CTA under the subline: jumps to the form -->
+            <rect class="wf-btn" data-blk="5a b-pink" x="36" y="162" width="172" height="26" rx="6"/>
+            <text class="wf-btn-text" x="122" y="175">Team-Angebot anfordern</text>
             <!-- 2 hero image -->
-            <rect class="wf-fill" data-blk="2" x="36" y="178" width="316" height="138" rx="10"/>
-            <text class="wf-title" x="194" y="240" text-anchor="middle">Hero image</text>
-            <text class="wf-text" x="194" y="260" text-anchor="middle">[colleagues cooking at one counter]</text>
+            <rect class="wf-fill" data-blk="2" x="36" y="196" width="316" height="120" rx="10"/>
+            <text class="wf-title" x="194" y="248" text-anchor="middle">Hero image</text>
+            <text class="wf-text" x="194" y="268" text-anchor="middle">[colleagues cooking at one counter]</text>
             <!-- 6 form -->
             <rect class="wf-line" data-blk="6 b-teal" x="368" y="74" width="196" height="242" rx="10"/>
             <text class="wf-title" x="402" y="94" dominant-baseline="central">Form</text>
@@ -167,7 +170,7 @@
             <rect class="wf-pill" data-blk="b-teal" x="276" y="484" width="118" height="22" rx="11"/><text class="wf-btn-text wf-pill-text" x="335" y="495">Value for Good</text>
             <text class="wf-text wf-small" x="406" y="499">+ 1 quote from a course team</text>
             <!-- 5 repeated button -->
-            <rect class="wf-btn" data-blk="5 b-pink" x="170" y="532" width="260" height="28" rx="6"/>
+            <rect class="wf-btn" data-blk="5b b-pink" x="170" y="532" width="260" height="28" rx="6"/>
             <text class="wf-btn-text" x="300" y="546">Team-Angebot anfordern (repeated)</text>
             <!-- footer -->
             <line class="wf-soft wf-rule" x1="16" y1="572" x2="584" y2="572"/>
@@ -175,13 +178,14 @@
 
             <!-- structure view: numbered markers -->
             <g class="wf-num" data-tip="1"><circle cx="54" cy="94" r="10"/><text x="54" y="94">1</text></g>
-            <g class="wf-num" data-tip="2"><circle cx="54" cy="198" r="10"/><text x="54" y="198">2</text></g>
+            <g class="wf-num" data-tip="2"><circle cx="54" cy="214" r="10"/><text x="54" y="214">2</text></g>
+            <g class="wf-num" data-tip="5a"><circle cx="208" cy="162" r="10"/><text x="208" y="162">5</text></g>
             <g class="wf-num" data-tip="6"><circle cx="386" cy="94" r="10"/><text x="386" y="94">6</text></g>
             <g class="wf-num" data-tip="5"><circle cx="552" cy="226" r="10"/><text x="552" y="226">5</text></g>
             <g class="wf-num" data-tip="7"><circle cx="386" cy="268" r="10"/><text x="386" y="268">7</text></g>
             <g class="wf-num" data-tip="3"><circle cx="46" cy="340" r="10"/><text x="46" y="340">3</text></g>
             <g class="wf-num" data-tip="4"><circle cx="46" cy="438" r="10"/><text x="46" y="438">4</text></g>
-            <g class="wf-num" data-tip="5"><circle cx="430" cy="532" r="10"/><text x="430" y="532">5</text></g>
+            <g class="wf-num" data-tip="5b"><circle cx="430" cy="532" r="10"/><text x="430" y="532">5</text></g>
 
             <!-- brand view: colour and type markers -->
             <g class="wf-swatch wf-brand-only" data-tip="b-type"><circle class="sw-ring" cx="54" cy="94" r="12"/><text class="sw-text" x="54" y="94">Aa</text></g>
@@ -233,13 +237,15 @@
 
         <!-- Text for every marker: script.js shows it in a popover -->
         <div class="wf-tips" hidden>
-          <div data-tip="1" data-title="Headline" data-q="Is this for me?">„Das Teamevent, bei dem alle mitmachen“ plus the subline „Vier Stunden gemeinsam kochen und essen: Tacos, Salsas, Dessert. Für Teams bis 16 Personen.“</div>
-          <div data-tip="2" data-title="Hero image" data-q="What will it look like?">The result: colleagues cooking and laughing at one counter, not a photo of ingredients. Built with an Unsplash photo of four colleagues cooking (Sweet Life), plus a taco photo (Hybrid Storytellers) to show the Mexican food.</div>
-          <div data-tip="3" data-title="Value proposition" data-q="Why Arre?">Three benefits: everyone joins in, no cooking skills needed · the team plans nothing: one contact, one price, one invoice, at the office or in the studio in Charlottenburg · at the end, everyone eats together. Price line: „ab [€__] pro Person“ (her public Birria class cost 80 € per person, Oct 2026).</div>
-          <div data-tip="4" data-title="Social proof" data-q="Can I trust them?">„Unternehmen, die Arre gebucht haben“, with three real reviews from the Arre website (Claudia Z., BARMER · Carolin, Doering Media · Joost L., Kingdom of the Netherlands), shortened with […]. A note under the cards says they come from catering events.</div>
-          <div data-tip="5" data-title="Call to action" data-q="What do I do now?">The button „Team-Angebot anfordern“ appears three times: under the subline, in the form and at the bottom. The two extra buttons jump to the form.</div>
-          <div data-tip="6" data-title="Form" data-q="How much effort is it?">Four fields in German: Name, geschäftliche E-Mail, Anzahl Personen, Wunschtermin. <a href="#form">Open the Form view</a>.</div>
-          <div data-tip="7" data-title="Reassurance" data-q="What happens after I click?">Above the form button: „Kostenlos und unverbindlich. Wir nutzen Ihre Angaben nur für Ihr Angebot.“ The 24 hours moved to the form heading and are an assumption.</div>
+          <div data-tip="1" data-title="Headline" data-q="Is this for me?"></div>
+          <div data-tip="2" data-title="Hero image" data-q="What will it look like?"></div>
+          <div data-tip="3" data-title="Value proposition" data-q="Why Arre?"></div>
+          <div data-tip="4" data-title="Social proof" data-q="Can I trust them?"></div>
+          <div data-tip="5" data-title="Call to action · in the form" data-q="What do I do now?">The button in the Hubspot form.</div>
+          <div data-tip="5a" data-title="Call to action · under the subline" data-q="What do I do now?">Jumps to the form. Without it, the form button sat about two screens down on desktop and three to four on mobile, but the headline and a call to action belong above the fold.</div>
+          <div data-tip="5b" data-title="Call to action · at the end" data-q="What do I do now?">Jumps back to the form, so nobody has to scroll all the way up again.</div>
+          <div data-tip="6" data-title="Form" data-q="How much effort is it?"><a href="#form">Open the Form view</a>.</div>
+          <div data-tip="7" data-title="Reassurance" data-q="What happens after I click?"></div>
 
           <div data-tip="f1" data-title="One name field">One field for the full name keeps the form short.</div>
           <div data-tip="f2" data-title="Business email">The placeholder says why it’s needed: the quote goes there. The work address also shows the company, so there is no separate company field.</div>
