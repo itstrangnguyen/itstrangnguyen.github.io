@@ -226,6 +226,14 @@ document.querySelectorAll('[data-wf-tips]').forEach(function (fig) {
       tap.setAttribute('class', 'wf-tap');
       tap.setAttribute('cx', c.getAttribute('cx')); tap.setAttribute('cy', c.getAttribute('cy')); tap.setAttribute('r', '22');
       pin.insertBefore(tap, c);
+      // Pulse ring (CSS animation) that invites a first hover or tap; stops once a marker is opened
+      var ring = document.createElementNS(SVGNS, 'circle');
+      ring.setAttribute('class', 'wf-pulse');
+      ring.setAttribute('cx', c.getAttribute('cx')); ring.setAttribute('cy', c.getAttribute('cy')); ring.setAttribute('r', c.getAttribute('r'));
+      pin.insertBefore(ring, c);
+    }
+    if (pin.namespaceURI === SVGNS || pin.classList.contains('pin')) {
+      pin.style.setProperty('--pulse-delay', (pins.indexOf(pin) % 9) * 0.18 + 's');
     }
     if (!isButton) {
       pin.setAttribute('tabindex', '0');
@@ -284,6 +292,7 @@ document.querySelectorAll('[data-wf-tips]').forEach(function (fig) {
     fig.querySelectorAll('[data-blk]').forEach(function (el) {
       el.classList.toggle('is-lit', el.getAttribute('data-blk').split(' ').indexOf(id) > -1);
     });
+    fig.classList.add('is-explored');
     current = pin;
     place(pin);
   }
@@ -310,6 +319,7 @@ document.querySelectorAll('[data-wf-tips]').forEach(function (fig) {
     if (!tabs.some(function (t) { return t.getAttribute('data-lens-tab') === lens; })) return;
     hide();
     fig.setAttribute('data-lens', lens);
+    fig.classList.remove('is-explored');
     tabs.forEach(function (t) {
       var on = t.getAttribute('data-lens-tab') === lens;
       t.setAttribute('aria-selected', on);

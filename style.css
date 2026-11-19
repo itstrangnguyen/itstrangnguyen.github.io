@@ -1080,7 +1080,7 @@ body.p-mai blockquote.owner-quote{font-size:17px;line-height:1.7;margin-bottom:0
 .lens-tabs button:not([aria-selected="true"]) .part-num{background:var(--surface-2);color:var(--ink-3);}
 .lens-tabs button:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
 .lens-tabs button{scroll-margin-top:24px;}
-.lens-intro{max-width:640px;margin:0 auto 24px;text-align:center;color:var(--ink-2);font-size:16px;}
+.lens-intro{max-width:640px;margin:0 auto 14px;text-align:center;color:var(--ink-2);font-size:16px;}
 .lens-pane > .form-flow{margin-top:8px;}
 
 /* Markers inside HTML (form view) behave like the SVG ones */
@@ -1151,3 +1151,28 @@ body.p-mai blockquote.owner-quote{font-size:17px;line-height:1.7;margin-bottom:0
 /* "What I built": heading left, intro right (like Audience), then the full-width stage */
 .build-head{margin-bottom:40px;}
 .build-head p{margin:0;}
+
+/* Wireframe hint: a pill right under the view intro, so readers see it before the figure */
+.lens-hint{
+  display:flex;align-items:center;justify-content:center;gap:8px;width:max-content;max-width:100%;
+  margin:0 auto 22px;padding:7px 16px 7px 12px;border-radius:100px;
+  background:color-mix(in srgb, var(--brand) 22%, var(--surface-2));
+  border:1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  color:var(--ink);font-size:14px;line-height:1.4;
+}
+.lens-hint svg{flex:none;width:18px;height:18px;fill:none;stroke:var(--accent);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+
+/* Markers pulse until the reader opens one (script.js adds .is-explored); staggered by --pulse-delay */
+@keyframes wf-ping{0%{transform:scale(1);opacity:.85;}70%,100%{transform:scale(2.3);opacity:0;}}
+.wf-pulse{
+  fill:none;stroke:var(--accent);stroke-width:2;pointer-events:none;opacity:0;
+  transform-box:fill-box;transform-origin:center;
+  animation:wf-ping 2.4s ease-out infinite;animation-delay:var(--pulse-delay,0s);
+}
+.wireframe .pin::after{
+  content:"";position:absolute;inset:0;border-radius:50%;border:2px solid var(--accent);pointer-events:none;opacity:0;
+  animation:wf-ping 2.4s ease-out infinite;animation-delay:var(--pulse-delay,0s);
+}
+.wireframe.is-explored .wf-pulse,.wireframe.is-explored .pin::after{animation:none;opacity:0;}
+@media (prefers-reduced-motion:reduce){ .wf-pulse,.wireframe .pin::after{animation:none;} }
+@media (max-width:760px){ .lens-hint{font-size:13px;text-align:left;} }
