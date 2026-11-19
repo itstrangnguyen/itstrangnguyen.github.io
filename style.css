@@ -1152,15 +1152,9 @@ body.p-mai blockquote.owner-quote{font-size:17px;line-height:1.7;margin-bottom:0
 .build-head{margin-bottom:40px;}
 .build-head p{margin:0;}
 
-/* Wireframe hint: a pill right under the view intro, so readers see it before the figure */
-.lens-hint{
-  display:flex;align-items:center;justify-content:center;gap:8px;width:max-content;max-width:100%;
-  margin:0 auto 22px;padding:7px 16px 7px 12px;border-radius:100px;
-  background:color-mix(in srgb, var(--brand) 22%, var(--surface-2));
-  border:1px solid color-mix(in srgb, var(--accent) 35%, transparent);
-  color:var(--ink);font-size:14px;line-height:1.4;
-}
-.lens-hint svg{flex:none;width:18px;height:18px;fill:none;stroke:var(--accent);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+/* Wireframe hint: one quiet line above the view tabs */
+.lens-hint{display:flex;align-items:center;justify-content:center;gap:6px;margin:0 0 12px;color:var(--ink-3);font-size:13px;line-height:1.4;text-align:center;}
+.wireframe .lens-hint svg{flex:none;width:15px;height:15px;max-width:none;margin:0;fill:none;stroke:var(--accent);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
 
 /* Markers pulse until the reader opens one (script.js adds .is-explored); staggered by --pulse-delay */
 @keyframes wf-ping{0%{transform:scale(1);opacity:.85;}70%,100%{transform:scale(2.3);opacity:0;}}
@@ -1175,4 +1169,3 @@ body.p-mai blockquote.owner-quote{font-size:17px;line-height:1.7;margin-bottom:0
 }
 .wireframe.is-explored .wf-pulse,.wireframe.is-explored .pin::after{animation:none;opacity:0;}
 @media (prefers-reduced-motion:reduce){ .wf-pulse,.wireframe .pin::after{animation:none;} }
-@media (max-width:760px){ .lens-hint{font-size:13px;text-align:left;} }
