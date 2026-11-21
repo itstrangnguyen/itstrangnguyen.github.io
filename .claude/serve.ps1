@@ -5,7 +5,7 @@ param([string]$Root, [int]$Port = 5517, [string]$UploadDir = '')
 $l = New-Object System.Net.HttpListener
 $l.Prefixes.Add("http://localhost:$Port/")
 $l.Start()
-$types = @{'.html'='text/html; charset=utf-8';'.css'='text/css';'.js'='application/javascript';'.png'='image/png';'.jpg'='image/jpeg';'.webp'='image/webp';'.mp4'='video/mp4';'.pdf'='application/pdf'}
+$types = @{'.html'='text/html; charset=utf-8';'.css'='text/css';'.js'='application/javascript';'.png'='image/png';'.jpg'='image/jpeg';'.webp'='image/webp';'.mp4'='video/mp4';'.pdf'='application/pdf';'.svg'='image/svg+xml'}
 while ($l.IsListening) {
   $c = $l.GetContext()
   try {

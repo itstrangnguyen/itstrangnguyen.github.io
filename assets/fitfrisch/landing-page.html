@@ -45,7 +45,8 @@
     padding:26px 28px;
     max-width:1080px;margin:0 auto;
   }
-  .logo{font-family:var(--display);font-weight:400;font-size:50px;letter-spacing:-0.01em;}
+  .logo{display:inline-flex;align-items:center;line-height:0;text-decoration:none;}
+  .logo img{height:52px;width:auto;}
   .nav-tag{
     font-family:var(--mono);font-size:11px;letter-spacing:0.08em;
     color:var(--ink-soft);text-transform:uppercase;
@@ -244,7 +245,7 @@
     padding:30px 0;display:flex;justify-content:space-between;align-items:center;
     flex-wrap:wrap;gap:10px;
   }
-  footer .logo{font-size:16px;}
+  footer .logo img{height:18px;}
   .footer-tag{font-family:var(--mono);font-size:11px;color:var(--ink-soft);}
 
   @media (max-width:860px){
@@ -257,14 +258,14 @@
   @media (max-width:560px){
     .wrap{padding:0 16px;}
     nav{padding:20px 16px;flex-wrap:wrap;gap:6px 20px;}
-    .logo{font-size:36px;}
+    nav .logo img{height:38px;}
   }
 </style>
 </head>
 <body>
 
   <nav>
-    <span class="logo">Fit &amp; Frisch</span>
+    <span class="logo"><img src="ff-logo.svg" alt="Fit &amp; Frisch"></span>
     <span class="nav-tag">Berlin · Office Delivery</span>
   </nav>
 
@@ -426,7 +427,7 @@
 
   <footer>
     <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
-      <span class="logo">Fit &amp; Frisch</span>
+      <span class="logo"><img src="ff-logo.svg" alt="Fit &amp; Frisch"></span>
       <span class="footer-tag">Berlin · Mitte · Kreuzberg · Prenzlauer Berg</span>
     </div>
   </footer>
