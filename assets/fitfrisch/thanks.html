@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Fit & Frisch — Thanks for Your Feedback</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Work+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="fitfrisch.css">
+</head>
+<body>
+
+  <p class="demo-banner" role="note">Demo page for a portfolio case study. Orders are not real.</p>
+
+  <nav>
+    <a class="logo" href="landing-page.html" data-keep-params>Fit &amp; Frisch</a>
+    <span class="nav-tag">Berlin · Office Delivery</span>
+  </nav>
+
+  <main class="page-head">
+    <div class="wrap">
+      <div class="thanks-card">
+        <span class="eyebrow"><span class="dot"></span>Your feedback</span>
+        <h1>Thanks, we'll tell the kitchen.</h1>
+        <p class="follow-up" id="not-great" hidden>Reply to our email and tell us what went wrong.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="menu.html" data-keep-params>See this week's menu</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span class="logo">Fit &amp; Frisch</span>
+      <span class="footer-tag">Berlin · Mitte · Kreuzberg · Prenzlauer Berg</span>
+    </div>
+  </footer>
+
+<script src="fitfrisch.js"></script>
+<script>
+  // ?rating=good or ?rating=not-great (from the feedback email).
+  // Any other value, or none, shows the plain thank-you.
+  (function(){
+    var rating = new URLSearchParams(window.location.search).get('rating');
+    document.getElementById('not-great').hidden = rating !== 'not-great';
+  })();
+</script>
+
+</body>
+</html>

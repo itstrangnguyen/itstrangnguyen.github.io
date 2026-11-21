@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Fit & Frisch — This Week's Menu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Work+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="fitfrisch.css">
+</head>
+<body>
+
+  <p class="demo-banner" role="note">Demo page for a portfolio case study. Orders are not real.</p>
+
+  <nav>
+    <a class="logo" href="landing-page.html" data-keep-params>Fit &amp; Frisch</a>
+    <span class="nav-tag">Berlin · Office Delivery</span>
+  </nav>
+
+  <main>
+    <header class="page-head">
+      <div class="wrap">
+        <span class="eyebrow"><span class="dot"></span>This week's menu</span>
+        <h1>Pick your lunch.<br>We'll bring it to your <em>desk.</em></h1>
+        <p class="lead">Four fresh dishes this week. Cooked in Berlin every morning, delivered to Mitte, Kreuzberg and Prenzlauer Berg.</p>
+
+        <form class="promo" id="promo-form" novalidate>
+          <label for="promo-code">Promo code</label>
+          <div class="promo-row">
+            <input id="promo-code" name="code" type="text" inputmode="text" autocomplete="off" spellcheck="false"
+                   maxlength="20" placeholder="e.g. DESK-2026" aria-describedby="promo-status">
+          </div>
+          <p class="promo-status" id="promo-status" role="status" hidden>Free delivery applied.</p>
+        </form>
+      </div>
+    </header>
+
+    <section class="panel" aria-labelledby="menu-heading">
+      <div class="wrap">
+        <p class="section-label" id="menu-heading">Order for today</p>
+        <div class="menu-grid">
+
+          <article class="dish" id="pumpkin-bowl">
+            <svg width="56" height="56" viewBox="0 0 56 56" aria-hidden="true">
+              <circle cx="28" cy="30" r="20" fill="#C97A2E"/>
+              <path d="M10 28a18 18 0 0 1 36 0" fill="none" stroke="#22281F" stroke-width="2"/>
+              <rect x="25" y="6" width="6" height="10" rx="2" fill="#4B7455"/>
+            </svg>
+            <h2>Pumpkin Bowl</h2>
+            <p class="dish-tag">AUTUMN SPECIAL</p>
+            <p class="dish-desc">Roasted Hokkaido pumpkin, spiced chickpeas, quinoa and a tahini-orange dressing.</p>
+            <p class="dish-price">€11.90</p>
+            <a class="btn btn-primary order-link" href="order-status.html" data-keep-params>Order<span class="visually-hidden"> Pumpkin Bowl</span></a>
+          </article>
+
+          <article class="dish" id="berlin-green-salad">
+            <svg width="56" height="56" viewBox="0 0 56 56" aria-hidden="true">
+              <circle cx="28" cy="30" r="20" fill="#8FB88A"/>
+              <circle cx="20" cy="24" r="4" fill="#4B7455"/>
+              <circle cx="30" cy="20" r="3.5" fill="#4B7455"/>
+              <circle cx="35" cy="30" r="4" fill="#4B7455"/>
+            </svg>
+            <h2>Berlin Green Salad</h2>
+            <p class="dish-tag">VEGAN</p>
+            <p class="dish-desc">Kale, broccoli, edamame, cucumber and toasted seeds with a lemon-herb vinaigrette.</p>
+            <p class="dish-price">€10.50</p>
+            <a class="btn btn-primary order-link" href="order-status.html" data-keep-params>Order<span class="visually-hidden"> Berlin Green Salad</span></a>
+          </article>
+
+          <article class="dish" id="miso-soba-bowl">
+            <svg width="56" height="56" viewBox="0 0 56 56" aria-hidden="true">
+              <circle cx="28" cy="30" r="20" fill="#D9CBA5"/>
+              <path d="M15 30h26M15 35h26" stroke="#22281F" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="22" cy="24" r="2.5" fill="#C97A2E"/>
+              <circle cx="32" cy="26" r="2.5" fill="#4B7455"/>
+            </svg>
+            <h2>Miso Soba Bowl</h2>
+            <p class="dish-tag">WITH TOFU</p>
+            <p class="dish-desc">Buckwheat noodles, crispy tofu, pak choi and spring onion in a warm miso-ginger sauce.</p>
+            <p class="dish-price">€12.40</p>
+            <a class="btn btn-primary order-link" href="order-status.html" data-keep-params>Order<span class="visually-hidden"> Miso Soba Bowl</span></a>
+          </article>
+
+          <article class="dish" id="lentil-root-stew">
+            <svg width="56" height="56" viewBox="0 0 56 56" aria-hidden="true">
+              <circle cx="28" cy="30" r="20" fill="#B5722F"/>
+              <circle cx="22" cy="26" r="3" fill="#F3ECDD"/>
+              <circle cx="32" cy="30" r="3.5" fill="#F3ECDD"/>
+              <circle cx="26" cy="35" r="2.5" fill="#F3ECDD"/>
+            </svg>
+            <h2>Lentil &amp; Root Stew</h2>
+            <p class="dish-tag">HIGH PROTEIN</p>
+            <p class="dish-desc">Red lentils, carrot, parsnip and celeriac, slow-cooked with smoked paprika. Served with sourdough.</p>
+            <p class="dish-price">€11.20</p>
+            <a class="btn btn-primary order-link" href="order-status.html" data-keep-params>Order<span class="visually-hidden"> Lentil &amp; Root Stew</span></a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span class="logo">Fit &amp; Frisch</span>
+      <span class="footer-tag">Berlin · Mitte · Kreuzberg · Prenzlauer Berg</span>
+    </div>
+  </footer>
+
+<script src="fitfrisch.js"></script>
+<script>
+  // Promo code: filled from ?code=..., e.g. menu.html?code=DESK-2026.
+  // The code only changes what this page shows and is passed on to the order link.
+  (function(){
+    var input = document.getElementById('promo-code');
+    var status = document.getElementById('promo-status');
+
+    // Letters, numbers and dashes only, max 20 characters.
+    function clean(value){
+      return (value || '').toUpperCase().replace(/[^A-Z0-9-]/g, '').slice(0, 20);
+    }
+
+    function update(){
+      var code = clean(input.value);
+      status.hidden = !code;
+      FitFrisch.refreshLinks({ code: code });
+    }
+
+    input.value = clean(new URLSearchParams(window.location.search).get('code'));
+    input.addEventListener('input', update);
+    document.getElementById('promo-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      update();
+    });
+    update();
+  })();
+</script>
+
+</body>
+</html>
