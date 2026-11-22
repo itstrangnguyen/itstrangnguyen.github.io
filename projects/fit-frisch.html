@@ -48,10 +48,19 @@
       </dl>
       <div style="margin-bottom: 30px; margin-top: 50px;">
       <p><strong>About this project:</strong> Fit &amp; Frisch is a fictional brand created for a course task. The offer, menu and the “500+ Berlin offices” figure on the page are invented for the scenario. The HubSpot setup ran in a trial account with test contacts only.</p></div>
-      <div class="actions">
-        <a class="btn btn-primary" href="../assets/fitfrisch/landing-page.html" target="_blank" rel="noopener">Open the landing page</a>
-        <a class="btn btn-ghost" href="#part-2">See the email journey</a>
-      </div>
+      <!-- Funnel strip: the whole story in six steps; the brackets below link to the two parts -->
+      <nav class="ff-funnel" aria-label="The project in six steps">
+        <ol>
+          <li>Ad</li>
+          <li>Landing page</li>
+          <li>Confirm email</li>
+          <li>Code + reminders</li>
+          <li>First order</li>
+          <li>Repeat order</li>
+        </ol>
+        <a class="ff-part ff-part-1" href="#part-1">Part 1 · Get the leads</a>
+        <a class="ff-part ff-part-2" href="#part-2">Part 2 · Turn them into orders</a>
+      </nav>
     </div>
   </div>
 
@@ -63,7 +72,7 @@
   <!-- ================= BRIEF: the course task and my extension ================= -->
   <section class="divided">
     <div class="wrap two-col">
-      <div><h2>Brief</h2></div>
+      <div><h2>Goals</h2></div>
       <div>
         <!-- The owner's request as a speech bubble -->
         <figure class="ff-quote">
@@ -96,35 +105,6 @@
             </dl>
           </div>
         </div>
-
-        <!-- Funnel strip: the whole story in six steps; the brackets below link to the two parts -->
-        <nav class="ff-funnel" aria-label="The project in six steps">
-        <ol>
-          <li>Ad</li>
-          <li>Landing page</li>
-          <li>Confirm email</li>
-          <li>Code + reminders</li>
-          <li>First order</li>
-          <li>Repeat order</li>
-        </ol>
-        <a class="ff-part ff-part-1" href="#part-1">Part 1</a>
-        <a class="ff-part ff-part-2" href="#part-2">Part 2</a>
-        </nav>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= PROCESS ================= -->
-  <section>
-    <div class="wrap two-col">
-      <div><h2>How I built it</h2></div>
-      <div>
-        <ol class="steps">
-          <li><div><strong>Plan with Claude</strong><span>I defined the goals, audience and offer, and planned the page and the journey with Claude.</span></div></li>
-          <li><div><strong>Landing page</strong><span>Claude built a first version; I reworked the structure, rewrote the copy and changed the colours in VS Code.</span></div></li>
-          <li><div><strong>HubSpot setup</strong><span>I built the form, the double opt-in, two workflows and nine emails in HubSpot.</span></div></li>
-          <li><div><strong>Testing</strong><span>I cloned the workflows with 2-minute delays and ran four test contacts through every path.</span></div></li>
-        </ol>
       </div>
     </div>
   </section>
@@ -132,7 +112,9 @@
   <!-- ================= PART 1: THE LANDING PAGE ================= -->
   <section class="part-title" id="part-1">
     <div class="wrap">
-      <h2>Part 1 · Capture the lead: the landing page</h2>
+      <p class="eyebrow">Part 1 · The landing page</p>
+      <h2>Get the leads</h2>
+      <p class="section-intro">One page turns an ad click into a confirmed email address.</p>
     </div>
   </section>
 
@@ -153,23 +135,20 @@
           <img src="../assets/images/fitfrisch/landing-page-full.jpg" alt="Top of the Fit &amp; Frisch landing page: headline, sign-up button and inbox card" loading="lazy">
           <span class="teaser-cta">Open the landing page <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
         </a>
-      </figure>
-      <!-- Bridge to Part 2 -->
-      <p class="ff-bridge">The form is where the page hands over to HubSpot. <a href="#part-2">Continue to Part 2 ↓</a></p>
-    </div>
+      </figure>    </div>
   </section>
 
   <!-- ================= PART 2: THE EMAIL JOURNEY ================= -->
   <section class="part-title" id="part-2">
     <div class="wrap">
-      <h2>Part 2 · Turn leads into orders: the email journey</h2>
+      <p class="eyebrow">Part 2 · The email journey</p>
+      <h2>Turn them into orders</h2>
+      <p class="section-intro">It starts the moment someone submits the form. Nine emails in two HubSpot workflows turn sign-ups into first orders, and first orders into repeat orders.</p>
     </div>
   </section>
 
   <section id="journey">
     <div class="wrap">
-      <p class="section-intro">It starts the moment someone submits the form. Nine emails in two HubSpot workflows turn sign-ups into first orders, and first orders into repeat orders.</p>
-
       <figure class="stage wireframe jf-stage" data-wf-tips data-lens="flow">
         <p class="lens-hint"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V11m0-1.5a1.5 1.5 0 0 1 3 0V11m0-.5a1.5 1.5 0 0 1 3 0v4.5a6 6 0 0 1-6 6h-.6a6 6 0 0 1-4.7-2.3L4.4 15a1.6 1.6 0 0 1 2.4-2.1L9 15"/></svg><span>Start with the journey, then explore the other four tabs.</span></p>
         <div class="lens-tabs" role="tablist" aria-label="Email journey view">
@@ -425,6 +404,23 @@
           <div data-tip="td" data-title="Orders twice">Gets the order confirmation and feedback emails, but not “order again”.</div>
         </div>
       </figure>
+    </div>
+  </section>
+
+  <!-- ================= PROCESS: how the whole project was built ================= -->
+  <section>
+    <div class="wrap two-col">
+      <div><h2>How I built it</h2></div>
+      <div>
+        <ol class="steps">
+          <li><div><strong>Plan the funnel</strong><span>I set the goals, audience and offer with Claude, then mapped the journey from ad click to repeat order before building anything.</span></div></li>
+          <li><div><strong>Landing page</strong><span>Claude built a first version. I reworked the structure and copy, then adapted it for the email journey: a consent box, a 14-day code validity and hidden fields for district and UTM tags.</span></div></li>
+          <li><div><strong>Data and form in HubSpot</strong><span>I created the contact properties the journey needs (promo code, district, UTM tags, first order date, order count) and a sign-up form with double opt-in.</span></div></li>
+          <li><div><strong>Two workflows</strong><span>Workflow 1 sends the code and three reminders, and stops as soon as someone orders. Workflow 2 starts with the first order and invites first-time customers back.</span></div></li>
+          <li><div><strong>Emails and demo pages</strong><span>I wrote nine emails with Claude, designed them in HubSpot with AI-generated food photos, and built a menu, order status and thanks page so every button leads somewhere.</span></div></li>
+          <li><div><strong>Test and fix</strong><span>I cloned both workflows with 2-minute delays and ran four test contacts through every path.</span></div></li>
+        </ol>
+      </div>
     </div>
   </section>
 
