@@ -1252,7 +1252,7 @@ body.p-mai blockquote.owner-quote{font-size:17px;line-height:1.7;margin-bottom:0
 .fc-l-decide{width:11px;height:11px;margin:0 2px;transform:rotate(45deg);background:var(--surface-2);border:1px solid var(--ink-3);}
 .fc-l-exit{width:22px;height:0;border-top:1.5px dashed var(--ink-3);}
 /* Markers elsewhere (setup, test run): inline */
-.jf-record .pin,.jf-who{position:relative;right:auto;top:auto;flex:none;}
+.jf-who{position:relative;right:auto;top:auto;flex:none;}
 .jf-stage .stage-cap{margin-top:20px;}
 /* Narrower screens: the hint says the chart scrolls sideways inside its frame */
 @media (max-width:1040px){
@@ -1297,21 +1297,33 @@ body.p-mai blockquote.owner-quote{font-size:17px;line-height:1.7;margin-bottom:0
 }
 @media (prefers-reduced-motion:reduce){ .ep-card,.ep-page .art-browser{transition:none;} .ep-card:hover,.ep-page:hover .art-browser{transform:none;} }
 
-/* View 3: contact properties beside the HubSpot screenshots */
-.jf-setup{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:28px;align-items:start;}
-.jf-record{background:var(--bg);border:1px solid var(--line);border-radius:18px;padding:18px 18px 8px;}
-.jf-record-head{display:flex;align-items:center;gap:12px;margin:0 0 12px;}
-.jf-record-head b{display:block;color:var(--ink);font-weight:600;}
-.jf-record-head small{display:block;font-size:13px;color:var(--ink-3);}
-.jf-avatar{display:grid;place-items:center;flex:none;width:40px;height:40px;border-radius:50%;font-size:13px;font-weight:600;
-  color:#0B0B0D;background:var(--accent);}
-.jf-record dl{margin:0;}
-.jf-record dl > div{display:flex;align-items:center;gap:10px;padding:11px 0;border-top:1px solid var(--line);}
-.jf-record dt{flex:1;font-size:14.5px;color:var(--ink);line-height:1.4;}
-.jf-record dd{margin:0;font-family:var(--mono);font-size:12px;color:var(--ink-3);}
-.crm-shots{gap:16px;align-items:start;}
-.crm-shots img{width:auto;max-width:100%;border:1px solid var(--line);}
-.crm-shots figcaption{font-size:13px;}
+/* HubSpot setup tab: three blocks (sign-up form, data table, workflows) */
+.jf-setup{display:grid;gap:44px;}
+.jf-block-h{font-size:19px;font-weight:600;margin:0 0 16px;}
+.jf-block-sub{font-size:15px;font-weight:600;color:var(--ink-2);letter-spacing:0;margin:28px 0 12px;}
+.jf-block-h + .jf-block-sub{margin-top:0;}
+.jf-form{display:grid;grid-template-columns:minmax(0,55fr) minmax(0,45fr);gap:32px;align-items:center;}
+.jf-form-list{margin:0;padding-left:20px;font-size:16px;line-height:1.55;color:var(--ink-2);}
+.jf-form-list li{margin:0 0 12px;}
+.jf-form-list li:last-child{margin-bottom:0;}
+.crm-shot{margin:0;}
+.crm-shot img{display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--line);}
+.crm-shot figcaption{margin-top:8px;font-size:13px;color:var(--ink-3);}
+.crm-shots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 20px;align-items:start;}
+.crm-wide{grid-column:1 / -1;}
+.jf-props th[scope="row"]{font-size:14.5px;font-weight:500;letter-spacing:0;text-transform:none;color:var(--ink);}
+.jf-props td{font-size:14.5px;color:var(--ink-2);}
+.jf-props td:nth-child(2){font-family:var(--mono);font-size:12.5px;color:var(--ink-3);white-space:nowrap;}
+.jf-props tbody tr:last-child > *{border-bottom:0;}
+@media (max-width:760px){
+  .jf-setup{gap:36px;}
+  .jf-form{grid-template-columns:1fr;gap:18px;}
+  .jf-form-list{font-size:15px;}
+  .crm-shots{grid-template-columns:1fr;}
+  .jf-props th,.jf-props td{padding:10px 12px;}
+  .jf-props th[scope="row"]{min-width:120px;}
+  .jf-props td:nth-child(3){min-width:190px;}
+}
 
 /* View 4: which emails each test contact got, and Contact C's timeline */
 .jf-matrix th,.jf-matrix td{text-align:center;vertical-align:middle;padding:12px 10px;}
@@ -1345,9 +1357,6 @@ body.p-mai blockquote.owner-quote{font-size:17px;line-height:1.7;margin-bottom:0
 .jf-lessons{margin-top:28px;grid-template-columns:1fr;}
 .jf-lessons li{margin:6px 0;}
 
-@media (max-width:960px){
-  .jf-setup{grid-template-columns:1fr;}
-}
 @media (max-width:760px){
   /* Each lane keeps its left-to-right flow and swipes sideways inside the lane */
   .jf-lessons{grid-template-columns:1fr;}
