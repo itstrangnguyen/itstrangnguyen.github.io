@@ -1193,11 +1193,31 @@ body.p-mai blockquote.owner-quote{font-size:17px;line-height:1.7;margin-bottom:0
 .part-title{padding-bottom:0;}
 .part-title h2{margin-bottom:0;}
 .part-title + section{border-top:0;}
-/* Brief: the course goal and my extension side by side */
-.ff-goals{margin:20px 0 0;grid-template-columns:repeat(2,minmax(0,1fr));}
+/* Brief: the owner's request as a speech bubble, then the two goals as fact cards */
+.ff-quote{margin:0;}
+.ff-quote blockquote{position:relative;margin:0;padding:18px 22px;border-radius:18px 18px 18px 4px;background:var(--surface-2);border:1px solid var(--line);
+  font-size:19px;line-height:1.5;color:var(--ink);}
+.ff-quote figcaption{display:flex;align-items:center;gap:10px;margin-top:12px;font-size:14px;color:var(--ink-3);}
+.ff-quote-avatar{display:grid;place-items:center;flex:none;width:32px;height:32px;border-radius:50%;background:var(--accent);color:#0B0B0D;font-size:11px;font-weight:700;}
+/* Both cards share seven rows (tag, title, number, four facts) through subgrid, so every row lines up */
+.ff-goals{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(7,auto);column-gap:20px;margin:28px 0 0;}
+.ff-goal{display:grid;grid-row:span 7;grid-template-rows:subgrid;row-gap:0;align-content:start;}
+.ff-goal .label{margin:0 0 4px;}
+.ff-goal h3{margin:0 0 12px;font-size:20px;font-weight:600;}
+.ff-goals .ff-facts{display:contents;}
+.ff-big{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 8px;margin:0 0 14px;}
+.ff-big b{font-size:44px;line-height:1;font-weight:600;letter-spacing:-0.02em;color:var(--ink);}
+.ff-big span{font-size:15px;color:var(--ink-2);}
+.ff-big span + b{margin-left:14px;}
+.ff-facts{margin:0;}
+.ff-facts > div{display:grid;grid-template-columns:118px 1fr;gap:10px;align-items:start;padding:10px 0;border-top:1px solid var(--line);}
+.ff-facts dt{display:flex;align-items:center;gap:6px;white-space:nowrap;font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-3);padding-top:2px;}
+.ff-facts dt svg{width:15px;height:15px;flex:none;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
+.ff-facts dd{margin:0;font-size:14.5px;line-height:1.45;color:var(--ink);}
+.ff-facts > div:last-child{padding-bottom:0;}
 /* Funnel strip under the brief: six steps, brackets below link to Part 1 and Part 2.
    One grid; the list uses display:contents so its items and the two brackets share the columns. */
-.ff-funnel{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px 22px;margin-top:44px;}
+.ff-funnel{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px 22px;margin-top:36px;}
 .ff-funnel ol{display:contents;list-style:none;}
 .ff-funnel li{grid-row:1;position:relative;display:flex;align-items:center;justify-content:center;min-height:48px;padding:8px 10px;
   border:1px solid var(--line);border-radius:12px;background:var(--surface);text-align:center;font-size:14px;line-height:1.3;color:var(--ink-2);}
@@ -1212,7 +1232,9 @@ body.p-mai blockquote.owner-quote{font-size:17px;line-height:1.7;margin-bottom:0
 .ff-bridge{margin:28px 0 0;text-align:center;font-size:16px;color:var(--ink-2);}
 .ff-bridge a{margin-left:6px;color:var(--accent);font-weight:500;white-space:nowrap;}
 @media (max-width:760px){
-  .ff-goals{grid-template-columns:1fr;}
+  .ff-goals{grid-template-columns:1fr;grid-template-rows:none;row-gap:20px;}
+  .ff-quote blockquote{font-size:17px;padding:16px 18px;}
+  .ff-big b{font-size:38px;}
   /* Phones: two steps per row; Part 1 closes after the first row, Part 2 after the last */
   .ff-funnel{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:32px;}
   .ff-funnel li:nth-child(1),.ff-funnel li:nth-child(2){grid-row:1;}
@@ -1239,12 +1261,12 @@ body.p-mai blockquote.owner-quote{font-size:17px;line-height:1.7;margin-bottom:0
 .jf-stage svg.fc{display:block;width:100%;min-width:880px;max-width:none;height:auto;margin:0;font-family:var(--sans);}   /* not capped like the Arre wireframe; never shrunk below a readable size */
 .fc-swipe{display:none;}
 .fc-lane{fill:var(--bg);stroke:var(--line);}
-.fc-lane-aside{fill:none;stroke:var(--accent);stroke-width:1.5;stroke-dasharray:6 5;}
+/* One-off campaign row: solid like the other rows (dashed means "leaves the path"), with a light orange tint */
+.fc-lane-aside{fill:color-mix(in srgb, var(--accent) 6%, var(--bg));stroke:color-mix(in srgb, var(--accent) 55%, transparent);stroke-width:1.5;}
 /* Lane labels */
 .fc-step circle{fill:var(--accent);}
 .fc-step text{fill:#0B0B0D;font-size:15px;font-weight:700;text-anchor:middle;dominant-baseline:central;}
 .fc-title{fill:var(--ink);font-size:14px;font-weight:600;}
-.fc-title-aside{fill:var(--ink-2);}
 .fc-sub{fill:var(--ink-3);font-size:12.5px;}
 /* Shapes */
 .fc-box rect,.fc-box-static{fill:var(--surface-2);stroke:var(--line);stroke-width:1;transition:stroke .15s ease;}
@@ -1388,12 +1410,18 @@ body.p-mai blockquote.owner-quote{font-size:17px;line-height:1.7;margin-bottom:0
 .jf-matrix .jf-who{display:inline-grid;flex:none;background:transparent;border:1.5px solid var(--ink-3);color:var(--ink-2);box-sizing:border-box;}
 .jf-matrix .jf-who::after{content:none;}
 .jf-matrix .jf-who:hover,.jf-matrix .jf-who.is-active,.jf-matrix .jf-who:focus-visible{background:var(--ink);border-color:var(--ink);color:var(--bg);transform:none;}
-.dot{display:inline-block;width:14px;height:14px;border-radius:50%;vertical-align:middle;}
+/* Matrix marks: a distinct shape per state, so none can be mistaken for another.
+   Sent = orange disc with a tick, not sent = grey cross, not part of the test = faint dash.
+   The proof cells get a thin orange ring around whatever mark they hold. */
+.dot{position:relative;display:inline-block;width:20px;height:20px;border-radius:50%;vertical-align:middle;box-sizing:border-box;}
 .dot.on{background:var(--accent);}
-.dot.off{border:1.5px solid var(--ink-3);}
-.dot.na{width:12px;height:2px;border-radius:2px;background:var(--ink-3);opacity:.6;}
-.jf-matrix td.key .dot,.jf-key-sample{box-shadow:0 0 0 4px color-mix(in srgb, var(--accent) 30%, transparent);}
-.jf-matrix td.key .dot.off{border-color:var(--accent);}
+.dot.on::after{content:"";position:absolute;left:6px;top:5px;width:8px;height:5px;border-left:2px solid #0B0B0D;border-bottom:2px solid #0B0B0D;transform:rotate(-45deg);}
+.dot.off::before,.dot.off::after{content:"";position:absolute;left:4px;top:9px;width:12px;height:2px;border-radius:2px;background:var(--ink-3);}
+.dot.off::before{transform:rotate(45deg);}
+.dot.off::after{transform:rotate(-45deg);}
+.dot.na::after{content:"";position:absolute;left:5px;top:9px;width:10px;height:2px;border-radius:2px;background:var(--ink-3);opacity:.45;}
+.jf-matrix td.key .dot{box-shadow:0 0 0 3px var(--surface),0 0 0 4.5px var(--accent);}
+.jf-key-sample{display:inline-block;width:23px;height:23px;border-radius:50%;border:1.5px solid var(--accent);vertical-align:middle;box-sizing:border-box;}
 .jf-legend{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 22px;margin:14px 0 0;font-size:13px;color:var(--ink-3);}
 .jf-legend span{display:inline-flex;align-items:center;gap:8px;}
 .jf-timeline{margin-top:34px;padding-top:22px;border-top:1px solid var(--line);}
@@ -1409,13 +1437,15 @@ body.p-mai blockquote.owner-quote{font-size:17px;line-height:1.7;margin-bottom:0
 .jf-time time{display:block;font-family:var(--mono);font-size:13px;font-weight:600;color:var(--accent);margin-bottom:2px;}
 .jf-time li.is-event span{color:var(--ink);font-weight:500;}
 
-/* Lessons under the stage */
-.jf-lessons{margin-top:28px;grid-template-columns:1fr;}
-.jf-lessons li{margin:6px 0;}
+/* What I'd change in production: its own section, one item per line with a divider */
+.ff-prod{list-style:none;margin:0;padding:0;}
+.ff-prod li{position:relative;padding:14px 0 14px 26px;border-top:1px solid var(--line);font-size:16px;line-height:1.55;color:var(--ink-2);}
+.ff-prod li:first-child{border-top:0;padding-top:4px;}
+.ff-prod li::before{content:"";position:absolute;left:4px;top:24px;width:8px;height:8px;border-radius:50%;background:var(--accent);}
+.ff-prod li:first-child::before{top:14px;}
 
 @media (max-width:760px){
   /* Each lane keeps its left-to-right flow and swipes sideways inside the lane */
-  .jf-lessons{grid-template-columns:1fr;}
   /* Test grid: labels wrap, and the contact column stays put while the emails swipe */
   .jf-matrix{width:660px;}
   .jf-matrix .jf-col-who{width:170px;}

@@ -44,7 +44,7 @@
         <div><dt>Role</dt><dd>Solo</dd></div>
         <div><dt>Context</dt><dd>DCI course task, extended on my own</dd></div>
         <div><dt>Time</dt><dd>[YOUR HOURS]</dd></div>
-        <div><dt>Tools</dt><dd>Claude, HubSpot, Google Flow, VS Code</dd></div>
+        <div><dt>Tools</dt><dd>Claude, HubSpot, Google Flow</dd></div>
       </dl>
       <div style="margin-bottom: 30px; margin-top: 50px;">
       <p><strong>About this project:</strong> Fit &amp; Frisch is a fictional brand created for a course task. The offer, menu and the “500+ Berlin offices” figure on the page are invented for the scenario. The HubSpot setup ran in a trial account with test contacts only.</p></div>
@@ -65,17 +65,40 @@
     <div class="wrap two-col">
       <div><h2>Brief</h2></div>
       <div>
-        <p>You work for Fit &amp; Frisch, a small healthy meal-prep chain. The owner says: "We want more customers and to become better known this autumn. Put together a campaign!"</p>
-        <div class="boxes ff-goals">
-          <div class="box"><p class="label">Goal 1 · Get the leads (course task)</p><p>Generate 150 qualified leads (email addresses submitted via a landing page) from Berlin office workers in Mitte, Kreuzberg, and Prenzlauer Berg between 1–14 September 2026, via an Instagram and Google ads campaign offering a free-delivery promo code redeemable on their first order (one code per customer, valid for 14 days after they confirm their email).</p></div>
-          <div class="box"><p class="label">Goal 2 · Turn them into orders (my extension)</p><p>The task ended at the sign-up. I built what happens next: a HubSpot email journey that turns confirmed leads into first orders, and first-time customers into repeat customers.</p></div>
-        </div>
-      </div>
-    </div>
+        <!-- The owner's request as a speech bubble -->
+        <figure class="ff-quote">
+          <blockquote>"We want more customers and to become better known this autumn. Put together a campaign!"</blockquote>
+          <figcaption><span class="ff-quote-avatar" aria-hidden="true">F&amp;F</span>The owner of Fit &amp; Frisch, a small healthy meal-prep chain</figcaption>
+        </figure>
 
-    <!-- Funnel strip: the whole story in six steps; the brackets below link to the two parts -->
-    <div class="wrap">
-      <nav class="ff-funnel" aria-label="The project in six steps">
+        <!-- Two goals with the same rows (tag, title, number, four facts), so the rows line up side by side -->
+        <div class="ff-goals">
+          <div class="box ff-goal">
+            <p class="label">Goal 1 · Course task</p>
+            <h3>Get the leads</h3>
+            <p class="ff-big"><b>150</b><span>qualified leads</span></p>
+            <dl class="ff-facts">
+              <div><dt><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-5.5 6.5-5.5s6.5 1.9 6.5 5.5M16 4.8a3.5 3.5 0 0 1 0 6.4M18.5 14.8c1.9.7 3 2.4 3 5.2"/></svg>Who</dt><dd>Berlin office workers in Mitte, Kreuzberg, Prenzlauer Berg</dd></div>
+              <div><dt><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>When</dt><dd>1–14 September 2026</dd></div>
+              <div><dt><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 10v4h3l6 4V6l-6 4h-3zM16 9a4 4 0 0 1 0 6M18.5 6.5a7.5 7.5 0 0 1 0 11"/></svg>Ads</dt><dd>Instagram and Google</dd></div>
+              <div><dt><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 12.6V4.5a1 1 0 0 1 1-1h8.1l8 8a1.5 1.5 0 0 1 0 2.1l-6.9 6.9a1.5 1.5 0 0 1-2.1 0z"/><circle cx="8.5" cy="8.5" r="1.5"/></svg>Offer</dt><dd>Free-delivery code on the first order, valid 14 days after confirming</dd></div>
+            </dl>
+          </div>
+          <div class="box ff-goal">
+            <p class="label">Goal 2 · My extension</p>
+            <h3>Turn them into orders</h3>
+            <p class="ff-big"><b>9</b><span>emails</span><b>2</b><span>workflows</span></p>
+            <dl class="ff-facts">
+              <div><dt><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-5.5 6.5-5.5s6.5 1.9 6.5 5.5M16 4.8a3.5 3.5 0 0 1 0 6.4M18.5 14.8c1.9.7 3 2.4 3 5.2"/></svg>Who</dt><dd>Confirmed sign-ups</dd></div>
+              <div><dt><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>When</dt><dd>From the sign-up until early October</dd></div>
+              <div><dt><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg>Workflow 1</dt><dd>Reminders until the first order</dd></div>
+              <div><dt><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 13.7-5.6L20 8.5M20 4v4.5h-4.5M20 12a8 8 0 0 1-13.7 5.6L4 15.5M4 20v-4.5h4.5"/></svg>Workflow 2</dt><dd>Invite back, unless they already reordered</dd></div>
+            </dl>
+          </div>
+        </div>
+
+        <!-- Funnel strip: the whole story in six steps; the brackets below link to the two parts -->
+        <nav class="ff-funnel" aria-label="The project in six steps">
         <ol>
           <li>Ad</li>
           <li>Landing page</li>
@@ -86,7 +109,8 @@
         </ol>
         <a class="ff-part ff-part-1" href="#part-1">Part 1</a>
         <a class="ff-part ff-part-2" href="#part-2">Part 2</a>
-      </nav>
+        </nav>
+      </div>
     </div>
   </section>
 
@@ -162,7 +186,7 @@
         <div class="lens-pane" data-lens-pane="flow">
           <p class="fc-swipe">Swipe sideways to see the whole flowchart.</p>
           <div class="fc-wrap">
-            <svg class="fc" viewBox="0 0 1000 636" role="group" aria-label="Flowchart of the email journey, from ad click to repeat customer">
+            <svg class="fc" viewBox="0 0 1000 652" role="group" aria-label="Flowchart of the email journey, from ad click to repeat customer">
               <defs>
                 <marker id="fc-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="fc-head" d="M0,0 L10,5 L0,10 z"/></marker>
               </defs>
@@ -171,7 +195,7 @@
               <rect class="fc-lane" x="0.5" y="10" width="999" height="140" rx="14"/>
               <rect class="fc-lane" x="0.5" y="166" width="999" height="164" rx="14"/>
               <rect class="fc-lane" x="0.5" y="370" width="999" height="150" rx="14"/>
-              <rect class="fc-lane fc-lane-aside" x="0.5" y="536" width="999" height="92" rx="14"/>
+              <rect class="fc-lane fc-lane-aside" x="0.5" y="536" width="999" height="108" rx="14"/>
 
               <!-- Lane labels: step circle, title, grey subtitle, info marker -->
               <g class="fc-step"><circle cx="30" cy="72" r="15"/><text x="30" y="72">1</text></g>
@@ -240,15 +264,16 @@
               <!-- Yes: already reordered, so straight to the goal -->
               <path class="fc-line" d="M624,472 V494 H937 V460"/><text class="fc-yn fc-yn-start" x="632" y="488">Yes</text>
 
-              <!-- Separate campaign -->
-              <text class="fc-title fc-title-aside" x="56" y="562">One-off campaign</text>
-              <text class="fc-sub" x="56" y="600">No workflow</text>
-              <g class="wf-num fc-info" data-tip="t7"><circle cx="212" cy="557" r="9"/><text x="212" y="557">i</text></g>
-              <rect class="fc-box-static" x="236" y="554" width="140" height="44" rx="10"/><text class="fc-text" x="306" y="576">All confirmed</text>
-              <text class="fc-cap" x="306" y="616">Segment</text>
-              <line class="fc-line" x1="376" y1="576" x2="404" y2="576"/>
-              <a class="fc-box" href="../assets/fitfrisch/emails/ff09.html" target="_blank" rel="noopener" aria-label="FF 09 Autumn in a bowl (opens in a new tab)"><rect x="406" y="554" width="140" height="44" rx="10"/><text class="fc-text" x="476" y="576">Autumn in a bowl</text></a>
-              <text class="fc-cap" x="476" y="616"><tspan class="fc-cap-when">1 Oct ·</tspan> FF 09</text>
+              <!-- One-off campaign: same row structure as steps 1-3 (marker, title, subtitle, info), marked "+" -->
+              <g class="fc-step"><circle cx="30" cy="590" r="15"/><text x="30" y="590">+</text></g>
+              <text class="fc-title" x="56" y="578">One-off campaign</text>
+              <text class="fc-sub" x="56" y="597">One scheduled email</text><text class="fc-sub" x="56" y="613">to all confirmed contacts</text>
+              <g class="wf-num fc-info" data-tip="t7"><circle cx="205" cy="573" r="9"/><text x="205" y="573">i</text></g>
+              <rect class="fc-box-static" x="236" y="568" width="140" height="44" rx="10"/><text class="fc-text" x="306" y="590">All confirmed</text>
+              <text class="fc-cap" x="306" y="630">Segment</text>
+              <line class="fc-line" x1="376" y1="590" x2="404" y2="590"/>
+              <a class="fc-box" href="../assets/fitfrisch/emails/ff09.html" target="_blank" rel="noopener" aria-label="FF 09 Autumn in a bowl (opens in a new tab)"><rect x="406" y="568" width="140" height="44" rx="10"/><text class="fc-text" x="476" y="590">Autumn in a bowl</text></a>
+              <text class="fc-cap" x="476" y="630"><tspan class="fc-cap-when">1 Oct ·</tspan> FF 09</text>
             </svg>
           </div>
           <p class="fc-legend"><span><i class="fc-l-goal"></i>Orange: start point and end goal</span><span><i class="fc-l-box"></i>Email</span><span><i class="fc-l-decide"></i>Decision</span><span><i class="fc-l-exit"></i>Dashed: leaves the path</span></p>
@@ -372,7 +397,7 @@
               </tbody>
             </table>
           </div>
-          <p class="jf-legend"><span><i class="dot on"></i>Sent</span><span><i class="dot off"></i>Not sent</span><span><i class="dot na"></i>Not part of this test</span><span><i class="dot on jf-key-sample"></i>What the test proves</span></p>
+          <p class="jf-legend"><span><i class="dot on"></i>Sent</span><span><i class="dot off"></i>Not sent</span><span><i class="dot na"></i>Not part of this test</span><span><i class="jf-key-sample"></i>Ring: what the test proves</span></p>
 
           <div class="jf-timeline">
             <p class="jf-timeline-head"><b>Contact C, step by step</b><a href="../assets/images/fitfrisch/crm/contact-c.png" target="_blank" rel="noopener" data-zoom="tall" aria-label="HubSpot activity log for Contact C">See the HubSpot log</a></p>
@@ -400,18 +425,21 @@
           <div data-tip="td" data-title="Orders twice">Gets the order confirmation and feedback emails, but not “order again”.</div>
         </div>
       </figure>
+    </div>
+  </section>
 
-      <div class="boxes jf-lessons">
-        <div class="box">
-          <p class="label">What I’d change in production</p>
-          <ul>
-            <li>The shop creates a unique code per contact and sends it to HubSpot.</li>
-            <li>The order confirmation (FF 06) goes out as a transactional email.</li>
-            <li>Orders sync to HubSpot by code, not only by email, so an order placed with another address still stops the reminders.</li>
-            <li>The free delivery applies to a customer's first order, checked at checkout (not in the CRM) by delivery address and payment method. One person with several email aliases still gets one free delivery.</li>
-            <li>The form closes on 14 September; the workflows run until early October.</li>
-          </ul>
-        </div>
+  <!-- ================= PRODUCTION ================= -->
+  <section>
+    <div class="wrap two-col">
+      <div><h2>What I’d change in production</h2></div>
+      <div>
+        <ul class="ff-prod">
+          <li>The shop creates a unique code per contact and sends it to HubSpot.</li>
+          <li>The order confirmation (FF 06) goes out as a transactional email.</li>
+          <li>Orders sync to HubSpot by code, not only by email, so an order placed with another address still stops the reminders.</li>
+          <li>The free delivery applies to a customer's first order, checked at checkout (not in the CRM) by delivery address and payment method. One person with several email aliases still gets one free delivery.</li>
+          <li>The form closes on 14 September; the workflows run until early October.</li>
+        </ul>
       </div>
     </div>
   </section>
