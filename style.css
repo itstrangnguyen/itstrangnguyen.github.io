@@ -1234,6 +1234,7 @@ body.p-mai blockquote.owner-quote{font-size:17px;line-height:1.7;margin-bottom:0
 .fc-head{fill:var(--ink-3);}
 .fc-yn{fill:var(--ink-2);font-size:11.5px;font-weight:600;text-anchor:middle;letter-spacing:0.04em;}
 .fc-yn-start{text-anchor:start;}   /* labels that sit beside a vertical connector */
+.fc-yn-strong{fill:var(--ink);font-size:13.5px;font-weight:700;letter-spacing:0.01em;}   /* the main jump from step 2 to step 3 */
 /* Stop rule: the only tinted shape */
 /* Info markers (SVG version of the stage pins): grey, only the first one pulses */
 .jf-stage .fc-info circle:not(.wf-tap):not(.wf-pulse){fill:var(--surface);stroke:var(--ink-3);stroke-width:1.5;}
