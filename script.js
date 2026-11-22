@@ -60,8 +60,10 @@ document.querySelectorAll('.carousel').forEach(function (c) {
 
 // Lightbox: any <img data-zoom> or <video data-zoom> opens enlarged on the page.
 // Videos play there with controls. Close with the × button, a click on the backdrop, or Esc.
+// A link with data-zoom opens the image it points to. data-zoom="tall" fits the image to the
+// screen width instead of its height, and the lightbox scrolls (for long screenshots and logs).
 (function () {
-  var items = document.querySelectorAll('img[data-zoom], video[data-zoom]');
+  var items = document.querySelectorAll('img[data-zoom], video[data-zoom], a[data-zoom]');
   if (!items.length || typeof HTMLDialogElement === 'undefined') return;
   var box = document.createElement('dialog');
   box.className = 'lightbox';
@@ -74,14 +76,16 @@ document.querySelectorAll('.carousel').forEach(function (c) {
   var prevBtn = box.querySelector('.lightbox-nav.prev'), nextBtn = box.querySelector('.lightbox-nav.next');
   // Items inside a [data-zoom-group] element form a set: the lightbox shows
   // prev/next buttons (and arrow keys) that loop through the set.
-  var group = [], pos = 0;
+  var group = [], pos = 0, tall = false;
   function isVideo(el) { return el.tagName === 'VIDEO'; }
   function label(el) { return el.alt || el.getAttribute('aria-label') || ''; }
   // Fit the media as large as the screen allows (up to 92% wide, 80% tall),
-  // scaling small images up so their text is readable.
+  // scaling small images up so their text is readable. Tall images keep their own
+  // width at most (92% of the screen on phones) and scroll.
   function fit(target, w, h) {
     if (!w || !h) return;
-    var scale = Math.min(window.innerWidth * 0.92 / w, window.innerHeight * 0.8 / h);
+    var scale = tall ? Math.min(window.innerWidth * 0.92 / w, 1)
+      : Math.min(window.innerWidth * 0.92 / w, window.innerHeight * 0.8 / h);
     target.style.width = Math.round(w * scale) + 'px';
     target.style.height = Math.round(h * scale) + 'px';
   }
@@ -99,7 +103,17 @@ document.querySelectorAll('.carousel').forEach(function (c) {
   vid.addEventListener('loadedmetadata', function () { fitVideo(vid.videoWidth, vid.videoHeight); });
   function show(el) {
     cap.textContent = label(el);
-    if (isVideo(el)) {
+    tall = el.getAttribute('data-zoom') === 'tall';
+    box.classList.toggle('is-tall', tall);
+    box.scrollTop = 0;
+    if (el.tagName === 'A') {
+      // A link: show the image it points to; its size is known once it loads
+      vid.pause(); vid.hidden = true; big.hidden = false;
+      big.style.width = big.style.height = '';
+      big.alt = label(el);
+      big.src = el.href;
+      if (big.complete) fit(big, big.naturalWidth, big.naturalHeight);
+    } else if (isVideo(el)) {
       big.hidden = true; vid.hidden = false;
       vid.src = el.currentSrc || el.src;
       fitVideo(el.videoWidth, el.videoHeight);
@@ -138,7 +152,7 @@ document.querySelectorAll('.carousel').forEach(function (c) {
   });
   items.forEach(function (el) {
     el.tabIndex = 0;
-    el.setAttribute('role', 'button');
+    if (el.tagName !== 'A') el.setAttribute('role', 'button');
     el.addEventListener('click', function (e) { e.preventDefault(); open(el); });
     el.addEventListener('keydown', function (e) {
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(el); }

@@ -320,19 +320,19 @@
 
         <!-- ===== View 5: test run ===== -->
         <div class="lens-pane" data-lens-pane="tests" hidden>
-          <p class="lens-intro">I cloned both workflows, cut every delay to 2 minutes, and ran four test contacts through them.</p>
+          <p class="lens-intro">I cloned both workflows, cut every delay to 2 minutes so the 14-day journey ran in under an hour, and sent four test contacts through them.</p>
           <div class="table-wrap jf-matrix-wrap">
             <table class="jf-matrix">
               <caption class="visually-hidden">Which emails each test contact received</caption>
-              <thead><tr><th scope="col">Test contact</th><th scope="col">FF 01</th><th scope="col">FF 02</th><th scope="col">FF 03</th><th scope="col">FF 04</th><th scope="col">FF 05</th><th scope="col">FF 06</th><th scope="col">FF 07</th><th scope="col">FF 08</th></tr></thead>
+              <thead><tr><th scope="col">Test contact</th><th scope="col">FF 01<small>Confirm</small></th><th scope="col">FF 02<small>Welcome</small></th><th scope="col">FF 03<small>Menu</small></th><th scope="col">FF 04<small>How it works</small></th><th scope="col">FF 05<small>Last call</small></th><th scope="col">FF 06<small>Order confirmed</small></th><th scope="col">FF 07<small>Feedback</small></th><th scope="col">FF 08<small>Order again</small></th></tr></thead>
               <tbody>
-                <tr><th scope="row"><span class="pin jf-who" data-tip="ta">A</span>Signs up, never confirms</th>
+                <tr><th scope="row"><span class="jf-row"><span class="pin jf-who" data-tip="ta">A</span><span>Signs up, never confirms<small>Proves: no code without confirmation</small></span></span></th>
                   <td><i class="dot on" role="img" aria-label="sent"></i></td><td class="key"><i class="dot off" role="img" aria-label="not sent"></i></td><td><i class="dot off" role="img" aria-label="not sent"></i></td><td><i class="dot off" role="img" aria-label="not sent"></i></td><td><i class="dot off" role="img" aria-label="not sent"></i></td><td><i class="dot off" role="img" aria-label="not sent"></i></td><td><i class="dot off" role="img" aria-label="not sent"></i></td><td><i class="dot off" role="img" aria-label="not sent"></i></td></tr>
-                <tr><th scope="row"><span class="pin jf-who" data-tip="tb">B</span>Confirms, never orders</th>
+                <tr><th scope="row"><span class="jf-row"><span class="pin jf-who" data-tip="tb">B</span><span>Confirms, never orders<small>Proves: all reminders, then exit</small></span></span></th>
                   <td><i class="dot on" role="img" aria-label="sent"></i></td><td><i class="dot on" role="img" aria-label="sent"></i></td><td><i class="dot on" role="img" aria-label="sent"></i></td><td><i class="dot on" role="img" aria-label="sent"></i></td><td class="key"><i class="dot on" role="img" aria-label="sent"></i></td><td><i class="dot off" role="img" aria-label="not sent"></i></td><td><i class="dot off" role="img" aria-label="not sent"></i></td><td><i class="dot off" role="img" aria-label="not sent"></i></td></tr>
-                <tr><th scope="row"><span class="pin jf-who" data-tip="tc">C</span>Orders after the menu reminder</th>
+                <tr><th scope="row"><span class="jf-row"><span class="pin jf-who" data-tip="tc">C</span><span>Orders after the menu reminder <span class="jf-count">· Order count = 1</span><small>Proves: an order stops the reminders</small></span></span></th>
                   <td><i class="dot on" role="img" aria-label="sent"></i></td><td><i class="dot on" role="img" aria-label="sent"></i></td><td><i class="dot on" role="img" aria-label="sent"></i></td><td class="key"><i class="dot off" role="img" aria-label="not sent"></i></td><td class="key"><i class="dot off" role="img" aria-label="not sent"></i></td><td><i class="dot on" role="img" aria-label="sent"></i></td><td><i class="dot on" role="img" aria-label="sent"></i></td><td class="key"><i class="dot on" role="img" aria-label="sent"></i></td></tr>
-                <tr><th scope="row"><span class="pin jf-who" data-tip="td">D</span>Orders twice</th>
+                <tr><th scope="row"><span class="jf-row"><span class="pin jf-who" data-tip="td">D</span><span>Orders twice <span class="jf-count">· Order count = 2</span><small>Proves: no 'order again' after a second order</small></span></span></th>
                   <td><i class="dot na" role="img" aria-label="not part of this test"></i></td><td><i class="dot na" role="img" aria-label="not part of this test"></i></td><td><i class="dot na" role="img" aria-label="not part of this test"></i></td><td><i class="dot na" role="img" aria-label="not part of this test"></i></td><td><i class="dot na" role="img" aria-label="not part of this test"></i></td><td><i class="dot on" role="img" aria-label="sent"></i></td><td><i class="dot on" role="img" aria-label="sent"></i></td><td class="key"><i class="dot off" role="img" aria-label="not sent"></i></td></tr>
               </tbody>
             </table>
@@ -340,14 +340,14 @@
           <p class="jf-legend"><span><i class="dot on"></i>Sent</span><span><i class="dot off"></i>Not sent</span><span><i class="dot na"></i>Not part of this test</span><span><i class="dot on jf-key-sample"></i>What the test proves</span></p>
 
           <div class="jf-timeline">
-            <p class="jf-timeline-head"><b>Contact C, step by step</b><a href="../assets/images/fitfrisch/crm/contact-c.png" target="_blank" rel="noopener">See the HubSpot log</a></p>
+            <p class="jf-timeline-head"><b>Contact C, step by step</b><a href="../assets/images/fitfrisch/crm/contact-c.png" target="_blank" rel="noopener" data-zoom="tall" aria-label="HubSpot activity log for Contact C">See the HubSpot log</a></p>
             <ol class="jf-time">
               <li><time>12:53</time><span>Signs up and confirms</span></li>
-              <li><time>12:54</time><span>FF 02 Welcome + code</span></li>
-              <li><time>12:56</time><span>FF 03 Menu reminder</span></li>
-              <li class="is-event"><time>12:56</time><span>First order → leaves Workflow 1, gets FF 06</span></li>
-              <li><time>12:58</time><span>FF 07 Feedback</span></li>
-              <li><time>12:59</time><span>FF 08 Order again (order count = 1)</span></li>
+              <li><time>12:54</time><span>Welcome + code</span></li>
+              <li><time>12:56</time><span>Menu reminder</span></li>
+              <li class="is-event"><time>12:56</time><span>First order: leaves Workflow 1, gets the order confirmation</span></li>
+              <li><time>12:58</time><span>Feedback</span></li>
+              <li><time>12:59</time><span>Order again (order count = 1)</span></li>
             </ol>
           </div>
         </div>
