@@ -1200,7 +1200,7 @@ body.p-mai blockquote.owner-quote{font-size:17px;line-height:1.7;margin-bottom:0
    Uses the Arre stage: tabs, markers and popovers come from .stage / .lens-tabs / .pin and script.js.
    View 1 is a flowchart drawn in SVG (viewBox 1000 wide): swimlanes for steps 1-3 and the campaign.
    Rounded = start / end, rectangle = email or page (a link), diamond = decision.
-   Orange marks only the step circles, the start and goal, and the stop rule; connectors are grey,
+   Orange marks only the step circles, the start and goal, and the campaign lane; connectors are grey,
    dashed where a contact leaves the path. */
 .fc-wrap{position:relative;overflow-x:auto;scrollbar-width:thin;}   /* below 880 px the chart scrolls inside its frame */
 .jf-stage svg.fc{display:block;width:100%;min-width:880px;max-width:none;height:auto;margin:0;font-family:var(--sans);}   /* not capped like the Arre wireframe; never shrunk below a readable size */
@@ -1228,15 +1228,12 @@ body.p-mai blockquote.owner-quote{font-size:17px;line-height:1.7;margin-bottom:0
 /* Connectors */
 .fc-line{fill:none;stroke:var(--ink-3);stroke-width:1.5;marker-end:url(#fc-arr);}
 .fc-exit{stroke-dasharray:4 3;}
+/* The line under the four reminders that feeds the "Ordered?" decision */
+.fc-bus{fill:none;stroke:var(--ink-3);stroke-width:1.5;}
 .fc-head{fill:var(--ink-3);}
 .fc-yn{fill:var(--ink-2);font-size:11.5px;font-weight:600;text-anchor:middle;letter-spacing:0.04em;}
-.fc-target{fill:var(--ink-3);font-size:12.5px;}
-.fc-target-num{fill:var(--ink);font-weight:600;}
+.fc-yn-start{text-anchor:start;}   /* labels that sit beside a vertical connector */
 /* Stop rule: the only tinted shape */
-.fc-stop{fill:color-mix(in srgb, var(--accent) 12%, transparent);}
-.fc-stop-bar{fill:var(--accent);}
-.fc-stop-text{fill:var(--ink-2);font-size:13.5px;dominant-baseline:central;}
-.fc-stop-b{fill:var(--ink);font-weight:600;}
 /* Info markers (SVG version of the stage pins): grey, only the first one pulses */
 .jf-stage .fc-info circle:not(.wf-tap):not(.wf-pulse){fill:var(--surface);stroke:var(--ink-3);stroke-width:1.5;}
 .jf-stage .fc-info text{fill:var(--ink-2);font:italic 700 12px Georgia, 'Times New Roman', serif;}
