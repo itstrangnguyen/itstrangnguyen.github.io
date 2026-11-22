@@ -1193,6 +1193,36 @@ body.p-mai blockquote.owner-quote{font-size:17px;line-height:1.7;margin-bottom:0
 .part-title{padding-bottom:0;}
 .part-title h2{margin-bottom:0;}
 .part-title + section{border-top:0;}
+/* Brief: the course goal and my extension side by side */
+.ff-goals{margin:20px 0 0;grid-template-columns:repeat(2,minmax(0,1fr));}
+/* Funnel strip under the brief: six steps, brackets below link to Part 1 and Part 2.
+   One grid; the list uses display:contents so its items and the two brackets share the columns. */
+.ff-funnel{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px 22px;margin-top:44px;}
+.ff-funnel ol{display:contents;list-style:none;}
+.ff-funnel li{grid-row:1;position:relative;display:flex;align-items:center;justify-content:center;min-height:48px;padding:8px 10px;
+  border:1px solid var(--line);border-radius:12px;background:var(--surface);text-align:center;font-size:14px;line-height:1.3;color:var(--ink-2);}
+.ff-funnel li:not(:last-child)::after{content:"→";position:absolute;right:-17px;top:50%;transform:translateY(-50%);font-size:14px;color:var(--ink-3);}
+.ff-part{position:relative;display:block;padding-top:16px;text-align:center;font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;
+  color:var(--accent);text-decoration:none;}
+.ff-part::before{content:"";position:absolute;left:0;right:0;top:0;height:9px;border:1.5px solid var(--ink-3);border-top:0;border-radius:0 0 8px 8px;}
+.ff-part:hover,.ff-part:focus-visible{text-decoration:underline;text-underline-offset:3px;}
+.ff-part-1{grid-row:2;grid-column:1 / 3;}
+.ff-part-2{grid-row:2;grid-column:3 / 7;}
+/* Bridge from Part 1 to Part 2 */
+.ff-bridge{margin:28px 0 0;text-align:center;font-size:16px;color:var(--ink-2);}
+.ff-bridge a{margin-left:6px;color:var(--accent);font-weight:500;white-space:nowrap;}
+@media (max-width:760px){
+  .ff-goals{grid-template-columns:1fr;}
+  /* Phones: two steps per row; Part 1 closes after the first row, Part 2 after the last */
+  .ff-funnel{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:32px;}
+  .ff-funnel li:nth-child(1),.ff-funnel li:nth-child(2){grid-row:1;}
+  .ff-part-1{grid-row:2;grid-column:1 / -1;margin-bottom:10px;}
+  .ff-funnel li:nth-child(3),.ff-funnel li:nth-child(4){grid-row:3;}
+  .ff-funnel li:nth-child(5),.ff-funnel li:nth-child(6){grid-row:4;}
+  .ff-part-2{grid-row:5;grid-column:1 / -1;}
+  .ff-funnel li:nth-child(2n)::after{content:none;}
+  .ff-bridge{text-align:left;}
+}
 /* AI use box with a list */
 .ai-use p{margin:0 0 4px;}
 .ai-use ul{margin:0;padding-left:18px;}
