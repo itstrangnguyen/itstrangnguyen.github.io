@@ -122,12 +122,13 @@
       <p class="section-intro">Turn sign-ups into first orders, and first orders into repeat customers.</p>
 
       <figure class="stage wireframe jf-stage" data-wf-tips data-lens="flow">
-        <p class="lens-hint"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V11m0-1.5a1.5 1.5 0 0 1 3 0V11m0-.5a1.5 1.5 0 0 1 3 0v4.5a6 6 0 0 1-6 6h-.6a6 6 0 0 1-4.7-2.3L4.4 15a1.6 1.6 0 0 1 2.4-2.1L9 15"/></svg><span>Start with the journey, then see the emails and pages.</span></p>
+        <p class="lens-hint"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V11m0-1.5a1.5 1.5 0 0 1 3 0V11m0-.5a1.5 1.5 0 0 1 3 0v4.5a6 6 0 0 1-6 6h-.6a6 6 0 0 1-4.7-2.3L4.4 15a1.6 1.6 0 0 1 2.4-2.1L9 15"/></svg><span>Start with the journey, then open the emails and the pages they lead to.</span></p>
         <div class="lens-tabs" role="tablist" aria-label="Email journey view">
           <button type="button" role="tab" id="flow" data-lens-tab="flow" aria-selected="true"><span class="part-num">01</span>Journey</button>
-          <button type="button" role="tab" id="emails" data-lens-tab="emails" aria-selected="false"><span class="part-num">02</span>Emails &amp; pages</button>
-          <button type="button" role="tab" id="setup" data-lens-tab="setup" aria-selected="false"><span class="part-num">03</span>HubSpot setup</button>
-          <button type="button" role="tab" id="tests" data-lens-tab="tests" aria-selected="false"><span class="part-num">04</span>Test run</button>
+          <button type="button" role="tab" id="emails" data-lens-tab="emails" aria-selected="false"><span class="part-num">02</span>Emails</button>
+          <button type="button" role="tab" id="pages" data-lens-tab="pages" aria-selected="false"><span class="part-num">03</span>Pages</button>
+          <button type="button" role="tab" id="setup" data-lens-tab="setup" aria-selected="false"><span class="part-num">04</span>HubSpot setup</button>
+          <button type="button" role="tab" id="tests" data-lens-tab="tests" aria-selected="false"><span class="part-num">05</span>Test run</button>
         </div>
 
         <!-- ===== View 1: the journey as a flowchart in swimlanes (steps 1-3, then the separate campaign) =====
@@ -192,7 +193,7 @@
               <!-- A dashed bracket under all four emails: an order at any point leads to step 3 -->
               <path class="fc-bracket" d="M236,278 V288 H842 V278"/>
               <line class="fc-line" x1="299" y1="288" x2="299" y2="414"/>
-              <text class="fc-yn fc-yn-start fc-yn-strong" x="311" y="353">Orders at any point → step 3</text>
+              <text class="fc-yn fc-yn-start fc-yn-strong" x="311" y="353">Orders at any point → Workflow 2</text>
 
               <g class="fc-step"><circle cx="30" cy="438" r="15"/><text x="30" y="438">3</text></g>
               <text class="fc-title" x="56" y="426">Workflow 2</text>
@@ -215,7 +216,7 @@
               <path class="fc-line" d="M624,472 V494 H937 V460"/><text class="fc-yn fc-yn-start" x="632" y="488">Yes</text>
 
               <!-- Separate campaign -->
-              <text class="fc-title fc-title-aside" x="56" y="562">Separate: one-off</text><text class="fc-title fc-title-aside" x="56" y="580">campaign</text>
+              <text class="fc-title fc-title-aside" x="56" y="562">One-off campaign</text>
               <text class="fc-sub" x="56" y="600">1 October · no workflow</text>
               <g class="wf-num fc-info" data-tip="t7"><circle cx="212" cy="557" r="9"/><text x="212" y="557">i</text></g>
               <rect class="fc-box-static" x="236" y="554" width="140" height="44" rx="10"/><text class="fc-text" x="306" y="576">All confirmed</text>
@@ -225,10 +226,10 @@
               <text class="fc-cap" x="476" y="616"><tspan class="fc-cap-when">1 Oct</tspan> · FF 09</text>
             </svg>
           </div>
-          <p class="fc-legend"><span><i class="fc-l-goal"></i>Orange: start and goal</span><span><i class="fc-l-box"></i>Email or page (click to open)</span><span><i class="fc-l-decide"></i>Decision</span><span><i class="fc-l-exit"></i>Dashed: leaves the path</span></p>
+          <p class="fc-legend"><span><i class="fc-l-goal"></i>Orange: start point and end goal</span><span><i class="fc-l-box"></i>Email</span><span><i class="fc-l-decide"></i>Decision</span><span><i class="fc-l-exit"></i>Dashed: leaves the path</span></p>
         </div>
 
-        <!-- ===== View 2: the emails as customers receive them, and the pages their buttons open ===== -->
+        <!-- ===== View 2: the emails as customers receive them ===== -->
         <div class="lens-pane" data-lens-pane="emails" hidden>
           <p class="lens-intro">The nine emails as customers receive them. Click any email to open it and try its buttons.</p>
           <div class="ep-grid">
@@ -242,17 +243,20 @@
             <a class="ep-card" href="../assets/fitfrisch/emails/ff08.html" target="_blank" rel="noopener"><img src="../assets/images/fitfrisch/emails/ff08.jpg" alt="" width="600" height="600" loading="lazy"><span class="ep-body"><b>FF 08</b><strong>Same time next week?</strong><span>Your lunch routine, minus the cooking</span></span></a>
             <a class="ep-card" href="../assets/fitfrisch/emails/ff09.html" target="_blank" rel="noopener"><img src="../assets/images/fitfrisch/emails/ff09.jpg" alt="" width="600" height="600" loading="lazy"><span class="ep-body"><b>FF 09</b><strong>New on the menu: the Chestnut &amp; Mushroom Bowl 🍄</strong><span>Our October special, until 31 October</span></span></a>
           </div>
+        </div>
 
-          <h3 class="ep-h">Where the buttons lead</h3>
+        <!-- ===== View 3: the demo pages the email buttons lead to ===== -->
+        <div class="lens-pane" data-lens-pane="pages" hidden>
+          <p class="lens-intro">Where the email buttons lead. Each page is a working demo.</p>
           <div class="ep-pages">
-            <a class="ep-page" href="../assets/fitfrisch/landing-page.html" target="_blank" rel="noopener"><span class="art-browser"><img src="../assets/images/fitfrisch/pages/landing.jpg" alt="" width="800" height="500" loading="lazy"></span><span class="ep-cap"><b>Landing page</b>Sign-up</span></a>
-            <a class="ep-page" href="../assets/fitfrisch/menu.html?code=DESK-2026" target="_blank" rel="noopener"><span class="art-browser"><img src="../assets/images/fitfrisch/pages/menu.jpg" alt="" width="800" height="500" loading="lazy"></span><span class="ep-cap"><b>Menu</b>Code filled in from the email link</span></a>
-            <a class="ep-page" href="../assets/fitfrisch/order-status.html" target="_blank" rel="noopener"><span class="art-browser"><img src="../assets/images/fitfrisch/pages/order-status.jpg" alt="" width="800" height="500" loading="lazy"></span><span class="ep-cap"><b>Order status</b>After “Track my order”</span></a>
-            <a class="ep-page" href="../assets/fitfrisch/thanks.html?rating=good" target="_blank" rel="noopener"><span class="art-browser"><img src="../assets/images/fitfrisch/pages/thanks.jpg" alt="" width="800" height="500" loading="lazy"></span><span class="ep-cap"><b>Thanks</b>After the feedback buttons</span></a>
+            <a class="ep-page" href="../assets/fitfrisch/landing-page.html" target="_blank" rel="noopener"><span class="art-browser"><img src="../assets/images/fitfrisch/pages/landing.jpg" alt="" width="800" height="500" loading="lazy"></span><span class="ep-cap"><b>Landing page</b>Linked from the ads</span></a>
+            <a class="ep-page" href="../assets/fitfrisch/menu.html?code=DESK-2026" target="_blank" rel="noopener"><span class="art-browser"><img src="../assets/images/fitfrisch/pages/menu.jpg" alt="" width="800" height="500" loading="lazy"></span><span class="ep-cap"><b>Menu</b>Linked from FF 02–05, FF 08 and FF 09, with the code filled in</span></a>
+            <a class="ep-page" href="../assets/fitfrisch/order-status.html" target="_blank" rel="noopener"><span class="art-browser"><img src="../assets/images/fitfrisch/pages/order-status.jpg" alt="" width="800" height="500" loading="lazy"></span><span class="ep-cap"><b>Order status</b>Linked from FF 06</span></a>
+            <a class="ep-page" href="../assets/fitfrisch/thanks.html?rating=good" target="_blank" rel="noopener"><span class="art-browser"><img src="../assets/images/fitfrisch/pages/thanks.jpg" alt="" width="800" height="500" loading="lazy"></span><span class="ep-cap"><b>Thanks</b>Linked from the two feedback buttons in FF 07</span></a>
           </div>
         </div>
 
-        <!-- ===== View 3: HubSpot setup ===== -->
+        <!-- ===== View 4: HubSpot setup ===== -->
         <div class="lens-pane" data-lens-pane="setup" hidden>
           <div class="jf-setup">
             <div class="jf-record">
@@ -287,7 +291,7 @@
           <p class="stage-cap">Click a screenshot to enlarge it.</p>
         </div>
 
-        <!-- ===== View 4: test run ===== -->
+        <!-- ===== View 5: test run ===== -->
         <div class="lens-pane" data-lens-pane="tests" hidden>
           <p class="lens-intro">Both workflows cloned, every delay set to 2 minutes, four test contacts.</p>
           <div class="table-wrap jf-matrix-wrap">

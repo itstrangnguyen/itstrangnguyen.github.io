@@ -1261,7 +1261,7 @@ body.p-mai blockquote.owner-quote{font-size:17px;line-height:1.7;margin-bottom:0
 }
 @media (prefers-reduced-motion:reduce){ .fc-box rect{transition:none;} }
 
-/* View 2: the nine emails (preview + number, subject, preview text), then the pages their buttons open */
+/* View 2: the nine emails (preview + number, subject, preview text). View 3: the pages their buttons open */
 .ep-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:22px;}
 .ep-card{display:flex;flex-direction:column;overflow:hidden;border-radius:16px;background:var(--bg);border:1px solid var(--line);
   text-decoration:none;color:var(--ink-2);transition:border-color .2s ease, transform .2s ease, box-shadow .2s ease;}
@@ -1272,27 +1272,28 @@ body.p-mai blockquote.owner-quote{font-size:17px;line-height:1.7;margin-bottom:0
 .ep-body b{font-size:11px;font-weight:600;letter-spacing:0.12em;color:var(--accent);}
 .ep-body strong{font-size:15.5px;font-weight:500;line-height:1.4;color:var(--ink);}
 .ep-body span{font-size:13.5px;line-height:1.45;color:var(--ink-3);}
-.ep-h{margin:44px 0 16px;}
-.ep-pages{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;}
-.ep-page{display:flex;flex-direction:column;gap:10px;text-decoration:none;color:var(--ink-2);}
+.ep-pages{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 28px;margin-top:22px;}
+.ep-page{display:flex;flex-direction:column;gap:12px;text-decoration:none;color:var(--ink-2);}
 .ep-page .art-browser{display:block;box-shadow:0 16px 36px -14px rgba(0,0,0,.6);transition:transform .2s ease, box-shadow .2s ease;}
 .ep-page img{height:auto;aspect-ratio:8/5;}
 .ep-page:hover,.ep-page:focus-visible{color:var(--ink-2);}
 .ep-page:hover .art-browser,.ep-page:focus-visible .art-browser{transform:translateY(-3px);box-shadow:0 0 0 2px var(--accent), 0 16px 36px -14px rgba(0,0,0,.6);}
-.ep-cap{display:flex;flex-direction:column;font-size:13px;line-height:1.4;color:var(--ink-3);}
-.ep-cap b{font-size:14.5px;font-weight:600;color:var(--ink);}
+.ep-cap{display:flex;flex-direction:column;gap:2px;font-size:14px;line-height:1.45;color:var(--ink-3);}
+.ep-cap b{font-size:16px;font-weight:600;color:var(--ink);}
 @media (max-width:960px){
   .ep-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
-  /* Four tabs on one line on tablets: the 01-04 badges go, as on phones */
+  /* Five tabs on one line on tablets: the 01-05 badges go, as on phones */
   .jf-stage .lens-tabs .part-num{display:none;}
   .jf-stage .lens-tabs button{padding:7px 16px;}
 }
 @media (max-width:760px){
   .ep-grid{grid-template-columns:1fr;}
-  .ep-pages{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;}
-  /* Four tabs: two rows of two on phones */
-  .jf-stage .lens-tabs{flex-wrap:wrap;border-radius:22px;}
-  .jf-stage .lens-tabs button{flex:1 1 calc(50% - 6px);}
+  .ep-pages{grid-template-columns:1fr;gap:24px;}
+  /* Five tabs don't fit a phone: the tab bar scrolls sideways inside itself (script.js keeps the
+     active tab in view); the page never scrolls sideways */
+  .jf-stage .lens-tabs{position:relative;flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;scrollbar-width:none;}
+  .jf-stage .lens-tabs::-webkit-scrollbar{display:none;}
+  .jf-stage .lens-tabs button{flex:0 0 auto;white-space:nowrap;padding:7px 14px;}
 }
 @media (prefers-reduced-motion:reduce){ .ep-card,.ep-page .art-browser{transition:none;} .ep-card:hover,.ep-page:hover .art-browser{transform:none;} }
 

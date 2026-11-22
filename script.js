@@ -329,6 +329,13 @@ document.querySelectorAll('[data-wf-tips]').forEach(function (fig) {
     fig.querySelectorAll('[data-lens-pane]').forEach(function (el) {
       el.hidden = el.getAttribute('data-lens-pane').split(' ').indexOf(lens) < 0;
     });
+    // A tab bar that scrolls sideways (Fit & Frisch on phones): centre the active tab in it.
+    // Only the bar scrolls, never the page; bars that fit (e.g. Arre) are left alone.
+    var bar = tabs[0].parentElement;
+    var active = tabs.filter(function (t) { return t.getAttribute('data-lens-tab') === lens; })[0];
+    if (active && bar.scrollWidth > bar.clientWidth) {
+      bar.scrollLeft = active.offsetLeft - (bar.clientWidth - active.offsetWidth) / 2;
+    }
   }
   tabs.forEach(function (t, i) {
     t.addEventListener('click', function (e) { e.stopPropagation(); setLens(t.getAttribute('data-lens-tab')); });
