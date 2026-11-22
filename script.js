@@ -348,3 +348,41 @@ document.querySelectorAll('[data-wf-tips]').forEach(function (fig) {
   setLens(location.hash.slice(1) || fig.getAttribute('data-lens'));
   if (!fig.getAttribute('data-lens')) setLens(tabs[0].getAttribute('data-lens-tab'));
 });
+// Scroll rail: lights up the section being read and fills the line up to the reader's position.
+// The rail appears once the first section reaches the screen.
+document.querySelectorAll('.scroll-rail').forEach(function (rail) {
+  var links = [].slice.call(rail.querySelectorAll('a[href^="#"]'));
+  var targets = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+  var fill = rail.querySelector('.rail-fill');
+  if (targets.some(function (t) { return !t; })) return;
+  var ticking = false;
+  function update() {
+    ticking = false;
+    var mark = window.innerHeight * 0.35;
+    var tops = targets.map(function (t) { return t.getBoundingClientRect().top; });
+    var active = -1;
+    tops.forEach(function (top, i) { if (top <= mark) active = i; });
+    // Near the very bottom, the last short section can't reach the mark: treat it as reached
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) active = links.length - 1;
+    rail.classList.toggle('is-visible', tops[0] < window.innerHeight * 0.9);
+    links.forEach(function (a, i) {
+      a.classList.toggle('is-active', i === active);
+      a.classList.toggle('is-past', i < active);
+      if (i === active) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
+    });
+    // Line fill: up to the active marker, plus how far the reader is through that section
+    var y = 0;
+    if (active >= 0) {
+      var here = links[active].offsetTop + links[active].offsetHeight / 2;
+      var next = active < links.length - 1 ? links[active + 1].offsetTop + links[active + 1].offsetHeight / 2 : here;
+      var span = active < links.length - 1 ? tops[active + 1] - tops[active] : 1;
+      var part = Math.min(1, Math.max(0, (mark - tops[active]) / span));
+      y = here + (next - here) * part - 11;
+    }
+    fill.style.height = Math.max(0, y) + 'px';
+  }
+  function request() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+  window.addEventListener('scroll', request, { passive: true });
+  window.addEventListener('resize', request);
+  update();
+});
