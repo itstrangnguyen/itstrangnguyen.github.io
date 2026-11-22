@@ -1300,29 +1300,38 @@ body.p-mai blockquote.owner-quote{font-size:17px;line-height:1.7;margin-bottom:0
 }
 @media (prefers-reduced-motion:reduce){ .ep-card,.ep-page .art-browser{transition:none;} .ep-card:hover,.ep-page:hover .art-browser{transform:none;} }
 
-/* HubSpot setup tab: three blocks (sign-up form, data table, workflows) */
+/* HubSpot setup tab: five text-led rows (text left, screenshot right), then the data table */
 .jf-setup{display:grid;gap:44px;}
 .jf-block-h{font-size:19px;font-weight:600;margin:0 0 16px;}
-.jf-block-sub{font-size:15px;font-weight:600;color:var(--ink-2);letter-spacing:0;margin:28px 0 12px;}
-.jf-block-h + .jf-block-sub{margin-top:0;}
-.jf-form{display:grid;grid-template-columns:minmax(0,55fr) minmax(0,45fr);gap:32px;align-items:center;}
-.jf-form-list{margin:0;padding-left:20px;font-size:16px;line-height:1.55;color:var(--ink-2);}
-.jf-form-list li{margin:0 0 12px;}
-.jf-form-list li:last-child{margin-bottom:0;}
-.crm-shot{margin:0;}
-.crm-shot img{display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--line);}
-.crm-shot figcaption{margin-top:8px;font-size:13px;color:var(--ink-3);}
-.crm-shots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 20px;align-items:start;}
-.crm-wide{grid-column:1 / -1;}
+.jf-step{display:grid;grid-template-columns:minmax(0,55fr) minmax(0,45fr);gap:40px;align-items:center;padding:36px 0;border-top:1px solid var(--line);}
+.jf-step:first-child{border-top:0;padding-top:8px;}
+.jf-step:last-child{padding-bottom:0;}
+.jf-tag{display:inline-block;margin:0 0 8px;font-size:12.5px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-3);text-decoration:none;}
+.jf-tag:hover,.jf-tag:focus-visible{color:var(--accent);}
+.jf-step h3{font-size:20px;font-weight:600;margin:0 0 10px;}
+.jf-step p{margin:0 0 12px;font-size:15.5px;line-height:1.6;color:var(--ink-2);}
+.jf-step p.jf-setting{margin:0;font-family:var(--mono);font-size:13px;line-height:1.55;color:var(--ink);}
+.jf-setting span{color:var(--ink-3);}
+/* Screenshot frame: same height for all five, image contained on a light card */
+.jf-shot{position:relative;margin:0;height:240px;padding:12px;border-radius:16px;background:#F4F3EF;border:1px solid var(--line);
+  transition:box-shadow .2s ease;}
+.jf-shot img{display:block;width:100%;height:100%;object-fit:contain;border-radius:6px;}
+.jf-shot img[data-zoom]:hover{transform:none;box-shadow:none;}
+.jf-shot:hover{box-shadow:0 0 0 2px var(--accent);}
+.jf-shot::after{content:"Click to enlarge";position:absolute;right:10px;bottom:10px;padding:4px 10px;border-radius:100px;
+  font-size:12px;font-weight:500;color:#fff;background:rgba(11,11,13,.78);opacity:0;transition:opacity .2s ease;pointer-events:none;}
+.jf-shot:hover::after{opacity:1;}
 .jf-props th[scope="row"]{font-size:14.5px;font-weight:500;letter-spacing:0;text-transform:none;color:var(--ink);}
 .jf-props td{font-size:14.5px;color:var(--ink-2);}
 .jf-props td:nth-child(2){font-family:var(--mono);font-size:12.5px;color:var(--ink-3);white-space:nowrap;}
 .jf-props tbody tr:last-child > *{border-bottom:0;}
 @media (max-width:760px){
   .jf-setup{gap:36px;}
-  .jf-form{grid-template-columns:1fr;gap:18px;}
-  .jf-form-list{font-size:15px;}
-  .crm-shots{grid-template-columns:1fr;}
+  .jf-step{grid-template-columns:1fr;gap:18px;padding:28px 0;}
+  .jf-step:first-child{padding-top:0;}
+  .jf-step h3{font-size:18px;}
+  .jf-step p{font-size:15px;}
+  .jf-shot{height:220px;}
   .jf-props th,.jf-props td{padding:10px 12px;}
   .jf-props th[scope="row"]{min-width:120px;}
   .jf-props td:nth-child(3){min-width:190px;}
@@ -1331,8 +1340,12 @@ body.p-mai blockquote.owner-quote{font-size:17px;line-height:1.7;margin-bottom:0
 /* View 4: which emails each test contact got, and Contact C's timeline */
 /* Scrolls sideways only; the padding keeps the highlight rings clear of the edges */
 .jf-matrix-wrap{overflow-x:auto;overflow-y:hidden;padding:4px;}
+/* Fixed columns: test contact about a third, the eight emails share the rest */
+.jf-matrix{table-layout:fixed;}
+.jf-matrix .jf-col-who{width:34%;}
 .jf-matrix th,.jf-matrix td{text-align:center;vertical-align:middle;padding:12px 10px;}
-.jf-matrix thead th{vertical-align:bottom;}
+.jf-matrix thead th{vertical-align:top;padding-left:4px;padding-right:4px;}
+.jf-matrix thead th:first-child{padding-left:10px;}
 .jf-matrix thead th small{display:block;margin-top:4px;font-size:11.5px;font-weight:400;letter-spacing:0;text-transform:none;line-height:1.3;color:var(--ink-3);}
 .jf-matrix th[scope="row"]{text-align:left;font-size:14px;font-weight:500;letter-spacing:0;text-transform:none;color:var(--ink);}
 .jf-row{display:flex;align-items:center;gap:12px;}
@@ -1340,7 +1353,6 @@ body.p-mai blockquote.owner-quote{font-size:17px;line-height:1.7;margin-bottom:0
 .jf-count{font-size:12.5px;font-weight:400;color:var(--ink-3);white-space:nowrap;}
 .jf-matrix thead th{white-space:nowrap;}
 .jf-matrix thead th small{white-space:normal;}
-.jf-matrix th[scope="row"]{min-width:395px;}
 .jf-matrix tbody tr:last-child > *{border-bottom:0;}
 /* A-D letters: plain grey circles, so only the proof cells stand out */
 .jf-matrix .jf-who{display:inline-grid;flex:none;background:transparent;border:1.5px solid var(--ink-3);color:var(--ink-2);box-sizing:border-box;}
@@ -1375,6 +1387,8 @@ body.p-mai blockquote.owner-quote{font-size:17px;line-height:1.7;margin-bottom:0
   /* Each lane keeps its left-to-right flow and swipes sideways inside the lane */
   .jf-lessons{grid-template-columns:1fr;}
   /* Test grid: labels wrap, and the contact column stays put while the emails swipe */
+  .jf-matrix{width:660px;}
+  .jf-matrix .jf-col-who{width:170px;}
   .jf-matrix th,.jf-matrix td{padding:10px 7px;}
   .jf-matrix th[scope="row"]{white-space:normal;min-width:170px;font-size:13px;line-height:1.35;
     position:sticky;left:0;z-index:1;background:var(--surface);box-shadow:1px 0 0 var(--line);}

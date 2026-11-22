@@ -258,18 +258,53 @@
 
         <!-- ===== View 4: HubSpot setup ===== -->
         <div class="lens-pane" data-lens-pane="setup" hidden>
-          <div class="jf-setup" data-zoom-group>
-            <div class="jf-block" role="group" aria-labelledby="jf-h-form">
-              <h3 class="jf-block-h" id="jf-h-form">Sign-up form</h3>
-              <div class="jf-form">
-                <figure class="crm-shot">
-                  <img src="../assets/images/fitfrisch/crm/form.png" alt="The HubSpot sign-up form: one email field and an unticked consent box" width="853" height="591" loading="lazy" data-zoom data-slot>
-                </figure>
-                <ul class="jf-form-list">
-                  <li>One email field, nothing else to fill in.</li>
-                  <li>An unticked consent box that subscribes the contact to &ldquo;Marketing Information&rdquo;.</li>
-                  <li>Hidden fields for district and UTM tags.</li>
-                </ul>
+          <div class="jf-setup">
+            <!-- Five rows: text leads, the screenshot backs it up. Each tag links back to the Journey tab. -->
+            <div class="jf-steps" data-zoom-group>
+              <div class="jf-step">
+                <div class="jf-step-text">
+                  <a class="jf-tag" href="#flow">Step 1 · Sign-up form</a>
+                  <h3>Only one field, and consent is explicit</h3>
+                  <p>One email field and an unticked consent box. Ticking it subscribes the contact to 'Marketing Information'. Hidden fields store the district and the UTM tags.</p>
+                  <p class="jf-setting"><span>Setting:</span> Consent box → Marketing Information subscription</p>
+                </div>
+                <figure class="jf-shot"><img src="../assets/images/fitfrisch/crm/form.png" alt="Sign-up form: one email field and an unticked consent box" width="853" height="591" loading="lazy" data-zoom data-slot></figure>
+              </div>
+              <div class="jf-step">
+                <div class="jf-step-text">
+                  <a class="jf-tag" href="#flow">Step 2 · Workflow 1 trigger</a>
+                  <h3>Only confirmed sign-ups enroll</h3>
+                  <p>A contact enrolls only when both are true: they submitted the sign-up form, and they clicked the confirmation link.</p>
+                  <p class="jf-setting"><span>Setting:</span> Form submitted AND confirmation status = User clicked confirmation or Confirmed</p>
+                </div>
+                <figure class="jf-shot"><img src="../assets/images/fitfrisch/crm/trigger-ff1.png" alt="Workflow 1 trigger: form submitted and email confirmed" width="486" height="718" loading="lazy" data-zoom data-slot></figure>
+              </div>
+              <div class="jf-step">
+                <div class="jf-step-text">
+                  <a class="jf-tag" href="#flow">Step 2 · Workflow 1 stop rule</a>
+                  <h3>An order stops the reminders at once</h3>
+                  <p>HubSpot calls this a goal. It's checked all the time, so a contact who orders on day 4 never gets the day-7 or day-12 email.</p>
+                  <p class="jf-setting"><span>Setting:</span> Goal: First order date is known</p>
+                </div>
+                <figure class="jf-shot"><img src="../assets/images/fitfrisch/crm/goal.png" alt="Workflow 1 goal: First order date is known" width="466" height="473" loading="lazy" data-zoom data-slot></figure>
+              </div>
+              <div class="jf-step">
+                <div class="jf-step-text">
+                  <a class="jf-tag" href="#flow">Step 3 · Workflow 2 trigger</a>
+                  <h3>The first order starts Workflow 2</h3>
+                  <p>The moment the shop records a first order, the contact enters Workflow 2 and gets the order confirmation.</p>
+                  <p class="jf-setting"><span>Setting:</span> First order date changes to known</p>
+                </div>
+                <figure class="jf-shot"><img src="../assets/images/fitfrisch/crm/trigger-ff2.png" alt="Workflow 2 trigger: First order date changes to known" width="486" height="283" loading="lazy" data-zoom data-slot></figure>
+              </div>
+              <div class="jf-step">
+                <div class="jf-step-text">
+                  <a class="jf-tag" href="#flow">Step 3 · Workflow 2 branch</a>
+                  <h3>'Order again' only after exactly one order</h3>
+                  <p>Six days after the feedback email, the workflow checks the order count. Customers who already reordered leave; the rest get 'Same time next week?'.</p>
+                  <p class="jf-setting"><span>Setting:</span> Order count &gt; 1 → end · otherwise → FF 08</p>
+                </div>
+                <figure class="jf-shot"><img src="../assets/images/fitfrisch/crm/branch.png" alt="Workflow 2 branch on Order count: more than 1 ends, otherwise FF 08" width="1364" height="748" loading="lazy" data-zoom data-slot></figure>
               </div>
             </div>
 
@@ -288,32 +323,6 @@
                 </table>
               </div>
             </div>
-
-            <div class="jf-block" role="group" aria-labelledby="jf-h-wf">
-              <h3 class="jf-block-h" id="jf-h-wf">Workflows</h3>
-              <h4 class="jf-block-sub">Workflow 1</h4>
-              <div class="crm-shots">
-                <figure class="crm-shot">
-                  <img src="../assets/images/fitfrisch/crm/trigger-ff1.png" alt="Workflow 1 enrolls only sign-ups who confirmed their email" width="486" height="718" loading="lazy" data-zoom data-slot>
-                  <figcaption>Workflow 1 enrolls only sign-ups who confirmed their email</figcaption>
-                </figure>
-                <figure class="crm-shot">
-                  <img src="../assets/images/fitfrisch/crm/goal.png" alt="Stop rule: a first order ends Workflow 1" width="466" height="473" loading="lazy" data-zoom data-slot>
-                  <figcaption>Stop rule: a first order ends Workflow 1</figcaption>
-                </figure>
-              </div>
-              <h4 class="jf-block-sub">Workflow 2</h4>
-              <div class="crm-shots">
-                <figure class="crm-shot">
-                  <img src="../assets/images/fitfrisch/crm/trigger-ff2.png" alt="Workflow 2 starts when the first order is recorded" width="486" height="283" loading="lazy" data-zoom data-slot>
-                  <figcaption>Workflow 2 starts when the first order is recorded</figcaption>
-                </figure>
-                <figure class="crm-shot crm-wide">
-                  <img src="../assets/images/fitfrisch/crm/branch.png" alt="Workflow 2 sends 'order again' only after exactly one order" width="1364" height="748" loading="lazy" data-zoom data-slot>
-                  <figcaption>Workflow 2 sends 'order again' only after exactly one order</figcaption>
-                </figure>
-              </div>
-            </div>
           </div>
           <p class="stage-cap">Click a screenshot to enlarge it.</p>
         </div>
@@ -324,15 +333,16 @@
           <div class="table-wrap jf-matrix-wrap">
             <table class="jf-matrix">
               <caption class="visually-hidden">Which emails each test contact received</caption>
+              <colgroup><col class="jf-col-who"><col span="8"></colgroup>
               <thead><tr><th scope="col">Test contact</th><th scope="col">FF 01<small>Confirm</small></th><th scope="col">FF 02<small>Welcome</small></th><th scope="col">FF 03<small>Menu</small></th><th scope="col">FF 04<small>How it works</small></th><th scope="col">FF 05<small>Last call</small></th><th scope="col">FF 06<small>Order confirmed</small></th><th scope="col">FF 07<small>Feedback</small></th><th scope="col">FF 08<small>Order again</small></th></tr></thead>
               <tbody>
                 <tr><th scope="row"><span class="jf-row"><span class="pin jf-who" data-tip="ta">A</span><span>Signs up, never confirms<small>Proves: no code without confirmation</small></span></span></th>
                   <td><i class="dot on" role="img" aria-label="sent"></i></td><td class="key"><i class="dot off" role="img" aria-label="not sent"></i></td><td><i class="dot off" role="img" aria-label="not sent"></i></td><td><i class="dot off" role="img" aria-label="not sent"></i></td><td><i class="dot off" role="img" aria-label="not sent"></i></td><td><i class="dot off" role="img" aria-label="not sent"></i></td><td><i class="dot off" role="img" aria-label="not sent"></i></td><td><i class="dot off" role="img" aria-label="not sent"></i></td></tr>
                 <tr><th scope="row"><span class="jf-row"><span class="pin jf-who" data-tip="tb">B</span><span>Confirms, never orders<small>Proves: all reminders, then exit</small></span></span></th>
                   <td><i class="dot on" role="img" aria-label="sent"></i></td><td><i class="dot on" role="img" aria-label="sent"></i></td><td><i class="dot on" role="img" aria-label="sent"></i></td><td><i class="dot on" role="img" aria-label="sent"></i></td><td class="key"><i class="dot on" role="img" aria-label="sent"></i></td><td><i class="dot off" role="img" aria-label="not sent"></i></td><td><i class="dot off" role="img" aria-label="not sent"></i></td><td><i class="dot off" role="img" aria-label="not sent"></i></td></tr>
-                <tr><th scope="row"><span class="jf-row"><span class="pin jf-who" data-tip="tc">C</span><span>Orders after the menu reminder <span class="jf-count">· Order count = 1</span><small>Proves: an order stops the reminders</small></span></span></th>
+                <tr><th scope="row"><span class="jf-row"><span class="pin jf-who" data-tip="tc">C</span><span>Orders after the menu reminder <span class="jf-count"> (Order count = 1)</span><small>Proves: an order stops the reminders</small></span></span></th>
                   <td><i class="dot on" role="img" aria-label="sent"></i></td><td><i class="dot on" role="img" aria-label="sent"></i></td><td><i class="dot on" role="img" aria-label="sent"></i></td><td class="key"><i class="dot off" role="img" aria-label="not sent"></i></td><td class="key"><i class="dot off" role="img" aria-label="not sent"></i></td><td><i class="dot on" role="img" aria-label="sent"></i></td><td><i class="dot on" role="img" aria-label="sent"></i></td><td class="key"><i class="dot on" role="img" aria-label="sent"></i></td></tr>
-                <tr><th scope="row"><span class="jf-row"><span class="pin jf-who" data-tip="td">D</span><span>Orders twice <span class="jf-count">· Order count = 2</span><small>Proves: no 'order again' after a second order</small></span></span></th>
+                <tr><th scope="row"><span class="jf-row"><span class="pin jf-who" data-tip="td">D</span><span>Orders twice <span class="jf-count"> (Order count = 2)</span><small>Proves: no 'order again' after a second order</small></span></span></th>
                   <td><i class="dot na" role="img" aria-label="not part of this test"></i></td><td><i class="dot na" role="img" aria-label="not part of this test"></i></td><td><i class="dot na" role="img" aria-label="not part of this test"></i></td><td><i class="dot na" role="img" aria-label="not part of this test"></i></td><td><i class="dot na" role="img" aria-label="not part of this test"></i></td><td><i class="dot on" role="img" aria-label="sent"></i></td><td><i class="dot on" role="img" aria-label="sent"></i></td><td class="key"><i class="dot off" role="img" aria-label="not sent"></i></td></tr>
               </tbody>
             </table>
@@ -342,12 +352,12 @@
           <div class="jf-timeline">
             <p class="jf-timeline-head"><b>Contact C, step by step</b><a href="../assets/images/fitfrisch/crm/contact-c.png" target="_blank" rel="noopener" data-zoom="tall" aria-label="HubSpot activity log for Contact C">See the HubSpot log</a></p>
             <ol class="jf-time">
-              <li><time>12:53</time><span>Signs up and confirms</span></li>
+              <li><time>12:53</time><span>Signs up, confirms</span></li>
               <li><time>12:54</time><span>Welcome + code</span></li>
               <li><time>12:56</time><span>Menu reminder</span></li>
-              <li class="is-event"><time>12:56</time><span>First order: leaves Workflow 1, gets the order confirmation</span></li>
+              <li class="is-event"><time>12:56</time><span>First order → Workflow&nbsp;2</span></li>
               <li><time>12:58</time><span>Feedback</span></li>
-              <li><time>12:59</time><span>Order again (order count = 1)</span></li>
+              <li><time>12:59</time><span>Order again</span></li>
             </ol>
           </div>
         </div>
@@ -370,9 +380,10 @@
         <div class="box">
           <p class="label">What I’d change in production</p>
           <ul>
-            <li>The shop generates each code and sends it to HubSpot.</li>
-            <li>The order confirmation goes out as a transactional email.</li>
-            <li>Orders sync by email address, and the code is tied to the sign-up address, so an order with another address still stops the reminders.</li>
+            <li>The shop creates a unique code per contact and sends it to HubSpot.</li>
+            <li>The order confirmation (FF 06) goes out as a transactional email.</li>
+            <li>Orders sync to HubSpot by code, not only by email, so an order placed with another address still stops the reminders.</li>
+            <li>The free delivery applies to a customer's first order, checked at checkout (not in the CRM) by delivery address and payment method. One person with several email aliases still gets one free delivery.</li>
             <li>The form closes on 14 September; the workflows run until early October.</li>
           </ul>
         </div>
