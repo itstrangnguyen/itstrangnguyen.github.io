@@ -1206,7 +1206,7 @@ body.p-mai blockquote.owner-quote{font-size:17px;line-height:1.7;margin-bottom:0
 .jf-stage svg.fc{display:block;width:100%;min-width:880px;max-width:none;height:auto;margin:0;font-family:var(--sans);}   /* not capped like the Arre wireframe; never shrunk below a readable size */
 .fc-swipe{display:none;}
 .fc-lane{fill:var(--bg);stroke:var(--line);}
-.fc-lane-aside{fill:none;stroke:color-mix(in srgb, var(--ink-3) 45%, transparent);stroke-dasharray:5 5;}
+.fc-lane-aside{fill:none;stroke:var(--accent);stroke-width:1.5;stroke-dasharray:6 5;}
 /* Lane labels */
 .fc-step circle{fill:var(--accent);}
 .fc-step text{fill:#0B0B0D;font-size:15px;font-weight:700;text-anchor:middle;dominant-baseline:central;}
