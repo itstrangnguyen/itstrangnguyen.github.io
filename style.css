@@ -1342,7 +1342,7 @@ body.p-mai blockquote.owner-quote{font-size:17px;line-height:1.7;margin-bottom:0
 .jf-time li.is-event span{color:var(--ink);font-weight:500;}
 
 /* Lessons under the stage */
-.jf-lessons{margin-top:28px;grid-template-columns:repeat(2,minmax(0,1fr));}
+.jf-lessons{margin-top:28px;grid-template-columns:1fr;}
 .jf-lessons li{margin:6px 0;}
 
 @media (max-width:960px){
