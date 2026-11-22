@@ -136,16 +136,16 @@
         <div class="lens-pane" data-lens-pane="flow">
           <p class="fc-swipe">Swipe sideways to see the whole flowchart.</p>
           <div class="fc-wrap">
-            <svg class="fc" viewBox="0 0 1000 700" role="group" aria-label="Flowchart of the email journey, from ad click to repeat customer">
+            <svg class="fc" viewBox="0 0 1000 636" role="group" aria-label="Flowchart of the email journey, from ad click to repeat customer">
               <defs>
                 <marker id="fc-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="fc-head" d="M0,0 L10,5 L0,10 z"/></marker>
               </defs>
 
               <!-- Lanes -->
               <rect class="fc-lane" x="0.5" y="10" width="999" height="140" rx="14"/>
-              <rect class="fc-lane" x="0.5" y="166" width="999" height="202" rx="14"/>
-              <rect class="fc-lane" x="0.5" y="408" width="999" height="176" rx="14"/>
-              <rect class="fc-lane fc-lane-aside" x="0.5" y="600" width="999" height="92" rx="14"/>
+              <rect class="fc-lane" x="0.5" y="166" width="999" height="164" rx="14"/>
+              <rect class="fc-lane" x="0.5" y="370" width="999" height="150" rx="14"/>
+              <rect class="fc-lane fc-lane-aside" x="0.5" y="536" width="999" height="92" rx="14"/>
 
               <!-- Lane labels: step circle, title, grey subtitle, info marker -->
               <g class="fc-step"><circle cx="30" cy="40" r="15"/><text x="30" y="40">1</text></g>
@@ -155,13 +155,12 @@
 
               <!-- Step 1: ad click → landing page → confirm email → Confirmed? -->
               <rect class="fc-term fc-start" x="236" y="52" width="100" height="40" rx="20"/><text class="fc-text" x="286" y="72">Ad click</text>
-              <text class="fc-cap" x="286" y="112">Instagram or Google</text>
               <line class="fc-line" x1="336" y1="72" x2="364" y2="72"/>
               <a class="fc-box" href="../assets/fitfrisch/landing-page.html" target="_blank" rel="noopener" aria-label="Landing page (opens in a new tab)"><rect x="366" y="50" width="126" height="44" rx="10"/><text class="fc-text" x="429" y="72">Landing page</text></a>
               <text class="fc-cap" x="429" y="112">Sign up by 14 Sept</text>
               <line class="fc-line" x1="492" y1="72" x2="524" y2="72"/>
               <a class="fc-box" href="../assets/fitfrisch/emails/ff01.html" target="_blank" rel="noopener" aria-label="FF 01 Confirm your email (opens in a new tab)"><rect x="526" y="50" width="140" height="44" rx="10"/><text class="fc-text" x="596" y="72">Confirm your email</text></a>
-              <text class="fc-cap" x="596" y="112">FF 01 · at once</text>
+              <text class="fc-cap" x="596" y="112"><tspan class="fc-cap-when">At once</tspan> · FF 01</text>
               <line class="fc-line" x1="666" y1="72" x2="692" y2="72"/>
               <polygon class="fc-decide" points="694,72 764,38 834,72 764,106"/><text class="fc-text" x="764" y="72">Confirmed?</text>
               <line class="fc-line fc-exit" x1="834" y1="72" x2="862" y2="72"/><text class="fc-yn" x="848" y="62">No</text>
@@ -174,68 +173,59 @@
               <text class="fc-title" x="56" y="192">Reminders until</text><text class="fc-title" x="56" y="210">the first order</text>
               <text class="fc-sub" x="56" y="230">Workflow 1</text>
               <g class="wf-num fc-info" data-tip="t3"><circle cx="212" cy="187" r="9"/><text x="212" y="187">i</text></g>
-              <!-- Step 2: four emails, then out if nobody ordered; any order jumps to step 3 -->
+              <!-- Step 2: four reminders. An order at any point jumps to step 3; after the last call, no order means leaving Workflow 1 -->
               <a class="fc-box" href="../assets/fitfrisch/emails/ff02.html" target="_blank" rel="noopener" aria-label="FF 02 Welcome + code (opens in a new tab)"><rect x="236" y="206" width="126" height="44" rx="10"/><text class="fc-text" x="299" y="228">Welcome + code</text></a>
-              <text class="fc-cap" x="299" y="268">FF 02 · day 0</text>
+              <text class="fc-cap" x="299" y="268"><tspan class="fc-cap-when">Day 0</tspan> · FF 02</text>
               <line class="fc-line" x1="362" y1="228" x2="394" y2="228"/>
               <a class="fc-box" href="../assets/fitfrisch/emails/ff03.html" target="_blank" rel="noopener" aria-label="FF 03 This week's menu (opens in a new tab)"><rect x="396" y="206" width="126" height="44" rx="10"/><text class="fc-text" x="459" y="228">This week's menu</text></a>
-              <text class="fc-cap" x="459" y="268">FF 03 · day 3</text>
+              <text class="fc-cap" x="459" y="268"><tspan class="fc-cap-when">Day 3</tspan> · FF 03</text>
               <line class="fc-line" x1="522" y1="228" x2="554" y2="228"/>
               <a class="fc-box" href="../assets/fitfrisch/emails/ff04.html" target="_blank" rel="noopener" aria-label="FF 04 How it works (opens in a new tab)"><rect x="556" y="206" width="126" height="44" rx="10"/><text class="fc-text" x="619" y="228">How it works</text></a>
-              <text class="fc-cap" x="619" y="268">FF 04 · day 7</text>
+              <text class="fc-cap" x="619" y="268"><tspan class="fc-cap-when">Day 7</tspan> · FF 04</text>
               <line class="fc-line" x1="682" y1="228" x2="714" y2="228"/>
               <a class="fc-box" href="../assets/fitfrisch/emails/ff05.html" target="_blank" rel="noopener" aria-label="FF 05 Last call (opens in a new tab)"><rect x="716" y="206" width="126" height="44" rx="10"/><text class="fc-text" x="779" y="228">Last call</text></a>
-              <text class="fc-cap" x="779" y="268">FF 05 · day 12</text>
+              <text class="fc-cap" x="779" y="268"><tspan class="fc-cap-when">Day 12</tspan> · FF 05</text>
+              <line class="fc-line fc-exit" x1="842" y1="228" x2="874" y2="228"/>
+              <rect class="fc-term" x="876" y="208" width="100" height="40" rx="20"/><text class="fc-text fc-text-muted" x="926" y="228">No order</text>
+              <text class="fc-cap" x="926" y="268">Code expires day 14 ·</text>
+              <text class="fc-cap" x="926" y="283">leaves Workflow 1</text>
+              <!-- A dashed bracket under all four emails: an order at any point leads to step 3 -->
+              <path class="fc-bracket" d="M236,278 V288 H842 V278"/>
+              <line class="fc-line" x1="299" y1="288" x2="299" y2="414"/>
+              <text class="fc-yn fc-yn-start" x="311" y="352">Orders at any point → step 3</text>
 
-              <!-- Ordered? is checked during all four emails. Yes: step 3. No: was that the last call?
-                   No, more reminders: back to the next email. Yes: the contact leaves Workflow 1 without an order. -->
-              <line class="fc-bus" x1="459" y1="276" x2="459" y2="286"/>
-              <line class="fc-bus" x1="619" y1="276" x2="619" y2="286"/>
-              <path class="fc-line fc-bus-in" d="M779,276 V286 H299 V300"/>
-              <line class="fc-bus" x1="299" y1="276" x2="299" y2="286"/>
-              <text class="fc-cap" x="735" y="301">checked during all four emails</text>
-              <polygon class="fc-decide" points="237,330 299,302 361,330 299,358"/><text class="fc-text" x="299" y="330">Ordered?</text>
-              <line class="fc-line fc-exit" x1="361" y1="330" x2="414" y2="330"/><text class="fc-yn" x="387" y="321">No</text>
-              <polygon class="fc-decide" points="416,330 488,302 560,330 488,358"/><text class="fc-text" x="488" y="330">Last call sent?</text>
-              <line class="fc-line fc-exit" x1="488" y1="302" x2="488" y2="288"/><text class="fc-yn fc-yn-start" x="498" y="296">No · next reminder</text>
-              <line class="fc-line fc-exit" x1="560" y1="330" x2="874" y2="330"/><text class="fc-yn fc-yn-start" x="576" y="321">Yes</text>
-              <rect class="fc-term" x="876" y="310" width="100" height="40" rx="20"/><text class="fc-text fc-text-muted" x="926" y="330">No order</text>
-              <text class="fc-cap" x="926" y="364">Leaves Workflow 1</text>
-              <line class="fc-line" x1="299" y1="358" x2="299" y2="452"/>
-              <text class="fc-yn fc-yn-start" x="311" y="390">Yes · first order</text>
-              <g class="fc-step"><circle cx="30" cy="438" r="15"/><text x="30" y="438">3</text></g>
-              <text class="fc-title" x="56" y="434">Invite back, unless</text><text class="fc-title" x="56" y="452">they already reordered</text>
-              <text class="fc-sub" x="56" y="472">Workflow 2</text>
-              <g class="wf-num fc-info" data-tip="t5"><circle cx="212" cy="429" r="9"/><text x="212" y="429">i</text></g>
-              <!-- Step 3: confirmation, feedback, Ordered again? → Order again → repeat customer -->
-              <a class="fc-box" href="../assets/fitfrisch/emails/ff06.html" target="_blank" rel="noopener" aria-label="FF 06 Order confirmed (opens in a new tab)"><rect x="236" y="454" width="126" height="44" rx="10"/><text class="fc-text" x="299" y="476">Order confirmed</text></a>
-              <text class="fc-cap" x="299" y="516">FF 06 · at once</text>
-              <line class="fc-line" x1="362" y1="476" x2="394" y2="476"/>
-              <a class="fc-box" href="../assets/fitfrisch/emails/ff07.html" target="_blank" rel="noopener" aria-label="FF 07 Feedback (opens in a new tab)"><rect x="396" y="454" width="126" height="44" rx="10"/><text class="fc-text" x="459" y="476">Feedback</text></a>
-              <text class="fc-cap" x="459" y="516">FF 07 · +1 day</text>
-              <line class="fc-line" x1="522" y1="476" x2="548" y2="476"/>
-              <polygon class="fc-decide" points="550,476 624,442 698,476 624,510"/><text class="fc-text" x="624" y="476">Ordered again?</text>
-              <line class="fc-line" x1="698" y1="476" x2="730" y2="476"/><text class="fc-yn" x="714" y="466">No</text>
-              <a class="fc-box" href="../assets/fitfrisch/emails/ff08.html" target="_blank" rel="noopener" aria-label="FF 08 Order again (opens in a new tab)"><rect x="732" y="454" width="126" height="44" rx="10"/><text class="fc-text" x="795" y="476">Order again</text></a>
-              <text class="fc-cap" x="795" y="516">FF 08 · +6 days</text>
-              <line class="fc-line" x1="858" y1="476" x2="878" y2="476"/>
-              <rect class="fc-term fc-goal" x="880" y="456" width="114" height="40" rx="20"/><text class="fc-text fc-text-sm" x="937" y="476">Repeat customer</text>
-              <!-- Yes: already reordered, so the journey ends -->
-              <line class="fc-line fc-exit" x1="624" y1="510" x2="624" y2="534"/><text class="fc-yn fc-yn-start" x="632" y="524">Yes</text>
-              <rect class="fc-term" x="594" y="536" width="60" height="30" rx="15"/><text class="fc-text fc-text-muted" x="624" y="551">End</text>
+              <g class="fc-step"><circle cx="30" cy="400" r="15"/><text x="30" y="400">3</text></g>
+              <text class="fc-title" x="56" y="396">Invite back, unless</text><text class="fc-title" x="56" y="414">they already reordered</text>
+              <text class="fc-sub" x="56" y="434">Workflow 2</text>
+              <g class="wf-num fc-info" data-tip="t5"><circle cx="212" cy="391" r="9"/><text x="212" y="391">i</text></g>
+              <!-- Step 3: confirmation, feedback, Ordered again? Yes → repeat customer; No → Order again → repeat customer if they order -->
+              <a class="fc-box" href="../assets/fitfrisch/emails/ff06.html" target="_blank" rel="noopener" aria-label="FF 06 Order confirmed (opens in a new tab)"><rect x="236" y="416" width="126" height="44" rx="10"/><text class="fc-text" x="299" y="438">Order confirmed</text></a>
+              <text class="fc-cap" x="299" y="478"><tspan class="fc-cap-when">At once</tspan> · FF 06</text>
+              <line class="fc-line" x1="362" y1="438" x2="394" y2="438"/>
+              <a class="fc-box" href="../assets/fitfrisch/emails/ff07.html" target="_blank" rel="noopener" aria-label="FF 07 Feedback (opens in a new tab)"><rect x="396" y="416" width="126" height="44" rx="10"/><text class="fc-text" x="459" y="438">Feedback</text></a>
+              <text class="fc-cap" x="459" y="478"><tspan class="fc-cap-when">+1 day</tspan> · FF 07</text>
+              <line class="fc-line" x1="522" y1="438" x2="548" y2="438"/>
+              <polygon class="fc-decide" points="550,438 624,404 698,438 624,472"/><text class="fc-text" x="624" y="438">Ordered again?</text>
+              <line class="fc-line" x1="698" y1="438" x2="718" y2="438"/><text class="fc-yn" x="708" y="428">No</text>
+              <a class="fc-box" href="../assets/fitfrisch/emails/ff08.html" target="_blank" rel="noopener" aria-label="FF 08 Order again (opens in a new tab)"><rect x="720" y="416" width="110" height="44" rx="10"/><text class="fc-text" x="775" y="438">Order again</text></a>
+              <text class="fc-cap" x="775" y="478"><tspan class="fc-cap-when">+6 days</tspan> · FF 08</text>
+              <line class="fc-line fc-exit" x1="830" y1="438" x2="878" y2="438"/><text class="fc-yn fc-yn-start" x="834" y="412">if they order</text>
+              <rect class="fc-term fc-goal" x="880" y="418" width="114" height="40" rx="20"/><text class="fc-text fc-text-sm" x="937" y="438">Repeat customer</text>
+              <!-- Yes: already reordered, so straight to the goal -->
+              <path class="fc-line" d="M624,472 V494 H937 V460"/><text class="fc-yn fc-yn-start" x="632" y="488">Yes</text>
 
               <!-- Separate campaign -->
-              <text class="fc-title fc-title-aside" x="56" y="626">Separate: one-off</text><text class="fc-title fc-title-aside" x="56" y="644">campaign</text>
-              <text class="fc-sub" x="56" y="664">1 October · no workflow</text>
-              <g class="wf-num fc-info" data-tip="t7"><circle cx="212" cy="621" r="9"/><text x="212" y="621">i</text></g>
-              <rect class="fc-box-static" x="236" y="618" width="140" height="44" rx="10"/><text class="fc-text" x="306" y="640">All confirmed</text>
-              <text class="fc-cap" x="306" y="680">Segment</text>
-              <line class="fc-line" x1="376" y1="640" x2="404" y2="640"/>
-              <a class="fc-box" href="../assets/fitfrisch/emails/ff09.html" target="_blank" rel="noopener" aria-label="FF 09 Autumn in a bowl (opens in a new tab)"><rect x="406" y="618" width="140" height="44" rx="10"/><text class="fc-text" x="476" y="640">Autumn in a bowl</text></a>
-              <text class="fc-cap" x="476" y="680">FF 09 · until 31 Oct</text>
+              <text class="fc-title fc-title-aside" x="56" y="562">Separate: one-off</text><text class="fc-title fc-title-aside" x="56" y="580">campaign</text>
+              <text class="fc-sub" x="56" y="600">1 October · no workflow</text>
+              <g class="wf-num fc-info" data-tip="t7"><circle cx="212" cy="557" r="9"/><text x="212" y="557">i</text></g>
+              <rect class="fc-box-static" x="236" y="554" width="140" height="44" rx="10"/><text class="fc-text" x="306" y="576">All confirmed</text>
+              <text class="fc-cap" x="306" y="616">Segment</text>
+              <line class="fc-line" x1="376" y1="576" x2="404" y2="576"/>
+              <a class="fc-box" href="../assets/fitfrisch/emails/ff09.html" target="_blank" rel="noopener" aria-label="FF 09 Autumn in a bowl (opens in a new tab)"><rect x="406" y="554" width="140" height="44" rx="10"/><text class="fc-text" x="476" y="576">Autumn in a bowl</text></a>
+              <text class="fc-cap" x="476" y="616"><tspan class="fc-cap-when">1 Oct</tspan> · FF 09</text>
             </svg>
           </div>
-          <p class="fc-legend"><span><i class="fc-l-term"></i>Start or end</span><span><i class="fc-l-box"></i>Email or page (click to open)</span><span><i class="fc-l-decide"></i>Decision</span><span><i class="fc-l-exit"></i>Leaves the path</span></p>
+          <p class="fc-legend"><span><i class="fc-l-goal"></i>Orange: start and goal</span><span><i class="fc-l-box"></i>Email or page (click to open)</span><span><i class="fc-l-decide"></i>Decision</span><span><i class="fc-l-exit"></i>Dashed: leaves the path</span></p>
         </div>
 
         <!-- ===== View 2: the emails as customers receive them, and the pages their buttons open ===== -->
@@ -334,7 +324,7 @@
         <!-- Text for every marker: script.js shows it in a popover -->
         <div class="wf-tips" hidden>
           <div data-tip="t1" data-badge="1" data-title="Only confirmed sign-ups get a code">One email field, an unticked consent box linked to the “Marketing Information” subscription, and hidden fields for district and UTM tags. In this simulation, I submitted test contacts through a HubSpot form with the same fields.<br><br>Double opt-in: the code goes out only after the contact clicks the confirmation link. HubSpot records the click as “User clicked confirmation”, not “Confirmed”.</div>
-          <div data-tip="t3" data-badge="2" data-title="Reminders until the first order">Enrolls when the form is submitted and the email is confirmed. Sends the welcome email with the code, then three reminders; the code expires on day 14. <a href="#setup">See the trigger</a><br><br>Promo code: a unique code per contact, inserted into the emails. In the test, I added codes by hand; in production, the shop generates them and sends them to HubSpot.<br><br>Ordered?: checked during all four emails. An order removes the contact from Workflow 1 at once, so nobody gets a reminder after ordering.</div>
+          <div data-tip="t3" data-badge="2" data-title="Reminders until the first order">Enrolls when the form is submitted and the email is confirmed. Sends the welcome email with the code, then three reminders; the code expires on day 14. <a href="#setup">See the trigger</a><br><br>Promo code: a unique code per contact, inserted into the emails. In the test, I added codes by hand; in production, the shop generates them and sends them to HubSpot.<br><br>Orders at any point: an order removes the contact from Workflow 1 at once, so nobody gets a reminder after ordering. Without an order, the contact leaves after the last call; the code expires on day 14.</div>
           <div data-tip="t5" data-badge="3" data-title="Invite back, unless they already reordered">Starts when First order date is filled in. The shop syncs orders to HubSpot by email address.<br><br>Order count: “Same time next week?” goes out only after exactly one order. Customers who already ordered again skip it.</div>
           <div data-tip="t7" data-badge="+" data-title="One-off campaign">Not part of a workflow: one scheduled email on 1 October to all confirmed contacts.</div>
           <div data-tip="p1" data-title="Promo code · Text">Unique code per contact, inserted into the emails.</div>

@@ -1225,11 +1225,12 @@ body.p-mai blockquote.owner-quote{font-size:17px;line-height:1.7;margin-bottom:0
 .fc-text-muted{fill:var(--ink-3);}
 .fc-text-sm{font-size:12px;}
 .fc-cap{fill:var(--ink-3);font-size:12px;text-anchor:middle;}
+.fc-cap-when{fill:var(--ink);font-weight:500;}   /* timing first, in white; the email number stays grey */
 /* Connectors */
 .fc-line{fill:none;stroke:var(--ink-3);stroke-width:1.5;marker-end:url(#fc-arr);}
 .fc-exit{stroke-dasharray:4 3;}
-/* The line under the four reminders that feeds the "Ordered?" decision */
-.fc-bus{fill:none;stroke:var(--ink-3);stroke-width:1.5;}
+/* Dashed bracket under the four reminders: an order at any point leads to step 3 */
+.fc-bracket{fill:none;stroke:var(--ink-3);stroke-width:1.5;stroke-dasharray:4 3;}
 .fc-head{fill:var(--ink-3);}
 .fc-yn{fill:var(--ink-2);font-size:11.5px;font-weight:600;text-anchor:middle;letter-spacing:0.04em;}
 .fc-yn-start{text-anchor:start;}   /* labels that sit beside a vertical connector */
@@ -1245,7 +1246,7 @@ body.p-mai blockquote.owner-quote{font-size:17px;line-height:1.7;margin-bottom:0
 .fc-legend{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 22px;margin:14px 0 0;font-size:13px;color:var(--ink-3);}
 .fc-legend span{display:inline-flex;align-items:center;gap:8px;}
 .fc-legend i{display:inline-block;flex:none;}
-.fc-l-term{width:22px;height:12px;border-radius:6px;border:1px dashed var(--ink-3);}
+.fc-l-goal{width:22px;height:12px;border-radius:6px;border:1.5px solid var(--accent);background:color-mix(in srgb, var(--accent) 10%, transparent);}
 .fc-l-box{width:20px;height:13px;border-radius:3px;background:var(--surface-2);border:1px solid var(--ink-3);}
 .fc-l-decide{width:11px;height:11px;margin:0 2px;transform:rotate(45deg);background:var(--surface-2);border:1px solid var(--ink-3);}
 .fc-l-exit{width:22px;height:0;border-top:1.5px dashed var(--ink-3);}
