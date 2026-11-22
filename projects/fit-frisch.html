@@ -32,7 +32,7 @@
         <div>
           <p class="eyebrow">Landing page · HubSpot · Email journey</p>
           <h1>Fit &amp; Frisch: from sign-up to repeat order</h1>
-          <p class="lead">A landing page and a HubSpot email journey for a fictional Berlin lunch brand: office workers sign up, confirm their email, get a free-delivery code, and receive reminders until their first order and beyond.</p>
+          <p class="lead">A landing page and a HubSpot email journey for a fictional Berlin lunch brand, from the first ad click to the repeat order.</p>
         </div>
         <!-- Decorative: the landing page in a browser, the sign-up block in front (full page shown below) -->
         <div class="hero-art art-fitfrisch" aria-hidden="true">
@@ -46,10 +46,10 @@
         <div><dt>Time</dt><dd>[YOUR HOURS]</dd></div>
         <div><dt>Tools</dt><dd>Claude, HubSpot, Google Flow</dd></div>
       </dl>
-      <div style="margin-bottom: 30px; margin-top: 50px;">
-      <p><strong>About this project:</strong> Fit &amp; Frisch is a fictional brand created for a course task. The offer, menu and the “500+ Berlin offices” figure on the page are invented for the scenario. The HubSpot setup ran in a trial account with test contacts only.</p></div>
+      <p class="ff-about"><strong>About this project:</strong> Fit &amp; Frisch is a fictional brand created for a course task. The offer, menu and the “500+ Berlin offices” figure on the page are invented for the scenario. The HubSpot setup ran in a trial account with test contacts only.</p>
       <!-- Funnel strip: the whole story in six steps; the brackets below link to the two parts -->
-      <nav class="ff-funnel" aria-label="The project in six steps">
+      <p class="ff-funnel-label" id="ff-funnel-label">Project overview</p>
+      <nav class="ff-funnel" aria-labelledby="ff-funnel-label">
         <ol>
           <li>Ad</li>
           <li>Landing page</li>
@@ -58,8 +58,8 @@
           <li>First order</li>
           <li>Repeat order</li>
         </ol>
-        <a class="ff-part ff-part-1" href="#part-1">Part 1 · Get the leads</a>
-        <a class="ff-part ff-part-2" href="#part-2">Part 2 · Turn them into orders</a>
+        <a class="ff-part ff-part-1" href="#part-1">Part 1 · Get the leads ↓</a>
+        <a class="ff-part ff-part-2" href="#part-2">Part 2 · Turn them into orders ↓</a>
       </nav>
     </div>
   </div>
@@ -72,13 +72,10 @@
   <!-- ================= BRIEF: the course task and my extension ================= -->
   <section class="divided">
     <div class="wrap two-col">
-      <div><h2>Goals</h2></div>
+      <div><h2>Goal</h2></div>
       <div>
         <!-- The owner's request as a speech bubble -->
-        <figure class="ff-quote">
-          <blockquote>"We want more customers and to become better known this autumn. Put together a campaign!"</blockquote>
-          <figcaption><span class="ff-quote-avatar" aria-hidden="true">F&amp;F</span>The owner of Fit &amp; Frisch, a small healthy meal-prep chain</figcaption>
-        </figure>
+        <blockquote class="ff-quote">“We want more customers and to become better known this autumn. Put together a campaign!”<cite>The owner of Fit &amp; Frisch <strong>·</strong> a small healthy meal-prep chain</cite></blockquote>
 
         <!-- Two goals with the same rows (tag, title, number, four facts), so the rows line up side by side -->
         <div class="ff-goals">
