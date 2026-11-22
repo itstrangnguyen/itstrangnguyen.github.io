@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fit &amp; Frisch · Back to Work — Trang Nguyen</title>
-<meta name="description" content="An email-capture landing page for a fictional Berlin office-lunch brand, planned and built with Claude and edited in VS Code.">
+<title>Fit &amp; Frisch: from sign-up to repeat order — Trang Nguyen</title>
+<meta name="description" content="A landing page and a HubSpot email journey for a fictional Berlin lunch brand: office workers sign up, confirm their email, get a free-delivery code, and receive reminders until their first order and beyond.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&display=swap" rel="stylesheet">
@@ -30,9 +30,9 @@
     <div class="wrap">
       <div class="hero-top">
         <div>
-          <p class="eyebrow">Landing page · Claude</p>
-          <h1>Fit &amp; Frisch: "Back to Work" Campaign</h1>
-          <p class="lead">A landing page for a “Back to Work” campaign: Office workers in Berlin leave their email, confirm it, and get a free-delivery code for their first healthy lunch order.</p>
+          <p class="eyebrow">Landing page · HubSpot · Email journey</p>
+          <h1>Fit &amp; Frisch: from sign-up to repeat order</h1>
+          <p class="lead">A landing page and a HubSpot email journey for a fictional Berlin lunch brand: office workers sign up, confirm their email, get a free-delivery code, and receive reminders until their first order and beyond.</p>
         </div>
         <!-- Decorative: the landing page in a browser, the sign-up block in front (full page shown below) -->
         <div class="hero-art art-fitfrisch" aria-hidden="true">
@@ -42,14 +42,15 @@
       </div>
       <dl class="meta meta-fit">
         <div><dt>Role</dt><dd>Solo</dd></div>
-        <div><dt>Context</dt><dd>DCI course task</dd></div>
-        <div><dt>Time</dt><dd>~4 hours</dd></div>
-        <div><dt>Tools</dt><dd>Claude</dd></div>
+        <div><dt>Context</dt><dd>DCI course task, extended on my own</dd></div>
+        <div><dt>Time</dt><dd>[TIME]</dd></div>
+        <div><dt>Tools</dt><dd>Claude, HubSpot, Google Flow, VS Code</dd></div>
       </dl>
       <div style="margin-bottom: 30px; margin-top: 50px;">
-      <p><strong>About this project:</strong> Fit &amp; Frisch is a fictional brand created for a course task. The offer, menu and the “500+ Berlin offices” figure on the page are invented for the scenario.</p></div>
+      <p><strong>About this project:</strong> Fit &amp; Frisch is a fictional brand created for a course task. The offer, menu and the “500+ Berlin offices” figure on the page are invented for the scenario. The HubSpot setup ran in a trial account with test contacts only.</p></div>
       <div class="actions">
         <a class="btn btn-primary" href="../assets/fitfrisch/landing-page.html" target="_blank" rel="noopener">Open the landing page</a>
+        <a class="btn btn-ghost" href="#journey">See the email journey</a>
       </div>
     </div>
   </div>
@@ -58,6 +59,13 @@
   <!-- <div class="wrap">
       <p><strong>About this project:</strong> Fit &amp; Frisch is a fictional brand created for a course task. The offer, menu and the “500+ Berlin offices” figure on the page are invented for the scenario.</p>
   </div> -->
+
+  <!-- ================= PART 1: THE LANDING PAGE ================= -->
+  <section class="part-title" id="landing-page">
+    <div class="wrap">
+      <h2>Part 1: The landing page</h2>
+    </div>
+  </section>
 
   <!-- ================= BRIEF ================= -->
   <section class="divided">
@@ -108,10 +116,258 @@
   </section>
 
 
+  <!-- ================= PART 2: THE EMAIL JOURNEY ================= -->
+  <section id="journey">
+    <div class="wrap">
+      <h2>Part 2: The email journey</h2>
+      <p class="section-intro">Turn sign-ups into first orders, and first orders into repeat customers.</p>
+
+      <figure class="stage wireframe jf-stage" data-wf-tips data-lens="flow">
+        <p class="lens-hint"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V11m0-1.5a1.5 1.5 0 0 1 3 0V11m0-.5a1.5 1.5 0 0 1 3 0v4.5a6 6 0 0 1-6 6h-.6a6 6 0 0 1-4.7-2.3L4.4 15a1.6 1.6 0 0 1 2.4-2.1L9 15"/></svg><span>Start at the top and follow steps 1 to 3. Click an email to open it, or <b class="jf-i-sample">i</b> for details.</span></p>
+        <div class="lens-tabs" role="tablist" aria-label="Email journey view">
+          <button type="button" role="tab" id="flow" data-lens-tab="flow" aria-selected="true"><span class="part-num">01</span>Journey</button>
+          <button type="button" role="tab" id="setup" data-lens-tab="setup" aria-selected="false"><span class="part-num">02</span>HubSpot setup</button>
+          <button type="button" role="tab" id="tests" data-lens-tab="tests" aria-selected="false"><span class="part-num">03</span>Test run</button>
+        </div>
+
+        <!-- ===== View 1: the journey as one numbered path (start → steps 1-3 → goal) ===== -->
+        <div class="lens-pane" data-lens-pane="flow">
+          <ol class="jf">
+
+            <li class="jf-start">
+              <span class="jf-num" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+              <p><b>Start here.</b> An Instagram or Google ad brings an office worker to the landing page.</p>
+            </li>
+
+            <li class="jf-step">
+              <span class="jf-num">1</span>
+              <div class="jf-lane">
+                <p class="jf-lane-head"><span class="jf-step-title">Sign up and confirm</span><span class="jf-tag">Double opt-in</span><span class="pin jf-info jf-first" data-tip="t1">i</span></p>
+                <div class="jf-row">
+                  <div class="jf-node">
+                    <a class="jf-mail" href="../assets/fitfrisch/landing-page.html" target="_blank" rel="noopener"><img src="../assets/images/fitfrisch/thumbs/landing.jpg" alt="" width="360" height="432" loading="lazy"><span class="jf-cap"><b>Landing page</b><span>Email + consent box</span><small>Sign up by 14 Sept</small></span></a>
+                  </div>
+                  <span class="jf-arrow" aria-hidden="true"></span>
+                  <div class="jf-node">
+                    <a class="jf-mail" href="../assets/fitfrisch/emails/ff01.html" target="_blank" rel="noopener"><img src="../assets/images/fitfrisch/thumbs/ff01.jpg" alt="" width="360" height="432" loading="lazy"><span class="jf-cap"><b>FF 01</b><span>Confirm your email</span><small>At once</small></span></a>
+                  </div>
+                  <span class="jf-arrow" aria-hidden="true"></span>
+                  <div class="jf-node">
+                    <div class="jf-decide"><span class="jf-q">Clicked confirm?</span><small>No → no code, no further emails</small></div>
+                    <span class="pin jf-info" data-tip="t2">i</span>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li class="jf-link"><span class="jf-link-label">Yes</span><span class="jf-target"><b>70%</b> confirm their email</span></li>
+
+            <li class="jf-step">
+              <span class="jf-num">2</span>
+              <div class="jf-lane">
+                <p class="jf-lane-head"><span class="jf-step-title">Get the code, then reminders</span><span class="jf-tag">Workflow 1</span><span class="pin jf-info" data-tip="t3">i</span></p>
+                <div class="jf-row">
+                  <div class="jf-node">
+                    <a class="jf-mail" href="../assets/fitfrisch/emails/ff02.html" target="_blank" rel="noopener"><img src="../assets/images/fitfrisch/thumbs/ff02.jpg" alt="" width="360" height="432" loading="lazy"><span class="jf-cap"><b>FF 02</b><span>Welcome + code</span><small>Day 0</small></span></a>
+                    <span class="pin jf-info" data-tip="t8">i</span>
+                  </div>
+                  <span class="jf-arrow" aria-hidden="true"></span>
+                  <div class="jf-node">
+                    <a class="jf-mail" href="../assets/fitfrisch/emails/ff03.html" target="_blank" rel="noopener"><img src="../assets/images/fitfrisch/thumbs/ff03.jpg" alt="" width="360" height="432" loading="lazy"><span class="jf-cap"><b>FF 03</b><span>This week's menu</span><small>Day 3</small></span></a>
+                  </div>
+                  <span class="jf-arrow" aria-hidden="true"></span>
+                  <div class="jf-node">
+                    <a class="jf-mail" href="../assets/fitfrisch/emails/ff04.html" target="_blank" rel="noopener"><img src="../assets/images/fitfrisch/thumbs/ff04.jpg" alt="" width="360" height="432" loading="lazy"><span class="jf-cap"><b>FF 04</b><span>How it works</span><small>Day 7</small></span></a>
+                  </div>
+                  <span class="jf-arrow" aria-hidden="true"></span>
+                  <div class="jf-node">
+                    <a class="jf-mail" href="../assets/fitfrisch/emails/ff05.html" target="_blank" rel="noopener"><img src="../assets/images/fitfrisch/thumbs/ff05.jpg" alt="" width="360" height="432" loading="lazy"><span class="jf-cap"><b>FF 05</b><span>Last call</span><small>Day 12 · code expires day 14</small></span></a>
+                  </div>
+                </div>
+                <p class="jf-stop"><span class="jf-stop-icon" aria-hidden="true">↓</span><span><b>Ordered?</b> The contact leaves step 2 at once, wherever they are, and moves to step 3.</span><span class="pin jf-info" data-tip="t4">i</span></p>
+              </div>
+            </li>
+
+            <li class="jf-link"><span class="jf-link-label">First order</span><span class="jf-target"><b>30%</b> order within 14 days</span></li>
+
+            <li class="jf-step">
+              <span class="jf-num">3</span>
+              <div class="jf-lane">
+                <p class="jf-lane-head"><span class="jf-step-title">Thank, ask, invite back</span><span class="jf-tag">Workflow 2</span><span class="pin jf-info" data-tip="t5">i</span></p>
+                <div class="jf-row">
+                  <div class="jf-node">
+                    <a class="jf-mail" href="../assets/fitfrisch/emails/ff06.html" target="_blank" rel="noopener"><img src="../assets/images/fitfrisch/thumbs/ff06.jpg" alt="" width="360" height="432" loading="lazy"><span class="jf-cap"><b>FF 06</b><span>Order confirmation</span><small>At once</small></span></a>
+                  </div>
+                  <span class="jf-arrow" aria-hidden="true"></span>
+                  <div class="jf-node">
+                    <a class="jf-mail" href="../assets/fitfrisch/emails/ff07.html" target="_blank" rel="noopener"><img src="../assets/images/fitfrisch/thumbs/ff07.jpg" alt="" width="360" height="432" loading="lazy"><span class="jf-cap"><b>FF 07</b><span>How was your lunch?</span><small>+1 day</small></span></a>
+                  </div>
+                  <span class="jf-arrow" aria-hidden="true"></span>
+                  <div class="jf-node">
+                    <div class="jf-decide"><span class="jf-q">Order count = 1?</span><small>+6 days · more than 1 → end</small></div>
+                    <span class="pin jf-info" data-tip="t6">i</span>
+                  </div>
+                  <span class="jf-arrow" aria-hidden="true"></span>
+                  <div class="jf-node">
+                    <a class="jf-mail" href="../assets/fitfrisch/emails/ff08.html" target="_blank" rel="noopener"><img src="../assets/images/fitfrisch/thumbs/ff08.jpg" alt="" width="360" height="432" loading="lazy"><span class="jf-cap"><b>FF 08</b><span>Same time next week?</span><small>Yes → order again</small></span></a>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li class="jf-link"><span class="jf-link-label">Order again</span><span class="jf-target"><b>40%</b> within 30 days</span></li>
+
+            <li class="jf-finish">
+              <span class="jf-num" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+              <p><b>Goal reached:</b> a repeat customer.</p>
+            </li>
+          </ol>
+
+          <!-- Outside the numbered path: a one-off campaign -->
+          <div class="jf-lane jf-aside">
+            <p class="jf-lane-head"><span class="jf-step-title">Also: one-off campaign</span><span class="jf-tag">1 October · no workflow</span><span class="pin jf-info" data-tip="t7">i</span></p>
+            <div class="jf-row">
+              <div class="jf-node">
+                <div class="jf-decide"><span class="jf-q">Segment</span><small>All confirmed contacts</small></div>
+              </div>
+              <span class="jf-arrow" aria-hidden="true"></span>
+              <div class="jf-node">
+                <a class="jf-mail" href="../assets/fitfrisch/emails/ff09.html" target="_blank" rel="noopener"><img src="../assets/images/fitfrisch/thumbs/ff09.jpg" alt="" width="360" height="432" loading="lazy"><span class="jf-cap"><b>FF 09</b><span>New: Chestnut &amp; Mushroom Bowl</span><small>Until 31 October</small></span></a>
+              </div>
+            </div>
+          </div>
+          <p class="stage-cap">Targets invented for the scenario. Every email opens its demo copy, and every button in it opens a demo page.</p>
+        </div>
+
+        <!-- ===== View 2: HubSpot setup ===== -->
+        <div class="lens-pane" data-lens-pane="setup" hidden>
+          <div class="jf-setup">
+            <div class="jf-record">
+              <p class="jf-record-head"><span class="jf-avatar" aria-hidden="true">FF</span><span><b>Contact properties</b><small>Data the journey uses</small></span></p>
+              <dl>
+                <div><dt>Promo code</dt><dd>Text</dd><span class="pin" data-tip="p1">1</span></div>
+                <div><dt>District</dt><dd>Text</dd><span class="pin" data-tip="p2">2</span></div>
+                <div><dt>UTM source / medium / campaign</dt><dd>Text</dd><span class="pin" data-tip="p3">3</span></div>
+                <div><dt>First order date</dt><dd>Date</dd><span class="pin" data-tip="p4">4</span></div>
+                <div><dt>Order count</dt><dd>Number</dd><span class="pin" data-tip="p5">5</span></div>
+              </dl>
+            </div>
+            <div class="figures crm-shots" data-zoom-group>
+              <figure>
+                <img src="../assets/images/fitfrisch/crm/trigger-ff1.png" alt="Workflow 1 enrolls only sign-ups who confirmed their email" width="486" height="718" loading="lazy" data-zoom data-slot>
+                <figcaption>Workflow 1 enrolls only sign-ups who confirmed their email</figcaption>
+              </figure>
+              <figure>
+                <img src="../assets/images/fitfrisch/crm/goal.png" alt="Stop rule: a first order ends Workflow 1" width="466" height="473" loading="lazy" data-zoom data-slot>
+                <figcaption>Stop rule: a first order ends Workflow 1</figcaption>
+              </figure>
+              <figure>
+                <img src="../assets/images/fitfrisch/crm/trigger-ff2.png" alt="Workflow 2 starts when the first order is recorded" width="486" height="283" loading="lazy" data-zoom data-slot>
+                <figcaption>Workflow 2 starts when the first order is recorded</figcaption>
+              </figure>
+              <figure>
+                <img src="../assets/images/fitfrisch/crm/branch.png" alt="Workflow 2 sends 'order again' only after exactly one order" width="1364" height="748" loading="lazy" data-zoom data-slot>
+                <figcaption>Workflow 2 sends 'order again' only after exactly one order</figcaption>
+              </figure>
+            </div>
+          </div>
+          <p class="stage-cap">Click a screenshot to enlarge it.</p>
+        </div>
+
+        <!-- ===== View 3: test run ===== -->
+        <div class="lens-pane" data-lens-pane="tests" hidden>
+          <p class="lens-intro">Both workflows cloned, every delay set to 2 minutes, four test contacts.</p>
+          <div class="table-wrap jf-matrix-wrap">
+            <table class="jf-matrix">
+              <caption class="visually-hidden">Which emails each test contact received</caption>
+              <thead><tr><th scope="col">Test contact</th><th scope="col">FF 01</th><th scope="col">FF 02</th><th scope="col">FF 03</th><th scope="col">FF 04</th><th scope="col">FF 05</th><th scope="col">FF 06</th><th scope="col">FF 07</th><th scope="col">FF 08</th></tr></thead>
+              <tbody>
+                <tr><th scope="row"><span class="pin jf-who" data-tip="ta">A</span>Signs up, never confirms</th>
+                  <td><i class="dot on" role="img" aria-label="sent"></i></td><td class="key"><i class="dot off" role="img" aria-label="not sent"></i></td><td><i class="dot off" role="img" aria-label="not sent"></i></td><td><i class="dot off" role="img" aria-label="not sent"></i></td><td><i class="dot off" role="img" aria-label="not sent"></i></td><td><i class="dot off" role="img" aria-label="not sent"></i></td><td><i class="dot off" role="img" aria-label="not sent"></i></td><td><i class="dot off" role="img" aria-label="not sent"></i></td></tr>
+                <tr><th scope="row"><span class="pin jf-who" data-tip="tb">B</span>Confirms, never orders</th>
+                  <td><i class="dot on" role="img" aria-label="sent"></i></td><td><i class="dot on" role="img" aria-label="sent"></i></td><td><i class="dot on" role="img" aria-label="sent"></i></td><td><i class="dot on" role="img" aria-label="sent"></i></td><td class="key"><i class="dot on" role="img" aria-label="sent"></i></td><td><i class="dot off" role="img" aria-label="not sent"></i></td><td><i class="dot off" role="img" aria-label="not sent"></i></td><td><i class="dot off" role="img" aria-label="not sent"></i></td></tr>
+                <tr><th scope="row"><span class="pin jf-who" data-tip="tc">C</span>Orders after the menu reminder</th>
+                  <td><i class="dot on" role="img" aria-label="sent"></i></td><td><i class="dot on" role="img" aria-label="sent"></i></td><td><i class="dot on" role="img" aria-label="sent"></i></td><td class="key"><i class="dot off" role="img" aria-label="not sent"></i></td><td class="key"><i class="dot off" role="img" aria-label="not sent"></i></td><td><i class="dot on" role="img" aria-label="sent"></i></td><td><i class="dot on" role="img" aria-label="sent"></i></td><td class="key"><i class="dot on" role="img" aria-label="sent"></i></td></tr>
+                <tr><th scope="row"><span class="pin jf-who" data-tip="td">D</span>Orders twice</th>
+                  <td><i class="dot na" role="img" aria-label="not part of this test"></i></td><td><i class="dot na" role="img" aria-label="not part of this test"></i></td><td><i class="dot na" role="img" aria-label="not part of this test"></i></td><td><i class="dot na" role="img" aria-label="not part of this test"></i></td><td><i class="dot na" role="img" aria-label="not part of this test"></i></td><td><i class="dot on" role="img" aria-label="sent"></i></td><td><i class="dot on" role="img" aria-label="sent"></i></td><td class="key"><i class="dot off" role="img" aria-label="not sent"></i></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="jf-legend"><span><i class="dot on"></i>Sent</span><span><i class="dot off"></i>Not sent</span><span><i class="dot na"></i>Not part of this test</span><span><i class="dot on jf-key-sample"></i>What the test proves</span></p>
+
+          <div class="jf-timeline">
+            <p class="jf-timeline-head"><b>Contact C, step by step</b><a href="../assets/images/fitfrisch/crm/contact-c.png" target="_blank" rel="noopener">See the HubSpot log</a></p>
+            <ol class="jf-time">
+              <li><time>12:53</time><span>Signs up and confirms</span></li>
+              <li><time>12:54</time><span>FF 02 Welcome + code</span></li>
+              <li><time>12:56</time><span>FF 03 Menu reminder</span></li>
+              <li class="is-event"><time>12:56</time><span>First order → leaves Workflow 1, gets FF 06</span></li>
+              <li><time>12:58</time><span>FF 07 Feedback</span></li>
+              <li><time>12:59</time><span>FF 08 Order again (order count = 1)</span></li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Text for every marker: script.js shows it in a popover -->
+        <div class="wf-tips" hidden>
+          <div data-tip="t1" data-badge="1" data-title="Sign-up form">One email field, an unticked consent box linked to the “Marketing Information” subscription, and hidden fields for district and UTM tags. In this simulation, I submitted test contacts through a HubSpot form with the same fields.</div>
+          <div data-tip="t2" data-badge="1" data-title="Double opt-in">The code goes out only after the contact clicks the confirmation link. HubSpot records the click as “User clicked confirmation”, not “Confirmed”.</div>
+          <div data-tip="t3" data-badge="2" data-title="Workflow 1">Enrolls when the form is submitted and the email is confirmed. Sends the welcome email with the code, then three reminders. <a href="#setup">See the trigger</a></div>
+          <div data-tip="t8" data-badge="2" data-title="Promo code">A unique code per contact, inserted into the emails. In the test, I added codes by hand; in production, the shop generates them and sends them to HubSpot.</div>
+          <div data-tip="t4" data-badge="2" data-title="Stop rule">An order removes the contact from Workflow 1 at once, so nobody gets a reminder after ordering.</div>
+          <div data-tip="t5" data-badge="3" data-title="Workflow 2">Starts when First order date is filled in. The shop syncs orders to HubSpot by email address.</div>
+          <div data-tip="t6" data-badge="3" data-title="Order count">“Same time next week?” goes out only after exactly one order. Customers who already ordered again skip it.</div>
+          <div data-tip="t7" data-badge="+" data-title="Campaign">Not part of a workflow: one scheduled email on 1 October to all confirmed contacts.</div>
+
+          <div data-tip="p1" data-title="Promo code · Text">Unique code per contact, inserted into the emails.</div>
+          <div data-tip="p2" data-title="District · Text">From a hidden form field, for segmenting by area.</div>
+          <div data-tip="p3" data-title="UTM source / medium / campaign · Text">From hidden form fields, to see which ad brought the lead.</div>
+          <div data-tip="p4" data-title="First order date · Date">Synced from the shop; stops Workflow 1 and starts Workflow 2.</div>
+          <div data-tip="p5" data-title="Order count · Number">Decides whether a customer gets the “order again” email.</div>
+
+          <div data-tip="ta" data-title="Signs up, never confirms">Gets the confirmation email only. Never enrolls.</div>
+          <div data-tip="tb" data-title="Confirms, never orders">Gets all four emails of Workflow 1, then leaves it.</div>
+          <div data-tip="tc" data-title="Orders after the menu reminder">Leaves Workflow 1 at once, skips the last two reminders, gets the post-order emails including “order again”.</div>
+          <div data-tip="td" data-title="Orders twice">Gets the order confirmation and feedback emails, but not “order again”.</div>
+        </div>
+      </figure>
+
+      <div class="boxes jf-lessons">
+        <div class="box">
+          <p class="label">What testing taught me</p>
+          <ul>
+            <li>HubSpot calls a clicked confirmation “User clicked confirmation”, not “Confirmed”. The enrollment troubleshooter showed it, and I fixed the trigger.</li>
+            <li>Without the consent box, confirmed leads never got their code.</li>
+            <li>Confirmation is stored per address, so each test needs a new one.</li>
+            <li>Unsubscribed addresses get no marketing email, test ones included.</li>
+            <li>Campaign emails get HubSpot’s own UTM tags, so I checked the final links in test sends.</li>
+          </ul>
+        </div>
+        <div class="box">
+          <p class="label">What I’d change in production</p>
+          <ul>
+            <li>The shop generates each code and sends it to HubSpot.</li>
+            <li>The order confirmation goes out as a transactional email.</li>
+            <li>Orders sync by email address, and the code is tied to the sign-up address, so an order with another address still stops the reminders.</li>
+            <li>The form closes on 14 September; the workflows run until early October.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ================= AI LABEL ================= -->
   <section>
     <div class="wrap">
-      <p class="todo"><strong>AI use.</strong> <br>AI-generated: Claude built the landing page.</p>
+      <div class="todo ai-use">
+        <p><strong>AI use.</strong></p>
+        <ul>
+          <li>Landing page: AI-assisted. Claude built the first version; I restructured it and rewrote the copy.</li>
+          <li>Email copy: AI-assisted. Drafted with Claude, edited by me.</li>
+          <li>Food photos: AI-generated with Google Flow.</li>
+          <li>HubSpot setup and testing: done by me.</li>
+        </ul>
+      </div>
     </div>
   </section>
 

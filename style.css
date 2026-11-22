@@ -1154,3 +1154,174 @@ body.p-mai blockquote.owner-quote{font-size:17px;line-height:1.7;margin-bottom:0
   .bk-s-h1{font-size:36px;}   /* scaled down so the longest lines fit a phone */
   .bk-s-h2{font-size:28px;}
 }
+
+/* ---------- Fit & Frisch case study: two parts ---------- */
+/* "Part 1" heading: its own slim section, joined to the first Part 1 section below it */
+.part-title{padding-bottom:0;}
+.part-title h2{margin-bottom:0;}
+.part-title + section{border-top:0;}
+/* AI use box with a list */
+.ai-use p{margin:0 0 4px;}
+.ai-use ul{margin:0;padding-left:18px;}
+.ai-use li{margin:2px 0;}
+.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;}
+
+/* ---------- Journey stage (Fit & Frisch, Part 2) ----------
+   Uses the Arre stage: tabs, markers and popovers come from .stage / .lens-tabs / .pin and script.js.
+   View 1 is one numbered path: a line on the left runs Start → 1 → 2 → 3 → Goal, the targets sit on it
+   between the steps, and each step is a lane of email thumbnails read left to right. */
+.jf-stage{--node:172px;--thumb:129px;--spine:40px;--gut:62px;}   /* thumb = node width at 4:3; four nodes and three arrows fill a lane */
+@media (max-width:1100px){ .jf-stage{--node:132px;--thumb:99px;} }
+.jf{list-style:none;margin:0;padding:0;position:relative;}
+/* The path: one line from Start to Goal */
+.jf::before{content:"";position:absolute;left:calc(var(--spine) / 2 - 1px);top:20px;bottom:20px;width:2px;
+  background:linear-gradient(var(--accent), color-mix(in srgb, var(--accent) 50%, var(--line)));}
+.jf > li{position:relative;padding-left:var(--gut);}
+/* Step numbers on the line */
+.jf-num{position:absolute;left:0;top:9px;z-index:1;display:grid;place-items:center;width:var(--spine);height:var(--spine);border-radius:50%;
+  background:var(--accent);color:#0B0B0D;font-size:18px;font-weight:700;box-shadow:0 0 0 6px var(--surface);}
+.jf-num svg{width:18px;height:18px;fill:currentColor;}
+/* A short tick joins each number to its lane */
+.jf-step::before{content:"";position:absolute;left:var(--spine);top:28px;width:calc(var(--gut) - var(--spine));height:2px;background:var(--accent);}
+/* Start and Goal */
+.jf-start,.jf-finish{display:flex;align-items:center;min-height:var(--spine);}
+.jf-start{margin-bottom:22px;}
+.jf-start .jf-num,.jf-finish .jf-num{top:50%;transform:translateY(-50%);}
+.jf-start p,.jf-finish p{margin:0;font-size:15.5px;color:var(--ink-2);}
+.jf-start b,.jf-finish b{color:var(--ink);font-weight:600;}
+.jf-finish .jf-num{background:var(--surface-2);color:var(--accent);box-shadow:0 0 0 6px var(--surface), inset 0 0 0 2px var(--accent);}
+.jf-finish .jf-num svg{fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
+/* Between steps: what moves the contact on, and the target for it */
+.jf-link{display:flex;align-items:center;flex-wrap:wrap;gap:8px 12px;padding-top:18px;padding-bottom:18px;}
+.jf-link::before{content:"";position:absolute;left:calc(var(--spine) / 2 - 6px);top:50%;width:12px;height:12px;border-radius:50%;
+  transform:translateY(-50%);background:var(--surface);border:2px solid var(--accent);box-sizing:border-box;}
+.jf-link-label{font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink);}
+.jf-target{display:inline-flex;align-items:baseline;gap:6px;font-size:13px;color:var(--ink-2);background:var(--surface-2);
+  border:1px solid color-mix(in srgb, var(--accent) 45%, var(--line));border-radius:100px;padding:4px 12px;}
+.jf-target b{font-size:15px;font-weight:600;color:var(--accent);}
+/* A step: title, tag and info icon, then its emails */
+.jf-lane{position:relative;background:var(--bg);border:1px solid var(--line);border-radius:18px;padding:14px 20px 20px;}
+.jf-lane-head{display:flex;align-items:center;flex-wrap:wrap;gap:8px 12px;margin:0 0 16px;min-height:30px;}
+.jf-step-title{font-size:18px;font-weight:600;letter-spacing:-0.01em;color:var(--ink);}
+.jf-tag{font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);
+  background:color-mix(in srgb, var(--brand) 28%, var(--surface-2));padding:4px 10px;border-radius:100px;}
+.jf-aside{margin:30px 0 0 var(--gut);border-style:dashed;}
+.jf-aside .jf-step-title{font-size:16px;color:var(--ink-2);}
+.jf-row{display:flex;align-items:flex-start;}
+.jf-node{position:relative;flex:0 1 var(--node);width:var(--node);min-width:0;}   /* shrinks a little on tablets instead of leaving the lane */
+/* Email: thumbnail of the real email, number, subject, timing */
+.jf-mail{display:block;text-decoration:none;color:var(--ink-2);}
+.jf-mail img{width:100%;height:var(--thumb);object-fit:cover;object-position:top;border-radius:10px;border:1px solid var(--line);background:#EFEEE4;
+  transition:transform .2s ease, border-color .2s ease, box-shadow .2s ease;}
+.jf-mail:hover,.jf-mail:focus-visible{color:var(--ink-2);}
+.jf-mail:hover img,.jf-mail:focus-visible img{border-color:var(--accent);transform:translateY(-3px);
+  box-shadow:0 14px 30px -14px color-mix(in srgb, var(--brand) 80%, transparent);}
+.jf-cap{display:flex;flex-direction:column;margin-top:9px;font-size:13.5px;line-height:1.35;}
+.jf-cap b{font-size:11px;font-weight:600;letter-spacing:0.1em;color:var(--accent);margin-bottom:2px;}
+.jf-cap span{color:var(--ink);}
+.jf-cap small{margin-top:2px;font-size:12px;color:var(--ink-3);}
+/* Decision: dashed box with a small diamond, same height as a thumbnail */
+.jf-decide{height:var(--thumb);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;padding:10px;
+  border:1.5px dashed color-mix(in srgb, var(--accent) 60%, var(--line));border-radius:12px;font-size:12px;color:var(--ink-3);line-height:1.35;}
+.jf-q{display:flex;align-items:center;gap:7px;font-size:14px;font-weight:600;color:var(--ink);}
+.jf-q::before{content:"";width:9px;height:9px;background:var(--accent);transform:rotate(45deg);flex:none;}
+/* Arrow between emails, centred on the thumbnails */
+.jf-arrow{position:relative;flex:1 1 24px;min-width:24px;max-width:72px;height:2px;margin:calc(var(--thumb) / 2) 8px 0;
+  background:color-mix(in srgb, var(--accent) 60%, var(--line));}
+.jf-arrow::after{content:"";position:absolute;right:-1px;top:-4px;border:5px solid transparent;border-left:7px solid color-mix(in srgb, var(--accent) 60%, var(--line));border-right:0;}
+/* Stop rule: the shortcut from step 2 to step 3 */
+.jf-stop{position:relative;display:flex;align-items:center;gap:10px;margin:18px 0 0;padding:10px 14px;border-radius:12px;font-size:14px;color:var(--ink-2);
+  background:color-mix(in srgb, var(--accent) 12%, transparent);border:1px solid color-mix(in srgb, var(--accent) 40%, transparent);}
+.jf-stop b{color:var(--accent);font-weight:600;}
+.jf-stop-icon{display:grid;place-items:center;flex:none;width:24px;height:24px;border-radius:50%;background:var(--accent);color:#0B0B0D;font-size:14px;font-weight:700;}
+/* Info icons: quiet "i" buttons; only the first one pulses, until any is opened */
+.jf-stage .jf-info{position:relative;right:auto;top:auto;flex:none;width:22px;height:22px;margin-left:auto;
+  background:var(--surface-2);color:var(--accent);font:italic 700 13px Georgia, 'Times New Roman', serif;
+  box-shadow:inset 0 0 0 1.5px color-mix(in srgb, var(--accent) 60%, transparent);}
+.jf-stage .jf-node .jf-info{position:absolute;right:-9px;top:-9px;margin:0;z-index:2;}
+.jf-stage .jf-info:hover,.jf-stage .jf-info.is-active,.jf-stage .jf-info:focus-visible{background:var(--accent);color:#0B0B0D;}
+.jf-stage .pin::after{animation:none;opacity:0;}
+.jf-stage .pin.jf-first::after{animation:wf-ping 2.4s ease-out infinite;}
+.jf-stage.is-explored .pin.jf-first::after{animation:none;opacity:0;}
+.jf-i-sample{display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;margin:0 2px;vertical-align:-3px;
+  background:var(--surface-2);color:var(--accent);font:italic 700 11px Georgia, 'Times New Roman', serif;box-shadow:inset 0 0 0 1.5px color-mix(in srgb, var(--accent) 60%, transparent);}
+/* Markers elsewhere (setup, test run): inline */
+.jf-record .pin,.jf-who{position:relative;right:auto;top:auto;flex:none;}
+.jf-stage .stage-cap{margin-top:22px;}
+
+/* View 2: contact properties beside the HubSpot screenshots */
+.jf-setup{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:28px;align-items:start;}
+.jf-record{background:var(--bg);border:1px solid var(--line);border-radius:18px;padding:18px 18px 8px;}
+.jf-record-head{display:flex;align-items:center;gap:12px;margin:0 0 12px;}
+.jf-record-head b{display:block;color:var(--ink);font-weight:600;}
+.jf-record-head small{display:block;font-size:13px;color:var(--ink-3);}
+.jf-avatar{display:grid;place-items:center;flex:none;width:40px;height:40px;border-radius:50%;font-size:13px;font-weight:600;
+  color:#0B0B0D;background:var(--accent);}
+.jf-record dl{margin:0;}
+.jf-record dl > div{display:flex;align-items:center;gap:10px;padding:11px 0;border-top:1px solid var(--line);}
+.jf-record dt{flex:1;font-size:14.5px;color:var(--ink);line-height:1.4;}
+.jf-record dd{margin:0;font-family:var(--mono);font-size:12px;color:var(--ink-3);}
+.crm-shots{gap:16px;align-items:start;}
+.crm-shots img{width:auto;max-width:100%;border:1px solid var(--line);}
+.crm-shots figcaption{font-size:13px;}
+
+/* View 3: which emails each test contact got, and Contact C's timeline */
+.jf-matrix th,.jf-matrix td{text-align:center;vertical-align:middle;padding:12px 10px;}
+.jf-matrix th[scope="row"]{text-align:left;font-size:14px;font-weight:500;letter-spacing:0;text-transform:none;color:var(--ink);white-space:nowrap;}
+.jf-matrix th[scope="row"] .pin{margin-right:10px;vertical-align:middle;}
+.jf-matrix tbody tr:last-child > *{border-bottom:0;}
+.jf-matrix .jf-who{display:inline-grid;}
+.dot{display:inline-block;width:14px;height:14px;border-radius:50%;vertical-align:middle;}
+.dot.on{background:var(--accent);}
+.dot.off{border:1.5px solid var(--ink-3);}
+.dot.na{width:12px;height:2px;border-radius:2px;background:var(--ink-3);opacity:.6;}
+.jf-matrix td.key{background:color-mix(in srgb, var(--accent) 10%, transparent);}
+.jf-matrix td.key .dot,.jf-key-sample{box-shadow:0 0 0 4px color-mix(in srgb, var(--accent) 30%, transparent);}
+.jf-matrix td.key .dot.off{border-color:var(--accent);}
+.jf-legend{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 22px;margin:14px 0 0;font-size:13px;color:var(--ink-3);}
+.jf-legend span{display:inline-flex;align-items:center;gap:8px;}
+.jf-timeline{margin-top:34px;padding-top:22px;border-top:1px solid var(--line);}
+.jf-timeline-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px 16px;margin:0 0 18px;}
+.jf-timeline-head b{color:var(--ink);font-weight:600;}
+.jf-timeline-head a{font-size:14px;color:var(--accent);}
+/* Desktop: dots on one line, labels under them */
+.jf-time{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));position:relative;}
+.jf-time::before{content:"";position:absolute;left:8px;right:8px;top:7px;height:2px;background:var(--line);}
+.jf-time li{position:relative;padding:26px 10px 0 0;font-size:13.5px;line-height:1.4;color:var(--ink-2);}
+.jf-time li::before{content:"";position:absolute;left:0;top:0;width:16px;height:16px;border-radius:50%;background:var(--surface);border:2px solid var(--accent);box-sizing:border-box;}
+.jf-time li.is-event::before{background:var(--accent);border-radius:3px;transform:rotate(45deg) scale(.9);}
+.jf-time time{display:block;font-family:var(--mono);font-size:13px;font-weight:600;color:var(--accent);margin-bottom:2px;}
+.jf-time li.is-event span{color:var(--ink);font-weight:500;}
+
+/* Lessons under the stage */
+.jf-lessons{margin-top:28px;grid-template-columns:repeat(2,minmax(0,1fr));}
+.jf-lessons li{margin:6px 0;}
+
+@media (max-width:960px){
+  .jf-setup{grid-template-columns:1fr;}
+}
+@media (max-width:760px){
+  .jf-stage{--node:132px;--thumb:99px;--spine:32px;--gut:44px;}
+  .jf-num{font-size:15px;}
+  .jf-step::before{top:24px;}
+  .jf-step-title{font-size:16px;}
+  .jf-lane{padding:14px 0 16px 14px;}
+  .jf-lane-head{padding-right:14px;}
+  /* Each lane keeps its left-to-right flow and swipes sideways inside the lane */
+  .jf-row{overflow-x:auto;scroll-snap-type:x proximity;padding:12px 14px 6px 2px;margin-top:-12px;scrollbar-width:thin;}
+  .jf-node{flex-shrink:0;scroll-snap-align:start;}
+  .jf-arrow{flex:0 0 22px;margin:calc(var(--thumb) / 2 + 0px) 6px 0;}
+  .jf-stop{margin-right:14px;}
+  .jf-lessons{grid-template-columns:1fr;}
+  /* Test grid: labels wrap, and the contact column stays put while the emails swipe */
+  .jf-matrix th,.jf-matrix td{padding:10px 7px;}
+  .jf-matrix th[scope="row"]{white-space:normal;min-width:150px;font-size:13px;line-height:1.35;
+    position:sticky;left:0;z-index:1;background:var(--surface);box-shadow:1px 0 0 var(--line);}
+  .jf-matrix thead th:first-child{position:sticky;left:0;z-index:1;background:var(--surface);}
+  .jf-matrix th[scope="row"] .pin{margin-right:8px;}
+  .jf-time{grid-template-columns:1fr;gap:14px;}
+  .jf-time::before{left:7px;right:auto;top:8px;bottom:8px;width:2px;height:auto;}
+  .jf-time li{padding:0 0 0 30px;}
+  .jf-time time{display:inline;margin-right:8px;}
+}
+@media (prefers-reduced-motion:reduce){ .jf-mail img{transition:none;} .jf-mail:hover img{transform:none;} }
