@@ -370,11 +370,13 @@ document.querySelectorAll('[data-wf-tips]').forEach(function (fig) {
   if (!fig.getAttribute('data-lens')) setLens(tabs[0].getAttribute('data-lens-tab'));
 });
 // Scroll rail: lights up the section being read and fills the line up to the reader's position.
-// The rail appears once the first section reaches the screen.
+// The rail appears once the first section reaches the screen; data-show="0.55" on the rail
+// waits until that section is 55% of the way up the screen (default 0.9).
 document.querySelectorAll('.scroll-rail').forEach(function (rail) {
   var links = [].slice.call(rail.querySelectorAll('a[href^="#"]'));
   var targets = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
   var fill = rail.querySelector('.rail-fill');
+  var show = parseFloat(rail.getAttribute('data-show')) || 0.9;
   if (targets.some(function (t) { return !t; })) return;
   var ticking = false;
   function update() {
@@ -385,7 +387,7 @@ document.querySelectorAll('.scroll-rail').forEach(function (rail) {
     tops.forEach(function (top, i) { if (top <= mark) active = i; });
     // Near the very bottom, the last short section can't reach the mark: treat it as reached
     if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) active = links.length - 1;
-    rail.classList.toggle('is-visible', tops[0] < window.innerHeight * 0.9);
+    rail.classList.toggle('is-visible', tops[0] < window.innerHeight * show);
     links.forEach(function (a, i) {
       a.classList.toggle('is-active', i === active);
       a.classList.toggle('is-past', i < active);
