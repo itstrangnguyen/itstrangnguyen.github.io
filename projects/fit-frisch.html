@@ -47,19 +47,13 @@
         <div><dt>Tools</dt><dd>Claude, HubSpot, Google Flow</dd></div>
       </dl>
       <p class="ff-about"><strong>About this project:</strong> Fit & Frisch is a fictional brand created for a course task. The offer, menu and the “500+ Berlin offices” figure on the page are invented for the scenario. The HubSpot setup ran in a trial account with test contacts only.</p>
-      <!-- Funnel strip: the whole story in six steps; the brackets below link to the two parts -->
-      <p class="ff-funnel-label" id="ff-funnel-label">Project overview</p>
-      <nav class="ff-funnel" aria-labelledby="ff-funnel-label">
-        <ol>
-          <li>Ad</li>
-          <li>Landing page</li>
-          <li>Confirm email</li>
-          <li>Code + reminders</li>
-          <li>First order</li>
-          <li>Repeat order</li>
-        </ol>
-        <a class="ff-part ff-part-1" href="#part-1">Part 1 · Get the leads ↓</a>
-        <a class="ff-part ff-part-2" href="#part-2">Part 2 · Turn them into orders ↓</a>
+      <nav class="subnav ff-subnav" aria-label="On this page">
+        <a href="#overview">01 · Project overview</a>
+        <a href="#goal">02 · Goal</a>
+        <a href="#part-1">03 · Get the leads</a>
+        <a href="#part-2">04 · Turn them into orders</a>
+        <a href="#process">05 · How I built it</a>
+        <a href="#production">What I’d change</a>
       </nav>
     </div>
   </div>
@@ -69,8 +63,29 @@
       <p><strong>About this project:</strong> Fit &amp; Frisch is a fictional brand created for a course task. The offer, menu and the “500+ Berlin offices” figure on the page are invented for the scenario.</p>
   </div> -->
 
+  <!-- ================= PROJECT OVERVIEW: the whole story in six steps, grouped into the two parts ================= -->
+  <section class="divided ff-overview" id="overview">
+    <div class="wrap two-col">
+      <div><h2 id="ff-overview-title">Project overview</h2></div>
+      <div>
+        <div class="ff-funnel" role="group" aria-labelledby="ff-overview-title">
+          <ol>
+            <li>Ad</li>
+            <li>Landing page</li>
+            <li>Confirm email</li>
+            <li>Code + reminders</li>
+            <li>First order</li>
+            <li>Repeat order</li>
+          </ol>
+          <span class="ff-part ff-part-1">Part 1 · Get the leads</span>
+          <span class="ff-part ff-part-2">Part 2 · Turn them into orders</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ================= BRIEF: the course task and my extension ================= -->
-  <section class="divided">
+  <section class="divided" id="goal">
     <div class="wrap two-col">
       <div><h2>Goal</h2></div>
       <div>
@@ -405,7 +420,7 @@
   </section>
 
   <!-- ================= PROCESS: how the whole project was built ================= -->
-  <section>
+  <section id="process">
     <div class="wrap two-col">
       <div><h2>How I built it</h2></div>
       <div>
@@ -422,7 +437,7 @@
   </section>
 
   <!-- ================= PRODUCTION ================= -->
-  <section>
+  <section id="production">
     <div class="wrap two-col">
       <div><h2>What I’d change in production</h2></div>
       <div>
@@ -468,6 +483,17 @@
     <span><a href="../index.html#contact">Contact</a></span>
   </div>
 </footer>
+
+<!-- Scroll rail: a quiet line of section markers on the left (wide screens only); the current section lights up (script.js) -->
+<nav class="scroll-rail" aria-label="Sections" data-show="0.55">
+  <span class="rail-fill" aria-hidden="true"></span>
+  <a href="#overview"><span class="rail-dot">1</span><span class="rail-label">Project overview</span></a>
+  <a href="#goal"><span class="rail-dot">2</span><span class="rail-label">Goal</span></a>
+  <a href="#part-1"><span class="rail-dot">3</span><span class="rail-label">Get the leads</span></a>
+  <a href="#part-2"><span class="rail-dot">4</span><span class="rail-label">Turn them into orders</span></a>
+  <a href="#process"><span class="rail-dot">5</span><span class="rail-label">How I built it</span></a>
+  <a href="#production"><span class="rail-dot rail-dot-sm"></span><span class="rail-label">What I’d change</span></a>
+</nav>
 
 <script src="../script.js"></script>
 </body>
