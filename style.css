@@ -1332,6 +1332,11 @@ blockquote.ff-quote cite{font-size:14px;}
 .ep-body b{font-size:11px;font-weight:600;letter-spacing:0.12em;color:var(--accent);}
 .ep-body strong{font-size:15.5px;font-weight:500;line-height:1.4;color:var(--ink);}
 .ep-body span{font-size:13.5px;line-height:1.45;color:var(--ink-3);}
+/* Email number with its type: Transactional (solid light pill, the stronger one) or Marketing (orange tint) */
+.ep-body .ep-top{display:flex;align-items:center;justify-content:space-between;gap:8px;}
+.ep-body .ep-type{padding:2px 8px;border-radius:100px;font-size:11px;font-weight:600;letter-spacing:0.06em;line-height:1.5;text-transform:uppercase;}
+.ep-body .ep-tx{border:1px solid var(--ink);background:var(--ink);color:#0B0B0D;}
+.ep-body .ep-mk{border:1px solid transparent;background:color-mix(in srgb, var(--accent) 16%, transparent);color:var(--accent);}
 .ep-pages{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 28px;margin-top:22px;}
 .ep-page{display:flex;flex-direction:column;gap:12px;text-decoration:none;color:var(--ink-2);}
 .ep-page .art-browser{display:block;box-shadow:0 16px 36px -14px rgba(0,0,0,.6);transition:transform .2s ease, box-shadow .2s ease;}
