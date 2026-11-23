@@ -53,11 +53,18 @@
         <a class="btn btn-primary" href="../assets/arre/landing-page.html" target="_blank" rel="noopener">Open the landing page</a>
         <a class="btn btn-ghost" href="https://149632227.hs-sites-eu1.com/de/teamevent-kochkurs-berlin" target="_blank" rel="noopener">Live on HubSpot ↗</a>
       </div>
+      <nav class="subnav" aria-label="On this page" style="margin:60px 0 0">
+        <a href="#brief">01 · The brief</a>
+        <a href="#persona">02 · Buyer persona</a>
+        <a href="#build">03 · What I built</a>
+        <a href="#landing-page">04 · The landing page</a>
+        <a href="#limits">Limits</a>
+      </nav>
     </div>
   </div>
 
   <!-- ================= GOAL ================= -->
-  <section class="divided">
+  <section class="divided" id="brief">
     <div class="wrap two-col">
       <div><h2>The brief</h2></div>
       <div>
@@ -74,7 +81,7 @@
   </section>
 
   <!-- ================= AUDIENCE ================= -->
-  <section>
+  <section id="persona">
     <div class="wrap two-col">
       <div><h2>Buyer Persona</h2></div>
       <div>
@@ -258,7 +265,7 @@
   </section>
 
   <!-- ================= THE PAGE ================= -->
-  <section>
+  <section id="landing-page">
     <div class="wrap">
       <h2>The landing page</h2>
       <figure class="wide">
@@ -272,7 +279,7 @@
   </section>
 
   <!-- ================= LIMITS ================= -->
-  <section>
+  <section id="limits">
     <div class="wrap two-col">
       <div><h2>Limits of this case study</h2></div>
       <div>
@@ -311,6 +318,16 @@
     <span><a href="../index.html#contact">Contact</a></span>
   </div>
 </footer>
+
+<!-- Scroll rail: a quiet line of section markers on the left (wide screens only); the current section lights up (script.js) -->
+<nav class="scroll-rail" aria-label="Sections">
+  <span class="rail-fill" aria-hidden="true"></span>
+  <a href="#brief"><span class="rail-dot">1</span><span class="rail-label">The brief</span></a>
+  <a href="#persona"><span class="rail-dot">2</span><span class="rail-label">Buyer persona</span></a>
+  <a href="#build"><span class="rail-dot">3</span><span class="rail-label">What I built</span></a>
+  <a href="#landing-page"><span class="rail-dot">4</span><span class="rail-label">The landing page</span></a>
+  <a href="#limits"><span class="rail-dot rail-dot-sm"></span><span class="rail-label">Limits</span></a>
+</nav>
 
 <a class="to-top" href="#top" aria-label="Back to top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></a>
 
