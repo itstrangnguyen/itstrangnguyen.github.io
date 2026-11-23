@@ -42,11 +42,21 @@
         <div><dt>Time</dt><dd>~2 weeks</dd></div>
         <div><dt>Tools</dt><dd>Meta Ads Manager, Canva, Claude</dd></div>
       </dl>
+      <nav class="subnav" aria-label="On this page" style="margin:60px 0 0">
+        <a href="#campaign">01 · Campaign</a>
+        <a href="#audience">02 · Audience</a>
+        <a href="#goal">03 · KPIs</a>
+        <a href="#structure">04 · Structure</a>
+        <a href="#audience-setup">05 · Setup</a>
+        <a href="#video-test">06 · Video test</a>
+        <a href="#carousel-test">07 · Carousel test</a>
+        <a href="#decisions">Decisions</a>
+      </nav>
     </div>
   </div>
 
   <!-- ================= ABOUT THE PROJECT ================= -->
-  <section style="border-top:1px solid var(--line)">
+  <section id="campaign" style="border-top:1px solid var(--line)">
     <div class="wrap">
       <h2>About the campaign</h2>
       <div class="blocks">
@@ -80,7 +90,7 @@
   </section>
 
   <!-- ================= AUDIENCE ================= -->
-  <section>
+  <section id="audience">
     <div class="wrap">
       <h2>Target audience</h2>
       <!-- <p class="section-intro" style="margin-top:12px">The campaign speaks to an eco-minded dog owner in Germany.</p> -->
@@ -94,7 +104,7 @@
   </section>
 
   <!-- ================= GOAL + KPIs ================= -->
-  <section>
+  <section id="goal">
     <div class="wrap">
       <h2>Goal and KPIs</h2>
       <div>
@@ -111,7 +121,7 @@
   </section>
 
   <!-- ================= CAMPAIGN STRUCTURE ================= -->
-  <section>
+  <section id="structure">
     <div class="wrap">
       <p class="eyebrow">My contribution</p>
       <h2>Campaign Structure</h2>
@@ -135,7 +145,7 @@
   </section>
 
   <!-- ================= AD SET (MY PART) ================= -->
-  <section>
+  <section id="audience-setup">
     <div class="wrap">
       <p class="eyebrow">My contribution</p><h2>Audience setup: from 20 million to 63.8k–75k people</h2>
       <p class="section-intro" style="margin-top:12px;max-width:none">How I built the target audience, step by step in Meta Ads Manager.<br>Green tags are the targeting options as they appear in Meta; grey tags show the audience size Meta estimated.</p>
@@ -154,7 +164,7 @@
   </section>
 
   <!-- ================= TEST 1: VIDEO HOOK (MY PART) ================= -->
-  <section>
+  <section id="video-test">
     <div class="wrap">
       <p class="eyebrow">My contribution · Video Test</p>
       <h2>Which opening line stops the scroll?</h2>
@@ -204,7 +214,7 @@
   </section>
 
   <!-- ================= CAROUSEL TEST ================= -->
-  <section>
+  <section id="carousel-test">
     <div class="wrap">
       <p class="eyebrow">Carousel Test</p>
       <h2>Which first slide earns the swipe?</h2>
@@ -214,7 +224,7 @@
   </section>
 
   <!-- ================= DECISIONS ================= -->
-  <section>
+  <section id="decisions">
     <div class="wrap two-col">
       <div><p class="eyebrow">Strategic Decisions</p><h2>Why we made these choices</h2></div>
       <div class="decisions">
@@ -270,6 +280,19 @@
     <span><a href="../index.html#contact">Contact</a></span>
   </div>
 </footer>
+
+<!-- Scroll rail: a quiet line of section markers on the left (wide screens only); the current section lights up (script.js) -->
+<nav class="scroll-rail" aria-label="Sections">
+  <span class="rail-fill" aria-hidden="true"></span>
+  <a href="#campaign"><span class="rail-dot">1</span><span class="rail-label">Campaign</span></a>
+  <a href="#audience"><span class="rail-dot">2</span><span class="rail-label">Audience</span></a>
+  <a href="#goal"><span class="rail-dot">3</span><span class="rail-label">Goal &amp; KPIs</span></a>
+  <a href="#structure"><span class="rail-dot">4</span><span class="rail-label">Structure</span></a>
+  <a href="#audience-setup"><span class="rail-dot">5</span><span class="rail-label">Audience setup</span></a>
+  <a href="#video-test"><span class="rail-dot">6</span><span class="rail-label">Video test</span></a>
+  <a href="#carousel-test"><span class="rail-dot">7</span><span class="rail-label">Carousel test</span></a>
+  <a href="#decisions"><span class="rail-dot rail-dot-sm"></span><span class="rail-label">Decisions</span></a>
+</nav>
 
 <a class="to-top" href="#top" aria-label="Back to top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></a>
 
