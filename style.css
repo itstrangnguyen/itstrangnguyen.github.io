@@ -77,11 +77,10 @@ p:last-child{margin-bottom:0;}
 .site-header .wrap{display:flex;align-items:center;gap:12px;padding-top:24px;padding-bottom:24px;flex-wrap:wrap;}
 .site-name{display:inline-flex;align-items:center;font-weight:600;font-size:18px;text-decoration:none;color:var(--ink);}
 .site-name:hover{color:var(--ink);}
-/* Logo: four dots, one per project colour (drawn in CSS) */
+/* Logo: pixel fish in GitHub blue (assets/images/logo-fish.svg) */
 .site-name::before{
-  content:"";width:8px;height:8px;border-radius:50%;margin:-12px 26px 0 0;
-  background:#E2A94B;
-  box-shadow:12px 0 0 #4FB38A, 0 12px 0 #B9BF9F, 12px 12px 0 #EC8F45;
+  content:"";flex:none;width:52px;height:24px;margin-right:12px;
+  background:url("assets/images/logo-fish.svg") center/contain no-repeat;
 }
 /* Menu: links with icons grouped in a pill; the current page is filled light, the same on every page */
 .pill-group{display:flex;gap:2px;padding:5px;background:var(--surface);border:1px solid var(--line);border-radius:16px;}
