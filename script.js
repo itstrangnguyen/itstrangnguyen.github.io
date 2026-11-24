@@ -378,6 +378,10 @@ document.querySelectorAll('.scroll-rail').forEach(function (rail) {
   var fill = rail.querySelector('.rail-fill');
   var show = parseFloat(rail.getAttribute('data-show')) || 0.9;
   if (targets.some(function (t) { return !t; })) return;
+  // Near the end: the rail fades out once the AI use box reaches it while scrolling down,
+  // and comes back as soon as the reader scrolls up
+  var endBox = document.querySelector('.ai-use');
+  var lastY = window.scrollY, tucked = false;
   var ticking = false;
   function update() {
     ticking = false;
@@ -387,7 +391,14 @@ document.querySelectorAll('.scroll-rail').forEach(function (rail) {
     tops.forEach(function (top, i) { if (top <= mark) active = i; });
     // Near the very bottom, the last short section can't reach the mark: treat it as reached
     if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) active = links.length - 1;
-    rail.classList.toggle('is-visible', tops[0] < window.innerHeight * show);
+    var dy = window.scrollY - lastY;
+    lastY = window.scrollY;
+    if (endBox) {
+      var reached = endBox.getBoundingClientRect().top < rail.getBoundingClientRect().bottom;
+      if (!reached || dy < -2) tucked = false;
+      else if (dy > 2) tucked = true;
+    }
+    rail.classList.toggle('is-visible', tops[0] < window.innerHeight * show && !tucked);
     links.forEach(function (a, i) {
       a.classList.toggle('is-active', i === active);
       a.classList.toggle('is-past', i < active);
