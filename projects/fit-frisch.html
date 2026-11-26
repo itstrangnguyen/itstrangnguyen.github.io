@@ -430,7 +430,6 @@
       <!-- How I'd measure it: one KPI per step of the funnel, plus one that applies to every marketing email -->
       <div class="ff-kpis" id="measure">
         <h3 class="ff-kpis-title">How I’d measure it</h3>
-        <p class="sub-intro">KPIs per step (targets invented for the scenario)</p>
         <!-- One panel for the three funnel steps, then a dashed card for the KPI
              that runs alongside them on every marketing email -->
         <div class="ff-kpi-board">
@@ -438,31 +437,36 @@
           <li class="ff-kpi">
             <p class="label">Sign-up</p>
             <h4>Confirmation rate</h4>
-            <p class="ff-kpi-target"><b>70%</b><span>target</span></p>
+            <p class="ff-kpi-target"><b>70%</b></p>
             <span class="ff-kpi-bar" aria-hidden="true"><i style="width:70%"></i></span>
             <p class="ff-kpi-frac"><span class="ff-frac"><span>No. of confirmed contacts</span><span>No. of form submissions</span></span></p>
+            <div class="ff-kpi-short"><b>If it falls short</b><ul class="ff-fix"><li><span class="ff-if">Below 60%</span><span class="ff-then">Check if FF 01 lands in spam</span><span class="ff-then">Add a reminder 24 h after sign-up</span></li></ul></div>
           </li>
           <li class="ff-kpi">
             <p class="label">Workflow 1</p>
             <h4>First-order rate</h4>
-            <p class="ff-kpi-target"><b>30%</b><span>target</span></p>
+            <p class="ff-kpi-target"><b>30%</b></p>
             <span class="ff-kpi-bar" aria-hidden="true"><i style="width:30%"></i></span>
             <p class="ff-kpi-frac"><span class="ff-frac"><span>No. of first orders in 14&nbsp;days</span><span>No. of confirmed contacts</span></span></p>
+            <div class="ff-kpi-short"><b>If it falls short</b><ul class="ff-fix"><li><span class="ff-if">Clicks, no orders</span><span class="ff-then">Fix the menu page or checkout</span></li><li><span class="ff-if">No clicks</span><span class="ff-then">Rewrite subject lines and buttons</span></li></ul></div>
           </li>
           <li class="ff-kpi">
             <p class="label">Workflow 2</p>
             <h4>Reorder rate</h4>
-            <p class="ff-kpi-target"><b>40%</b><span>target</span></p>
+            <p class="ff-kpi-target"><b>40%</b></p>
             <span class="ff-kpi-bar" aria-hidden="true"><i style="width:40%"></i></span>
-            <p class="ff-kpi-frac"><span class="ff-frac"><span>No. of second orders in 30&nbsp;days</span><span>No. of first-time customers</span></span></p>
+            <p class="ff-kpi-frac"><span class="ff-frac"><span>No. of reorders within 30&nbsp;days</span><span>No. of first-time customers</span></span></p>
+            <div class="ff-kpi-short"><b>If it falls short</b><ul class="ff-fix"><li><span class="ff-if">Below 30%</span><span class="ff-then">Send ‘Order again’ after 3 days, not 6</span></li></ul></div>
           </li>
         </ol>
         <div class="ff-kpi ff-kpi-all">
             <p class="label">All marketing emails</p>
             <h4>Unsubscribe rate</h4>
-            <p class="ff-kpi-target"><span class="ff-kpi-pre">Under</span><b>0.5%</b><span>target</span></p>
+            <p class="ff-kpi-target"><span class="ff-kpi-pre">Under</span><b>0.5%</b></p>
             <span class="ff-kpi-bar" aria-hidden="true"><i style="width:0.5%"></i></span>
-            <p class="ff-kpi-frac"><span class="ff-frac"><span>No. of unsubscribes</span><span>No. of emails delivered</span></span></p>        </div>
+            <p class="ff-kpi-frac"><span class="ff-frac"><span>No. of unsubscribes</span><span>No. of emails delivered</span></span></p>
+            <div class="ff-kpi-short"><b>If it’s above 0.5%</b><ul class="ff-fix"><li><span class="ff-if">They leave before ordering</span><span class="ff-then">Too many reminders: drop FF 04</span></li><li><span class="ff-if">They leave after ordering</span><span class="ff-then">Deal seekers: test a smaller first offer plus a second-order reward</span></li></ul></div>
+        </div>
         </div>
       </div>
     </div>
