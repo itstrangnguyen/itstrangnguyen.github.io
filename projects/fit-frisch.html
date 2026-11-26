@@ -426,6 +426,45 @@
           <div data-tip="td" data-title="Orders twice">Gets the order confirmation and feedback emails, but not “order again”.</div>
         </div>
       </figure>
+
+      <!-- How I'd measure it: one KPI per step of the funnel, plus one that applies to every marketing email -->
+      <div class="ff-kpis" id="measure">
+        <h3 class="ff-kpis-title">How I’d measure it</h3>
+        <p class="sub-intro">KPIs per step (targets invented for the scenario)</p>
+        <!-- One panel for the three funnel steps, then a dashed card for the KPI
+             that runs alongside them on every marketing email -->
+        <div class="ff-kpi-board">
+        <ol class="ff-kpi-row">
+          <li class="ff-kpi">
+            <p class="label">Sign-up</p>
+            <h4>Confirmation rate</h4>
+            <p class="ff-kpi-target"><b>70%</b><span>target</span></p>
+            <span class="ff-kpi-bar" aria-hidden="true"><i style="width:70%"></i></span>
+            <p class="ff-kpi-frac"><span class="ff-frac"><span>No. of confirmed contacts</span><span>No. of form submissions</span></span></p>
+          </li>
+          <li class="ff-kpi">
+            <p class="label">Workflow 1</p>
+            <h4>First-order rate</h4>
+            <p class="ff-kpi-target"><b>30%</b><span>target</span></p>
+            <span class="ff-kpi-bar" aria-hidden="true"><i style="width:30%"></i></span>
+            <p class="ff-kpi-frac"><span class="ff-frac"><span>No. of first orders in 14&nbsp;days</span><span>No. of confirmed contacts</span></span></p>
+          </li>
+          <li class="ff-kpi">
+            <p class="label">Workflow 2</p>
+            <h4>Reorder rate</h4>
+            <p class="ff-kpi-target"><b>40%</b><span>target</span></p>
+            <span class="ff-kpi-bar" aria-hidden="true"><i style="width:40%"></i></span>
+            <p class="ff-kpi-frac"><span class="ff-frac"><span>No. of second orders in 30&nbsp;days</span><span>No. of first-time customers</span></span></p>
+          </li>
+        </ol>
+        <div class="ff-kpi ff-kpi-all">
+            <p class="label">All marketing emails</p>
+            <h4>Unsubscribe rate</h4>
+            <p class="ff-kpi-target"><span class="ff-kpi-pre">Under</span><b>0.5%</b><span>target</span></p>
+            <span class="ff-kpi-bar" aria-hidden="true"><i style="width:0.5%"></i></span>
+            <p class="ff-kpi-frac"><span class="ff-frac"><span>No. of unsubscribes</span><span>No. of emails delivered</span></span></p>        </div>
+        </div>
+      </div>
     </div>
   </section>
 

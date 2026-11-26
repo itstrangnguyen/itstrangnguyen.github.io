@@ -1445,6 +1445,50 @@ blockquote.ff-quote cite{font-size:14px;}
 .jf-time time{display:block;font-family:var(--mono);font-size:13px;font-weight:600;color:var(--accent);margin-bottom:2px;}
 .jf-time li.is-event span{color:var(--ink);font-weight:500;}
 
+/* How I'd measure it (end of Part 2).
+   Left: one panel for the three funnel steps, split by thin dividers.
+   Right: a dashed card for the unsubscribe rate, which runs alongside every marketing email
+   (dashed = off the main path, as in the flowchart legend).
+   Each KPI reads top to bottom: step, KPI name, target (number + bar), formula. */
+.ff-kpis{margin-top:72px;}
+.ff-kpis-title{font-size:26px;font-weight:500;margin:0 0 6px;}
+.ff-kpis .sub-intro{margin-bottom:24px;}
+.ff-kpi-board{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,1fr);gap:20px;align-items:stretch;}
+.ff-kpi-row{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  border:1px solid var(--line);border-radius:18px;background:var(--surface);}
+.ff-kpi{position:relative;display:flex;flex-direction:column;padding:22px 22px 24px;}
+.ff-kpi-row .ff-kpi + .ff-kpi{border-left:1px solid var(--line);}
+.ff-kpi-all{border:1.5px dashed var(--ink-3);border-radius:18px;}
+.ff-kpi .label{margin:0 0 4px;font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);}
+.ff-kpi h4{margin:0 0 16px;font-size:17px;font-weight:600;line-height:1.3;color:var(--ink);}
+.ff-kpi-target{display:flex;align-items:baseline;gap:6px;margin:0;}
+.ff-kpi-target b{font-size:42px;line-height:1;font-weight:600;letter-spacing:-0.02em;color:var(--ink);}
+.ff-kpi-target span{font-size:13px;color:var(--ink-3);}
+.ff-kpi-target .ff-kpi-pre{font-size:15px;color:var(--ink-2);}
+.ff-kpi-bar{display:block;height:4px;margin:14px 0 20px;border-radius:4px;background:var(--surface-2);overflow:hidden;}
+.ff-kpi-bar i{display:block;height:100%;border-radius:4px;background:var(--accent);}
+/* Formula as a fraction: one count over another (the target already reads as a percentage) */
+.ff-kpi-frac{display:inline-grid;align-self:flex-start;max-width:100%;margin:0;font-size:13px;line-height:1.4;color:var(--ink);}
+.ff-frac{display:grid;}
+.ff-frac > span{display:block;padding:4px 0;}
+.ff-frac > span + span{border-top:1.5px solid var(--ink-3);color:var(--ink-2);}
+/* 0.5% would be invisible: keep a sliver so the bar still reads as "very low" */
+.ff-kpi-all .ff-kpi-bar i{min-width:4px;}
+/* Tablets: the funnel panel on its own row, the dashed card full width below it */
+@media (max-width:1040px){
+  .ff-kpi-board{grid-template-columns:1fr;}
+}
+/* Phones: the panel stacks and the dividers turn horizontal */
+@media (max-width:760px){
+  .ff-kpi-row{grid-template-columns:1fr;}
+  .ff-kpi-row .ff-kpi + .ff-kpi{border-left:0;border-top:1px solid var(--line);}
+}
+@media (max-width:760px){
+  .ff-kpis{margin-top:56px;}
+  .ff-kpis-title{font-size:22px;}
+  .ff-kpi-target b{font-size:34px;}
+}
+
 /* What I'd change in production: its own section, one item per line with a divider */
 .ff-prod{list-style:none;margin:0;padding:0;}
 .ff-prod li{position:relative;padding:14px 0 14px 26px;border-top:1px solid var(--line);font-size:16px;line-height:1.55;color:var(--ink-2);}
