@@ -1,13 +1,13 @@
 # Trang Nguyen — Portfolio
 
-Plain HTML + one CSS file. No build step. Open `index.html` in a browser to preview.
+Plain HTML + one CSS file. No build step. Open `home.html` in a browser to preview.
 
 Style: dark theme, font Be Vietnam Pro (Google Fonts). All colours sit at the top of `style.css`.
 
 ## Folders
 
 ```
-index.html            Home: Automation + Strategy & Campaigns + Contact
+home.html            Home: Automation + Strategy & Campaigns + Contact
 about.html            Background, skills, experience
 style.css             All styles. Project accent colours under "Accents"
 script.js             Shows a dashed box for any image file still missing
@@ -27,7 +27,7 @@ assets/
 1. Copy `projects/_template.html` and rename it.
 2. Set the accent class on `<body>`. For a new colour, add one line to "Accents" in `style.css`.
 3. Fill the blocks; delete the ones you don't need.
-4. On `index.html`, copy the commented `NEW PROJECT` card and fill it in.
+4. On `home.html`, copy the commented `NEW PROJECT` card and fill it in.
 
 ## Add an image
 
