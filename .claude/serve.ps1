@@ -25,6 +25,8 @@ while ($l.IsListening) {
 
     if ($p -eq '') { $p = 'index.html' }
     $f = Join-Path $Root $p
+    # Like GitHub Pages: /about-me serves about-me.html
+    if (-not (Test-Path $f -PathType Leaf) -and (Test-Path "$f.html" -PathType Leaf)) { $f = "$f.html" }
     if (-not (Test-Path $f -PathType Leaf)) { $res.StatusCode = 404; $res.Close(); continue }
     $e = [IO.Path]::GetExtension($f).ToLower()
     if ($types[$e]) { $res.ContentType = $types[$e] }
